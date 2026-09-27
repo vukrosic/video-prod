@@ -5,6 +5,8 @@ Outputs:
   src/timeline.json       frame timings shared with the Remotion composition
 """
 import json
+import os
+import shutil
 import subprocess
 import tempfile
 from pathlib import Path
@@ -31,22 +33,38 @@ LINES = {
 }
 
 
+# Voice engine. Edge TTS matches the money-generator pipeline (natural rate/pitch/volume) but needs
+# network access to Microsoft's speech service; Festival is an offline placeholder.
+#   EDGE_TTS=/Users/vukrosic/miniconda3/bin/edge-tts VOICE=en-US-JennyNeural python3 audio/build_audio.py
+EDGE_TTS = os.environ.get("EDGE_TTS") or shutil.which("edge-tts")
+VOICE = os.environ.get("VOICE", "en-US-JennyNeural")
+TRIM = "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_threshold=-45dB:stop_duration=0.25,"
+POLISH = ("highpass=f=70,equalizer=f=180:t=q:w=1:g=3,"
+          "acompressor=threshold=-18dB:ratio=3:attack=5:release=80")
+
+
 def tts(text: str) -> np.ndarray:
     with tempfile.TemporaryDirectory() as d:
-        raw, proc = Path(d) / "raw.wav", Path(d) / "proc.wav"
+        proc = Path(d) / "proc.wav"
+        if EDGE_TTS:
+            raw = Path(d) / "raw.mp3"
+            subprocess.run(
+                [EDGE_TTS, "--text", text, "--voice", VOICE, "--rate=+0%", "--pitch=+0Hz",
+                 "--volume=+0%", "--write-media", str(raw)],
+                check=True, capture_output=True,
+            )
+            chain = TRIM + POLISH
+        else:
+            raw = Path(d) / "raw.wav"
+            subprocess.run(
+                ["text2wave", "-eval", "(voice_cmu_us_slt_arctic_hts)", "-o", str(raw)],
+                input=text.encode(), check=True, capture_output=True,
+            )
+            # Robotic voice: slow and lower it slightly, plus a touch of room echo.
+            chain = (TRIM + f"asetrate={wavfile.read(raw)[0]}*0.94,aresample={SR}," + POLISH
+                     + ",aecho=0.8:0.4:40|70:0.1|0.06")
         subprocess.run(
-            ["text2wave", "-eval", "(voice_cmu_us_slt_arctic_hts)", "-o", str(raw)],
-            input=text.encode(), check=True, capture_output=True,
-        )
-        raw_sr = wavfile.read(raw)[0]
-        # Slightly slower and lower, warmed up with EQ + compression for a narrator feel.
-        subprocess.run(
-            ["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af",
-             "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_threshold=-45dB:stop_duration=0.25,"
-             f"asetrate={raw_sr}*0.94,aresample={SR},highpass=f=70,"
-             "equalizer=f=180:t=q:w=1:g=4,equalizer=f=3500:t=q:w=1:g=3,"
-             "acompressor=threshold=-18dB:ratio=4:attack=5:release=80,"
-             "aecho=0.8:0.4:40|70:0.1|0.06",
+            ["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", chain,
              "-ac", "1", "-ar", str(SR), str(proc)],
             check=True,
         )
@@ -152,6 +170,7 @@ def place(buf, clip, sec, gain=1.0):
 
 
 def main():
+    print(f"voice: edge-tts {VOICE}" if EDGE_TTS else "voice: festival (offline placeholder)")
     clips = {k: tts(v) for k, v in LINES.items()}
     beats_of = lambda k: len(clips[k]) / SR / BEAT  # noqa: E731
     nxt = lambda beat, k, gap=0: int(np.ceil(beat + beats_of(k))) + gap  # noqa: E731

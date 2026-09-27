@@ -19,4 +19,22 @@ node render.mjs --stills=40,240    # quick preview frames
 npx remotion studio src/Root.tsx   # live editor in the browser
 ```
 
-`render.mjs` uses the pre-installed headless Chromium. Set `CHROME_PATH` to use another one.
+`render.mjs` uses the cloud container's headless Chromium when present. Otherwise Remotion downloads its own.
+
+## Real voice (Edge TTS, same as money-generator)
+
+`build_audio.py` uses Edge TTS when it's available (`en-US-JennyNeural`, natural `+0%` rate / `+0Hz` pitch /
+`+0%` volume, matching money-generator), and otherwise falls back to the offline Festival voice. Edge TTS
+needs Microsoft's speech service, which the Claude cloud container can't reach, so run it on the Mac:
+
+```sh
+cd video-prod/demo
+npm install
+/Users/vukrosic/miniconda3/bin/pip install numpy scipy
+EDGE_TTS=/Users/vukrosic/miniconda3/bin/edge-tts VOICE=en-US-JennyNeural \
+  /Users/vukrosic/miniconda3/bin/python audio/build_audio.py
+node render.mjs
+```
+
+Every cut is re-timed from the new voice automatically. To try a deeper narrator, set e.g.
+`VOICE=en-US-AndrewNeural` or `VOICE=en-US-GuyNeural`. Then listen for mispronunciations and rewrite any line that sounds wrong.

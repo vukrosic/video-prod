@@ -1,10 +1,12 @@
 // Render the demo. Usage: node render.mjs [--frames=start-end] [--stills=f1,f2,...]
+import fs from 'node:fs';
 import path from 'node:path';
 import {bundle} from '@remotion/bundler';
 import {renderMedia, renderStill, selectComposition} from '@remotion/renderer';
 
-const browserExecutable =
-	process.env.CHROME_PATH ?? '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
+// Use CHROME_PATH, else the cloud container's pre-installed Chromium, else let Remotion download one (Mac).
+const containerChrome = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
+const browserExecutable = process.env.CHROME_PATH ?? (fs.existsSync(containerChrome) ? containerChrome : null);
 const args = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=')));
 
 const serveUrl = await bundle({entryPoint: path.resolve('src/Root.tsx')});
