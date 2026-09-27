@@ -4,9 +4,10 @@ Outputs:
   public/mix.wav          final audio mix
   src/timeline.json       frame timings shared with the Remotion composition
 """
+import asyncio
 import json
 import os
-import shutil
+import ssl
 import subprocess
 import tempfile
 from pathlib import Path
@@ -33,11 +34,18 @@ LINES = {
 }
 
 
-# Voice engine. Edge TTS matches the money-generator pipeline (natural rate/pitch/volume) but needs
-# network access to Microsoft's speech service; Festival is an offline placeholder.
-#   EDGE_TTS=/Users/vukrosic/miniconda3/bin/edge-tts VOICE=en-US-JennyNeural python3 audio/build_audio.py
-EDGE_TTS = os.environ.get("EDGE_TTS") or shutil.which("edge-tts")
+# Voice engine. Edge TTS matches the money-generator pipeline (natural rate/pitch/volume) and needs
+# network access to Microsoft's speech service; Festival is an offline placeholder (TTS=festival).
+try:
+    import edge_tts
+    import edge_tts.communicate
+except ImportError:
+    edge_tts = None
+USE_EDGE = edge_tts is not None and os.environ.get("TTS") != "festival"
 VOICE = os.environ.get("VOICE", "en-US-JennyNeural")
+if USE_EDGE and os.environ.get("SSL_CERT_FILE"):
+    # edge-tts pins certifi's CA bundle; honor SSL_CERT_FILE (needed behind a TLS-inspecting proxy).
+    edge_tts.communicate._SSL_CTX = ssl.create_default_context(cafile=os.environ["SSL_CERT_FILE"])
 TRIM = "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_threshold=-45dB:stop_duration=0.25,"
 POLISH = ("highpass=f=70,equalizer=f=180:t=q:w=1:g=3,"
           "acompressor=threshold=-18dB:ratio=3:attack=5:release=80")
@@ -46,13 +54,10 @@ POLISH = ("highpass=f=70,equalizer=f=180:t=q:w=1:g=3,"
 def tts(text: str) -> np.ndarray:
     with tempfile.TemporaryDirectory() as d:
         proc = Path(d) / "proc.wav"
-        if EDGE_TTS:
+        if USE_EDGE:
             raw = Path(d) / "raw.mp3"
-            subprocess.run(
-                [EDGE_TTS, "--text", text, "--voice", VOICE, "--rate=+0%", "--pitch=+0Hz",
-                 "--volume=+0%", "--write-media", str(raw)],
-                check=True, capture_output=True,
-            )
+            comm = edge_tts.Communicate(text, VOICE, rate="+0%", pitch="+0Hz", volume="+0%")
+            asyncio.run(comm.save(str(raw)))
             chain = TRIM + POLISH
         else:
             raw = Path(d) / "raw.wav"
@@ -170,7 +175,7 @@ def place(buf, clip, sec, gain=1.0):
 
 
 def main():
-    print(f"voice: edge-tts {VOICE}" if EDGE_TTS else "voice: festival (offline placeholder)")
+    print(f"voice: edge-tts {VOICE}" if USE_EDGE else "voice: festival (offline placeholder)")
     clips = {k: tts(v) for k, v in LINES.items()}
     beats_of = lambda k: len(clips[k]) / SR / BEAT  # noqa: E731
     nxt = lambda beat, k, gap=0: int(np.ceil(beat + beats_of(k))) + gap  # noqa: E731

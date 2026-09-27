@@ -21,20 +21,21 @@ npx remotion studio src/Root.tsx   # live editor in the browser
 
 `render.mjs` uses the cloud container's headless Chromium when present. Otherwise Remotion downloads its own.
 
-## Real voice (Edge TTS, same as money-generator)
+## Voice (Edge TTS, same as money-generator)
 
-`build_audio.py` uses Edge TTS when it's available (`en-US-JennyNeural`, natural `+0%` rate / `+0Hz` pitch /
-`+0%` volume, matching money-generator), and otherwise falls back to the offline Festival voice. Edge TTS
-needs Microsoft's speech service, which the Claude cloud container can't reach, so run it on the Mac:
+`build_audio.py` uses Edge TTS when the `edge-tts` Python package is installed (`en-US-JennyNeural`, natural
+`+0%` rate / `+0Hz` pitch / `+0%` volume, matching money-generator). Otherwise, or with `TTS=festival`, it
+falls back to the offline Festival voice. Try a deeper narrator with `VOICE=en-US-AndrewNeural` or
+`VOICE=en-US-GuyNeural`. Every cut is re-timed from the new voice automatically.
 
 ```sh
-cd video-prod/demo
-npm install
-/Users/vukrosic/miniconda3/bin/pip install numpy scipy
-EDGE_TTS=/Users/vukrosic/miniconda3/bin/edge-tts VOICE=en-US-JennyNeural \
-  /Users/vukrosic/miniconda3/bin/python audio/build_audio.py
-node render.mjs
+pip install edge-tts numpy scipy
+
+# Claude cloud container (needs network access to speech.platform.bing.com; the proxy's CA must be trusted)
+SSL_CERT_FILE=/root/.ccr/ca-bundle.crt python3 audio/build_audio.py
+
+# Mac
+/Users/vukrosic/miniconda3/bin/python audio/build_audio.py
 ```
 
-Every cut is re-timed from the new voice automatically. To try a deeper narrator, set e.g.
-`VOICE=en-US-AndrewNeural` or `VOICE=en-US-GuyNeural`. Then listen for mispronunciations and rewrite any line that sounds wrong.
+After generating, listen for mispronunciations and rewrite any line that sounds wrong.

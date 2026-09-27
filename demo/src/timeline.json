@@ -2,13 +2,13 @@
  "fps": 30,
  "bpm": 120,
  "beatFrames": 15,
- "durationFrames": 660,
+ "durationFrames": 630,
  "lines": [
   {
    "id": "wake",
    "text": "You wake up.",
    "from": 15,
-   "to": 45,
+   "to": 42,
    "words": [
     {
      "w": "You",
@@ -20,208 +20,208 @@
     },
     {
      "w": "up.",
-     "f": 36
+     "f": 34
     }
    ]
   },
   {
    "id": "ago",
    "text": "It's four and a half billion years ago.",
-   "from": 60,
-   "to": 131,
+   "from": 45,
+   "to": 111,
    "words": [
     {
      "w": "It's",
-     "f": 60
+     "f": 45
     },
     {
      "w": "four",
-     "f": 69
+     "f": 53
     },
     {
      "w": "and",
-     "f": 78
+     "f": 62
     },
     {
      "w": "a",
-     "f": 85
+     "f": 68
     },
     {
      "w": "half",
-     "f": 90
+     "f": 73
     },
     {
      "w": "billion",
-     "f": 99
+     "f": 81
     },
     {
      "w": "years",
-     "f": 112
+     "f": 93
     },
     {
      "w": "ago.",
-     "f": 122
+     "f": 103
     }
    ]
   },
   {
    "id": "hit",
    "text": "Earth has just been hit by a planet the size of Mars.",
-   "from": 135,
-   "to": 235,
+   "from": 120,
+   "to": 207,
    "words": [
     {
      "w": "Earth",
-     "f": 135
+     "f": 120
     },
     {
      "w": "has",
-     "f": 146
+     "f": 129
     },
     {
      "w": "just",
-     "f": 153
+     "f": 136
     },
     {
      "w": "been",
-     "f": 162
+     "f": 144
     },
     {
      "w": "hit",
-     "f": 171
+     "f": 152
     },
     {
      "w": "by",
-     "f": 179
+     "f": 158
     },
     {
      "w": "a",
-     "f": 185
+     "f": 164
     },
     {
      "w": "planet",
-     "f": 190
+     "f": 167
     },
     {
      "w": "the",
-     "f": 202
+     "f": 178
     },
     {
      "w": "size",
-     "f": 210
+     "f": 185
     },
     {
      "w": "of",
-     "f": 219
+     "f": 193
     },
     {
      "w": "Mars.",
-     "f": 225
+     "f": 198
     }
    ]
   },
   {
    "id": "air",
    "text": "The air is so hot, it contains vaporized rock.",
-   "from": 270,
-   "to": 366,
+   "from": 240,
+   "to": 331,
    "words": [
     {
      "w": "The",
-     "f": 270
+     "f": 240
     },
     {
      "w": "air",
-     "f": 279
+     "f": 248
     },
     {
      "w": "is",
-     "f": 287
+     "f": 256
     },
     {
      "w": "so",
-     "f": 294
+     "f": 263
     },
     {
      "w": "hot,",
-     "f": 301
+     "f": 269
     },
     {
      "w": "it",
-     "f": 311
+     "f": 279
     },
     {
      "w": "contains",
-     "f": 318
+     "f": 286
     },
     {
      "w": "vaporized",
-     "f": 335
+     "f": 302
     },
     {
      "w": "rock.",
-     "f": 354
+     "f": 320
     }
    ]
   },
   {
    "id": "breath",
    "text": "You take one breath.",
-   "from": 390,
-   "to": 426,
+   "from": 360,
+   "to": 399,
    "words": [
     {
      "w": "You",
-     "f": 390
+     "f": 360
     },
     {
      "w": "take",
-     "f": 397
+     "f": 368
     },
     {
      "w": "one",
-     "f": 406
+     "f": 377
     },
     {
      "w": "breath.",
-     "f": 413
+     "f": 385
     }
    ]
   },
   {
    "id": "visit",
    "text": "That was your whole visit.",
-   "from": 495,
-   "to": 539,
+   "from": 465,
+   "to": 506,
    "words": [
     {
      "w": "That",
-     "f": 495
+     "f": 465
     },
     {
      "w": "was",
-     "f": 503
+     "f": 473
     },
     {
      "w": "your",
-     "f": 510
+     "f": 479
     },
     {
      "w": "whole",
-     "f": 519
+     "f": 487
     },
     {
      "w": "visit.",
-     "f": 528
+     "f": 496
     }
    ]
   }
  ],
  "events": {
-  "impact": 240,
-  "surface": 270,
-  "inhale": 435,
-  "death": 465,
-  "title": 555
+  "impact": 210,
+  "surface": 240,
+  "inhale": 405,
+  "death": 435,
+  "title": 525
  }
 }
