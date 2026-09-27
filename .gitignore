@@ -1,0 +1,4 @@
+node_modules/
+demo/out/
+demo/public/mix.wav
+__pycache__/
