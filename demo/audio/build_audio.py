@@ -14,7 +14,7 @@ from pathlib import Path
 
 import numpy as np
 from scipy.io import wavfile
-from scipy.signal import butter, sosfilt
+from scipy.signal import butter, resample_poly, sosfilt
 
 ROOT = Path(__file__).resolve().parent.parent
 SR = 44100
@@ -34,53 +34,88 @@ LINES = {
 }
 
 
-# Voice engine. Edge TTS matches the money-generator pipeline (natural rate/pitch/volume) and needs
-# network access to Microsoft's speech service; Festival is an offline placeholder (TTS=festival).
-try:
-    import edge_tts
-    import edge_tts.communicate
-except ImportError:
-    edge_tts = None
-USE_EDGE = edge_tts is not None and os.environ.get("TTS") != "festival"
-VOICE = os.environ.get("VOICE", "en-US-JennyNeural")
-if USE_EDGE and os.environ.get("SSL_CERT_FILE"):
-    # edge-tts pins certifi's CA bundle; honor SSL_CERT_FILE (needed behind a TLS-inspecting proxy).
-    edge_tts.communicate._SSL_CTX = ssl.create_default_context(cafile=os.environ["SSL_CERT_FILE"])
-TRIM = "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_threshold=-45dB:stop_duration=0.25,"
-POLISH = ("highpass=f=70,equalizer=f=180:t=q:w=1:g=3,"
-          "acompressor=threshold=-18dB:ratio=3:attack=5:release=80")
+# Voice engine (TTS=kokoro|edge|festival). Kokoro is an open neural voice that runs locally and gives
+# real word timestamps; Edge TTS matches the money-generator pipeline; Festival is an offline fallback.
+def _installed(mod):
+    try:
+        __import__(mod)
+        return True
+    except ImportError:
+        return False
 
 
-def tts(text: str) -> np.ndarray:
+ENGINE = os.environ.get("TTS") or ("kokoro" if _installed("kokoro") else "edge" if _installed("edge_tts") else "festival")
+VOICE = os.environ.get("VOICE") or {"kokoro": "af_heart", "edge": "en-US-JennyNeural"}.get(ENGINE, "slt")
+SPEED = float(os.environ.get("SPEED", "0.95"))  # kokoro only; a touch slower reads as documentary narration
+# Clean-up only; nothing here changes timing, so word timestamps stay valid.
+POLISH = "highpass=f=60,acompressor=threshold=-20dB:ratio=2.5:attack=10:release=150"
+
+_kokoro = None
+
+
+def _kokoro_tts(text):
+    global _kokoro
+    from kokoro import KPipeline
+    if _kokoro is None:
+        _kokoro = KPipeline(lang_code=VOICE[0], repo_id="hexgrad/Kokoro-82M")
+    chunks, words, offset = [], [], 0.0
+    for r in _kokoro(text, voice=VOICE, speed=SPEED):
+        a = r.audio.numpy()
+        for t in r.tokens or []:
+            if t.start_ts is not None and any(c.isalnum() for c in t.text):
+                words.append((offset + t.start_ts, offset + t.end_ts))
+        offset += len(a) / 24000
+        chunks.append(a)
+    return resample_poly(np.concatenate(chunks), 147, 80), words  # 24 kHz -> 44.1 kHz
+
+
+def _file_tts(text, d):
+    if ENGINE == "edge":
+        import edge_tts
+        import edge_tts.communicate
+        if os.environ.get("SSL_CERT_FILE"):
+            # edge-tts pins certifi's CA bundle; honor SSL_CERT_FILE (needed behind a TLS-inspecting proxy).
+            edge_tts.communicate._SSL_CTX = ssl.create_default_context(cafile=os.environ["SSL_CERT_FILE"])
+        raw = Path(d) / "raw.mp3"
+        asyncio.run(edge_tts.Communicate(text, VOICE, rate="+0%", pitch="+0Hz", volume="+0%").save(str(raw)))
+    else:
+        raw = Path(d) / "raw.wav"
+        subprocess.run(["text2wave", "-eval", "(voice_cmu_us_slt_arctic_hts)", "-o", str(raw)],
+                       input=text.encode(), check=True, capture_output=True)
+    return raw
+
+
+def tts(text: str):
+    """Returns (audio at SR, per-word (start, end) seconds or None), trimmed to the speech."""
     with tempfile.TemporaryDirectory() as d:
-        proc = Path(d) / "proc.wav"
-        if USE_EDGE:
-            raw = Path(d) / "raw.mp3"
-            comm = edge_tts.Communicate(text, VOICE, rate="+0%", pitch="+0Hz", volume="+0%")
-            asyncio.run(comm.save(str(raw)))
-            chain = TRIM + POLISH
-        else:
+        if ENGINE == "kokoro":
+            raw_audio, words = _kokoro_tts(text)
             raw = Path(d) / "raw.wav"
-            subprocess.run(
-                ["text2wave", "-eval", "(voice_cmu_us_slt_arctic_hts)", "-o", str(raw)],
-                input=text.encode(), check=True, capture_output=True,
-            )
-            # Robotic voice: slow and lower it slightly, plus a touch of room echo.
-            chain = (TRIM + f"asetrate={wavfile.read(raw)[0]}*0.94,aresample={SR}," + POLISH
-                     + ",aecho=0.8:0.4:40|70:0.1|0.06")
-        subprocess.run(
-            ["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", chain,
-             "-ac", "1", "-ar", str(SR), str(proc)],
-            check=True,
-        )
-        sr, data = wavfile.read(proc)
-    data = data.astype(np.float32) / 32768
-    return data / (np.abs(data).max() + 1e-9) * 0.9
+            wavfile.write(raw, SR, (np.clip(raw_audio, -1, 1) * 32767).astype(np.int16))
+        else:
+            raw, words = _file_tts(text, d), None
+        proc = Path(d) / "proc.wav"
+        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(raw), "-af", POLISH,
+                        "-ac", "1", "-ar", str(SR), str(proc)], check=True)
+        data = wavfile.read(proc)[1].astype(np.float32) / 32768
+    # trim leading/trailing silence only (pauses inside the line are part of natural delivery)
+    loud = np.flatnonzero(lp(np.abs(data), 30) > 10 ** (-45 / 20))
+    s0 = max(loud[0] - int(0.02 * SR), 0)
+    s1 = min(loud[-1] + int(0.08 * SR), len(data))
+    data = data[s0:s1]
+    if words is not None and len(words) != len(text.split()):
+        print(f"  word timestamps don't match ({len(words)} vs {len(text.split())}); approximating")
+        words = None
+    if words is not None:
+        words = [(max(a - s0 / SR, 0), b - s0 / SR) for a, b in words]
+    return data / (np.abs(data).max() + 1e-9) * 0.9, words
 
 
-def word_timings(text: str, start: float, dur: float):
-    """Approximate per-word timing, weighted by word length (for kinetic captions)."""
+def word_timings(text: str, start: float, dur: float, stamps=None):
+    """Per-word caption timing: the engine's timestamps when available, else weighted by word length."""
     words = text.split()
+    if stamps:
+        return [{"w": w, "f": round((start + stamps[i][0]) * FPS)} for i, w in enumerate(words)]
     weights = np.array([len(w) + 2 for w in words], dtype=float)
     edges = np.concatenate([[0], np.cumsum(weights)]) / weights.sum() * dur
     return [{"w": w, "f": round((start + edges[i]) * FPS)} for i, w in enumerate(words)]
@@ -175,8 +210,9 @@ def place(buf, clip, sec, gain=1.0):
 
 
 def main():
-    print(f"voice: edge-tts {VOICE}" if USE_EDGE else "voice: festival (offline placeholder)")
-    clips = {k: tts(v) for k, v in LINES.items()}
+    print(f"voice: {ENGINE} {VOICE}")
+    results = {k: tts(v) for k, v in LINES.items()}
+    clips = {k: r[0] for k, r in results.items()}
     beats_of = lambda k: len(clips[k]) / SR / BEAT  # noqa: E731
     nxt = lambda beat, k, gap=0: int(np.ceil(beat + beats_of(k))) + gap  # noqa: E731
 
@@ -208,7 +244,7 @@ def main():
         dur = len(clip) / SR
         timeline["lines"].append({
             "id": lid, "text": text, "from": round(start * FPS),
-            "to": round((start + dur) * FPS), "words": word_timings(text, start, dur),
+            "to": round((start + dur) * FPS), "words": word_timings(text, start, dur, results[lid][1]),
         })
         print(f"{lid:7s} beat {beat:>2} start {start:5.2f}s dur {dur:4.2f}s")
 

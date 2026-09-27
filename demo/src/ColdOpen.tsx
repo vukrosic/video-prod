@@ -1,425 +1,316 @@
 import React from 'react';
-import {AbsoluteFill, Audio, Easing, interpolate, random, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
-import {
-	BEAT,
-	Callout,
-	Captions,
-	Character,
-	DeepTimeBar,
-	E,
-	FONT,
-	Flash,
-	Grain,
-	L,
-	MagmaTexture,
-	Timer,
-	Vignette,
-	beatPulse,
-	shake,
-} from './fx';
+import {AbsoluteFill, Audio, Easing, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig} from 'remotion';
+import {BEAT, Callout, Captions, Character, DeepTimeBar, E, FONT, Flash, L, Timer, Vignette, beatPulse, clamp, shake} from './fx';
+import {Shader} from './Shader';
+import {MAGMA, SPACE} from './shaders';
 import timeline from './timeline.json';
 
-const clamp = {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'} as const;
-
 // Scene boundaries (absolute frames), all derived from the audio timeline.
-const A_END = L.hit.from; // void + year counter
-const B_END = E.surface; // space impact
-const C_END = E.death; // magma surface
+const A_END = L.hit.from; // waking up + year counter
+const B_END = E.surface; // space: Theia hits Earth
+const C_END = E.death; // on the magma surface
 const D_END = E.title; // death card
-const ARRIVE = L.breath.from; // character materializes, timer starts
+const ARRIVE = L.breath.from; // character appears, timer starts
 // Timer runs in slow motion so it reads exactly 1.00 s at the moment of death.
 const SLOWMO = 1 / ((C_END - ARRIVE) / timeline.fps);
+const fps = timeline.fps;
 
-/* ---------------- Scene A: "You wake up." + 4.5 billion year counter ---------------- */
+const MAGMA_BASE = {uHorizon: -0.12, uCamH: 1.0, uHeat: 0, uZoom: 1, uFocus: [0, 0]};
+
+/* ---------------- Scene A: you open your eyes; a 4.5 billion year counter ---------------- */
 const SceneA: React.FC = () => {
 	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
-	const glow = 0.35 + 0.4 * beatPulse(frame, 5);
-	const wake = L.wake;
-	const ago = L.ago;
-	const wakeOut = interpolate(frame, [ago.from - 4, ago.from + 6], [1, 0], clamp);
+	const {wake, ago} = L;
+	// eyelids: groggy half-open on "wake", a blink, then open on "up"
+	const open = interpolate(
+		frame,
+		[wake.words[1].f - 4, wake.words[1].f + 4, wake.words[2].f - 3, wake.words[2].f, wake.words[2].f + 10],
+		[0, 0.3, 0.3, 0.02, 0.9],
+		{...clamp, easing: Easing.inOut(Easing.quad)},
+	);
+	const blur = interpolate(frame, [wake.words[1].f, ago.from + 10], [28, 6], clamp);
 	const countStart = ago.from + 2;
 	const countEnd = ago.to - 6;
-	const p = interpolate(frame, [countStart, countEnd], [0, 1], {...clamp, easing: Easing.bezier(0.2, 0.6, 0.1, 1)});
+	const p = interpolate(frame, [countStart, countEnd], [0, 1], {...clamp, easing: Easing.bezier(0.3, 0.1, 0.1, 1)});
 	const years = Math.round(p * 4_500_000_000);
-	const slam = spring({frame: frame - countEnd, fps, config: {damping: 9, stiffness: 300}});
-	const counterIn = spring({frame: frame - countStart, fps, config: {damping: 14}});
-	// whip-pan out to the next scene
-	const whip = interpolate(frame, [A_END - 6, A_END], [0, -2200], {...clamp, easing: Easing.in(Easing.cubic)});
+	const slam = spring({frame: frame - countEnd, fps, config: {damping: 10, stiffness: 260}});
+	const counterIn = spring({frame: frame - countStart, fps, config: {damping: 18}});
+	const dim = interpolate(frame, [ago.from - 4, ago.from + 8], [0, 0.55], clamp);
+	const whip = interpolate(frame, [A_END - 7, A_END], [0, -2400], {...clamp, easing: Easing.in(Easing.cubic)});
 
 	return (
-		<AbsoluteFill style={{background: '#050304', transform: `${shake(frame, countEnd, 22, 10)} translateX(${whip}px)`, filter: whip ? `blur(${-whip / 120}px)` : undefined}}>
-			<AbsoluteFill style={{background: `radial-gradient(circle at 50% 55%, rgba(255,90,20,${glow}) 0%, rgba(120,20,5,${glow * 0.5}) 30%, transparent 65%)`}} />
-			{/* "YOU WAKE UP." word slams */}
-			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', opacity: wakeOut, transform: `scale(${1 + (1 - wakeOut) * 0.3})`}}>
-				<div style={{display: 'flex', gap: 36}}>
-					{wake.words.map((w, i) => {
-						const s = spring({frame: frame - w.f, fps, config: {damping: 10, stiffness: 320}});
-						return (
-							<span
-								key={i}
-								style={{
-									fontFamily: FONT,
-									fontWeight: 900,
-									fontSize: 170,
-									color: 'white',
-									letterSpacing: -4,
-									opacity: s,
-									transform: `scale(${interpolate(s, [0, 1], [2.2, 1])})`,
-									filter: `blur(${(1 - s) * 18}px)`,
-									display: 'inline-block',
-								}}
-							>
-								{w.w.toUpperCase()}
-							</span>
-						);
-					})}
-				</div>
-			</AbsoluteFill>
-			{/* rolling year counter */}
+		<AbsoluteFill style={{background: 'black', transform: `${shake(frame, countEnd, 16, 10)} translateX(${whip}px)`, filter: whip ? `blur(${-whip / 90}px)` : undefined}}>
+			<Shader frag={MAGMA} scale={0.5} uniforms={{...MAGMA_BASE, uPan: frame * 0.004}} style={{filter: `blur(${blur}px) brightness(${0.8 + 0.2 * open})`, transform: 'scale(1.08)'}} />
+			<AbsoluteFill style={{background: `rgba(0,0,0,${dim})`}} />
+			{/* eyelids */}
+			<AbsoluteFill style={{background: `radial-gradient(1500px ${Math.max(open * 820, 1)}px at 50% 50%, rgba(0,0,0,0) 62%, #000 100%)`}} />
 			{frame >= countStart && (
 				<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', opacity: counterIn}}>
 					<div
 						style={{
 							fontFamily: FONT,
-							fontWeight: 900,
-							fontSize: 190,
-							color: '#ffb347',
+							fontWeight: 800,
+							fontSize: 176,
 							fontVariantNumeric: 'tabular-nums',
-							letterSpacing: -6,
-							textShadow: `0 0 ${40 + slam * 60}px rgba(255,120,30,0.9)`,
-							transform: `scale(${1 + (frame >= countEnd ? (1 - slam) * 0.35 : 0)})`,
+							letterSpacing: -5,
+							background: 'linear-gradient(180deg, #fff6e6 20%, #ffb35a 100%)',
+							WebkitBackgroundClip: 'text',
+							color: 'transparent',
+							filter: `drop-shadow(0 0 ${30 + slam * 40}px rgba(255,120,40,0.55))`,
+							transform: `scale(${(frame >= countEnd ? 1 + (1 - slam) * 0.18 : 1) * (0.96 + 0.04 * counterIn)})`,
 						}}
 					>
 						{years.toLocaleString('en-US')}
 					</div>
-					<div style={{fontFamily: FONT, fontWeight: 900, fontSize: 64, color: 'white', letterSpacing: 26, marginTop: 10}}>YEARS AGO</div>
+					<div style={{fontFamily: FONT, fontWeight: 600, fontSize: 40, color: 'rgba(255,255,255,0.85)', letterSpacing: 22, marginTop: 4}}>YEARS AGO</div>
 				</AbsoluteFill>
 			)}
-			<Flash at={countEnd} color="#ffb347" len={10} peak={0.6} />
+			<Flash at={countEnd} color="#ffb35a" len={12} peak={0.35} />
+			<Captions ids={['wake']} />
 		</AbsoluteFill>
 	);
 };
 
 /* ---------------- Scene B: Theia hits the young Earth ---------------- */
-const Stars: React.FC<{drift: number}> = ({drift}) => {
-	const frame = useCurrentFrame();
-	return (
-		<svg width="1920" height="1080" style={{position: 'absolute'}}>
-			{new Array(220).fill(0).map((_, i) => {
-				const depth = 0.3 + random(`d${i}`) * 0.7;
-				const x = (random(`x${i}`) * 2200 - drift * depth) % 2200;
-				const y = random(`y${i}`) * 1080;
-				const tw = 0.5 + 0.5 * Math.sin(frame / 6 + i);
-				return <circle key={i} cx={x < 0 ? x + 2200 : x} cy={y} r={depth * 2.2} fill="white" opacity={0.35 + tw * 0.5 * depth} />;
-			})}
-		</svg>
-	);
-};
+const EARTH = {x: 0.2, y: -0.04, r: 0.3};
+const DIR = {x: -0.8, y: 0.6};
+const THEIA_R = 0.155;
+const CONTACT = {x: EARTH.x + DIR.x * EARTH.r, y: EARTH.y + DIR.y * EARTH.r};
+const THEIA_END = {x: EARTH.x + DIR.x * (EARTH.r + THEIA_R * 0.75), y: EARTH.y + DIR.y * (EARTH.r + THEIA_R * 0.75)};
 
 const SceneB: React.FC = () => {
 	const frame = useCurrentFrame();
-	const t = frame - A_END;
 	const impact = E.impact;
-	const zoom = interpolate(frame, [A_END, impact, B_END], [1.25, 1.05, 1.35], {...clamp, easing: Easing.inOut(Easing.cubic)});
-	const whipIn = interpolate(frame, [A_END, A_END + 8], [2200, 0], {...clamp, easing: Easing.out(Easing.cubic)});
-	// Theia approaches Earth and touches it on the impact frame.
+	const since = (frame - impact) / fps;
+	const zoom = interpolate(frame, [A_END, impact, impact + 3, B_END], [1.5, 1.08, 1.2, 1.32], {...clamp, easing: Easing.inOut(Easing.cubic)});
+	const cam = {x: interpolate(frame, [A_END, impact, B_END], [0.05, 0.08, -0.02], clamp), y: interpolate(frame, [A_END, B_END], [0.04, 0.08], clamp)};
 	const ap = interpolate(frame, [A_END, impact], [0, 1], {...clamp, easing: Easing.in(Easing.quad)});
-	const earth = {x: 1120, y: 560, r: 300};
-	const theia = {x: interpolate(ap, [0, 1], [-60, earth.x - 360]), y: interpolate(ap, [0, 1], [-60, earth.y - 190]), r: 150};
-	const hit = frame >= impact;
-	const since = frame - impact;
-	const ring = interpolate(since, [0, 40], [0, 1800], {...clamp, easing: Easing.out(Easing.cubic)});
-	const ringO = interpolate(since, [0, 40], [1, 0], clamp);
-	const contact = {x: earth.x - 250, y: earth.y - 165};
-	const chroma = hit ? Math.exp(-since / 8) * 14 : 0;
+	const theia = {x: interpolate(ap, [0, 1], [-0.62, THEIA_END.x]), y: interpolate(ap, [0, 1], [0.4, THEIA_END.y])};
+	const whipIn = interpolate(frame, [A_END, A_END + 8], [2400, 0], {...clamp, easing: Easing.out(Easing.cubic)});
+	const px = (x: number, y: number) => ({x: 960 + (x - cam.x) * zoom * 1080, y: 540 - (y - cam.y) * zoom * 1080});
+	const e = px(EARTH.x + 0.21, EARTH.y + 0.21);
+	const t = px(theia.x + THEIA_R * 0.55, theia.y - THEIA_R * 0.55);
 
 	return (
-		<AbsoluteFill style={{background: '#02030a', transform: `translateX(${whipIn}px) ${shake(frame, impact, 60, 14)}`, overflow: 'hidden'}}>
-			<Stars drift={t * 3} />
-			<AbsoluteFill style={{transform: `scale(${zoom})`, filter: chroma ? `drop-shadow(${chroma}px 0 0 rgba(255,0,60,0.7)) drop-shadow(${-chroma}px 0 0 rgba(0,200,255,0.7))` : undefined}}>
-				{/* Earth: molten sphere */}
-				<div
-					style={{
-						position: 'absolute',
-						left: earth.x - earth.r,
-						top: earth.y - earth.r,
-						width: earth.r * 2,
-						height: earth.r * 2,
-						borderRadius: '50%',
-						overflow: 'hidden',
-						boxShadow: `0 0 ${120 + (hit ? 200 * Math.exp(-since / 20) : 0)}px rgba(255,100,20,0.75)`,
-					}}
-				>
-					<MagmaTexture width={earth.r * 2} height={earth.r * 2} id="earth" freq="0.012 0.02" seed={5} offset={t * 1.5} />
-					<div style={{position: 'absolute', inset: 0, borderRadius: '50%', background: 'radial-gradient(circle at 35% 35%, rgba(255,255,255,0.15), transparent 45%, rgba(0,0,0,0.75) 80%)'}} />
-				</div>
-				{/* Theia */}
-				{!hit && (
-					<>
-						<div
-							style={{
-								position: 'absolute',
-								left: theia.x - theia.r - 220 * ap,
-								top: theia.y - theia.r - 120 * ap,
-								width: theia.r * 2 + 220 * ap,
-								height: 26,
-								transform: `rotate(28deg)`,
-								transformOrigin: 'right center',
-								background: 'linear-gradient(90deg, transparent, rgba(255,160,90,0.35))',
-								filter: 'blur(8px)',
-							}}
-						/>
-						<div
-							style={{
-								position: 'absolute',
-								left: theia.x - theia.r,
-								top: theia.y - theia.r,
-								width: theia.r * 2,
-								height: theia.r * 2,
-								borderRadius: '50%',
-								background: 'radial-gradient(circle at 60% 60%, #b9a28a, #6b5646 60%, #2a2018 100%)',
-								boxShadow: `0 0 ${40 * ap}px rgba(255,140,60,${ap})`,
-							}}
-						/>
-					</>
-				)}
-				{/* shockwave + debris */}
-				{hit && (
-					<svg width="1920" height="1080" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
-						<circle cx={contact.x} cy={contact.y} r={ring} fill="none" stroke="#fff4d6" strokeWidth={30 * ringO + 2} opacity={ringO} />
-						<circle cx={contact.x} cy={contact.y} r={ring * 0.6} fill="none" stroke="#ffb347" strokeWidth={14 * ringO} opacity={ringO} />
-						<circle cx={contact.x} cy={contact.y} r={interpolate(since, [0, 30], [260, 90], clamp)} fill="#fff1c4" opacity={interpolate(since, [0, 30], [1, 0.3], clamp)} style={{filter: 'blur(20px)'}} />
-						{new Array(90).fill(0).map((_, i) => {
-							const a = -Math.PI * 0.9 + random(`a${i}`) * Math.PI * 1.1;
-							const v = 8 + random(`v${i}`) * 26;
-							const d = v * since * Math.exp(-since / 60);
-							const sz = 3 + random(`s${i}`) * 9;
-							return <circle key={i} cx={contact.x + Math.cos(a) * d} cy={contact.y + Math.sin(a) * d} r={sz} fill={random(`c${i}`) > 0.5 ? '#ffd27a' : '#ff6a1a'} opacity={interpolate(since, [0, 50], [1, 0], clamp)} />;
-						})}
-					</svg>
-				)}
-			</AbsoluteFill>
-			{/* labels */}
-			{!hit && <Callout at={L.hit.from + 20} x={earth.x + 210} y={earth.y - 140} dx={170} dy={-110} title="EARTH" sub="age: ~70 million years" />}
-			{!hit && <Callout at={L.hit.words[L.hit.words.length - 3].f} x={theia.x} y={theia.y} dx={-120} dy={140} title="THEIA" sub="the size of Mars" color="#9fd3ff" />}
-			<Flash at={impact} len={14} />
+		<AbsoluteFill style={{background: 'black', transform: `translateX(${whipIn}px) ${shake(frame, impact, 45, 16)}`, filter: whipIn > 1 ? `blur(${whipIn / 90}px)` : undefined}}>
+			<Shader
+				frag={SPACE}
+				uniforms={{
+					uCam: [zoom, cam.x, cam.y],
+					uEarth: [EARTH.x, EARTH.y, EARTH.r],
+					uTheia: [theia.x, theia.y, frame < impact ? THEIA_R : 0],
+					uContact: [CONTACT.x, CONTACT.y],
+					uImpact: frame < impact ? -1 : since,
+					uMode: 0,
+					uSpin: frame * 0.004,
+					uNebula: 1,
+				}}
+			/>
+			{frame < impact && (
+				<>
+					<Callout at={L.hit.words[0].f + 2} x={e.x} y={e.y} dx={110} dy={-90} title="EARTH" sub="~100 million years old" />
+					<Callout at={L.hit.words[8].f} x={t.x} y={t.y} dx={-70} dy={150} title="THEIA" sub="the size of Mars" color="#b8dcff" />
+				</>
+			)}
+			<Flash at={impact} color="#ffd49a" len={6} peak={0.55} />
 			<Captions ids={['hit']} />
 		</AbsoluteFill>
 	);
 };
 
 /* ---------------- Scene C: the magma surface ---------------- */
-const Embers: React.FC = () => {
-	const frame = useCurrentFrame();
-	return (
-		<svg width="1920" height="1080" style={{position: 'absolute', left: 0, top: 0}}>
-			{new Array(110).fill(0).map((_, i) => {
-				const speed = 2 + random(`es${i}`) * 5;
-				const x0 = random(`ex${i}`) * 1920;
-				const y = 1100 - ((frame * speed + random(`ey${i}`) * 1200) % 1200);
-				const x = x0 + Math.sin(frame / 14 + i) * 30;
-				const r = 1.5 + random(`er${i}`) * 4;
-				return <circle key={i} cx={x} cy={y} r={r} fill={random(`ec${i}`) > 0.4 ? '#ffcf5a' : '#ff6a1a'} opacity={0.4 + 0.6 * random(`eo${i}`)} style={{filter: 'blur(1px)'}} />;
-			})}
-		</svg>
-	);
-};
+/** The slab of cooled crust the character stands on: sunlit-by-magma top, glowing waterline. */
+const Rock: React.FC = () => (
+	<svg width="1920" height="1080" style={{position: 'absolute', left: 0, top: 0}}>
+		<defs>
+			<radialGradient id="rockGlow" cx="0.5" cy="0.5" r="0.5">
+				<stop offset="0" stopColor="#ffb04a" stopOpacity="0.8" />
+				<stop offset="0.6" stopColor="#ff6a1a" stopOpacity="0.35" />
+				<stop offset="1" stopColor="#ff5a0a" stopOpacity="0" />
+			</radialGradient>
+			<linearGradient id="rockTop" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0" stopColor="#3b2520" />
+				<stop offset="1" stopColor="#5a3326" />
+			</linearGradient>
+			<linearGradient id="rockFront" x1="0" y1="0" x2="0" y2="1">
+				<stop offset="0" stopColor="#1a0c0a" />
+				<stop offset="0.7" stopColor="#2a110b" />
+				<stop offset="1" stopColor="#b8420f" />
+			</linearGradient>
+		</defs>
+		<ellipse cx="960" cy="978" rx="320" ry="56" fill="url(#rockGlow)" />
+		<path d="M790 925 L842 902 L918 893 L1000 890 L1072 897 L1140 921 L1098 942 L960 950 L832 944 Z" fill="url(#rockTop)" />
+		<path d="M790 925 L832 944 L960 950 L1098 942 L1140 921 L1150 950 L1104 982 L960 992 L826 986 L778 954 Z" fill="url(#rockFront)" />
+		<path d="M842 902 L880 925 L870 944 M1000 890 L1020 918 L1098 942 M918 893 L940 915" stroke="#241310" strokeWidth="2" fill="none" opacity="0.8" />
+		<path d="M790 925 L832 944 L960 950 L1098 942 L1140 921" stroke="#ffb870" strokeWidth="2" fill="none" opacity="0.55" />
+		<path d="M778 954 L826 986 L960 992 L1104 982 L1150 950" stroke="#ffd08a" strokeWidth="3" fill="none" opacity="0.9" style={{filter: 'blur(1.5px)'}} />
+		<ellipse cx="960" cy="925" rx="62" ry="9" fill="black" opacity="0.5" style={{filter: 'blur(3px)'}} />
+	</svg>
+);
 
 const SceneC: React.FC = () => {
 	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
 	const t = frame - B_END;
 	const arrived = frame >= ARRIVE;
-	const punch = 1 + 0.025 * beatPulse(frame, 7);
-	// wide pan, then push in on the character during the breath
-	const push = interpolate(frame, [ARRIVE, C_END], [1, 1.9], {...clamp, easing: Easing.in(Easing.cubic)});
-	const panX = interpolate(frame, [B_END, ARRIVE], [140, 0], {...clamp, easing: Easing.out(Easing.cubic)});
-	const breath = interpolate(frame, [E.inhale, E.inhale + 24], [0, 1], {...clamp, easing: Easing.inOut(Easing.sin)});
-	const appear = spring({frame: frame - ARRIVE, fps, config: {damping: 9, stiffness: 220}});
+	const punch = 1 + 0.015 * beatPulse(frame, 7);
+	const push = interpolate(frame, [ARRIVE - 10, C_END], [1, 1.75], {...clamp, easing: Easing.in(Easing.cubic)});
+	const breath = interpolate(frame, [E.inhale, E.inhale + 22], [0, 1], {...clamp, easing: Easing.inOut(Easing.sin)});
+	const pain = interpolate(frame, [E.inhale + 22, C_END - 4], [0, 1], clamp);
+	const appear = spring({frame: frame - ARRIVE, fps, config: {damping: 12, stiffness: 200}});
 	const timerSec = arrived ? Math.min(1, ((frame - ARRIVE) / fps) * SLOWMO) : 0;
-	const redness = interpolate(frame, [E.inhale, C_END], [0, 0.55], clamp);
-	const glitch = frame >= C_END - 6;
+	const heat = interpolate(frame, [E.inhale, C_END], [0, 0.55], clamp);
+	const focus = {x: 960, y: 700};
+	const beam = interpolate(frame - ARRIVE, [0, 3, 14], [0, 1, 0], clamp);
 
 	return (
-		<AbsoluteFill style={{overflow: 'hidden', background: '#1a0503', transform: shake(frame, B_END, 26, 12)}}>
-			<AbsoluteFill style={{transform: `translateX(${panX}px) scale(${punch * push})`, transformOrigin: '960px 560px'}}>
-				{/* sky */}
-				<AbsoluteFill style={{background: 'linear-gradient(180deg, #1c0504 0%, #5a1206 35%, #c2410c 58%, #ff8a2a 66%)'}} />
-				{/* drifting haze */}
-				{[0, 1, 2].map((i) => (
-					<div
-						key={i}
-						style={{
-							position: 'absolute',
-							left: ((t * (1 + i) * 1.2 + i * 600) % 2600) - 700,
-							top: 180 + i * 90,
-							width: 900,
-							height: 160,
-							borderRadius: '50%',
-							background: 'rgba(255,140,60,0.18)',
-							filter: 'blur(40px)',
-						}}
-					/>
-				))}
-				{/* magma sea in perspective */}
-				<div style={{position: 'absolute', left: -600, top: 690, width: 3120, height: 900, transform: 'perspective(700px) rotateX(58deg)', transformOrigin: 'top center'}}>
-					<MagmaTexture width={3120} height={900} id="sea" seed={11} offset={t * 2.2} />
-				</div>
-				{/* horizon glow */}
-				<div style={{position: 'absolute', left: 0, right: 0, top: 640, height: 120, background: 'linear-gradient(180deg, transparent, rgba(255,200,90,0.55), transparent)', filter: 'blur(12px)'}} />
-				{/* crust rock the character stands on */}
-				<svg width="1920" height="1080" style={{position: 'absolute', left: 0, top: 0}}>
-					<path d="M720 905 L820 872 L1010 866 L1150 884 L1210 925 L1120 960 L860 968 L740 945 Z" fill="#170605" stroke="#ff7a1a" strokeWidth="5" />
-					<path d="M820 905 L900 915 L980 900" stroke="#ff9a3c" strokeWidth="3" fill="none" opacity="0.7" />
-				</svg>
-				{/* character */}
+		<AbsoluteFill style={{overflow: 'hidden', background: 'black', transform: shake(frame, B_END, 22, 12)}}>
+			<Shader
+				frag={MAGMA}
+				uniforms={{...MAGMA_BASE, uPan: 0.8 + t * 0.006, uHeat: heat, uZoom: push * punch, uFocus: [(focus.x - 960) / 1080, (540 - focus.y) / 1080]}}
+			/>
+			<AbsoluteFill style={{transform: `scale(${push * punch})`, transformOrigin: `${focus.x}px ${focus.y}px`}}>
+				<Rock />
 				{arrived && (
-					<div
-						style={{
-							position: 'absolute',
-							left: 960 - 100,
-							top: 880 - 430,
-							transform: `scaleY(${appear}) scaleX(${interpolate(appear, [0, 1], [1.8, 1])})`,
-							transformOrigin: 'bottom center',
-							filter: frame - ARRIVE < 4 ? 'brightness(8)' : undefined,
-						}}
-					>
-						<Character breath={breath} bob={Math.sin(frame / 8) * 1.2} />
-					</div>
-				)}
-				<Embers />
-			</AbsoluteFill>
-			{/* heat + red vignette as you die */}
-			<Vignette strength={0.7} />
-			<AbsoluteFill style={{background: `radial-gradient(ellipse at center, transparent 30%, rgba(200,0,0,${redness}) 100%)`}} />
-			{/* HUD callouts before arrival */}
-			{!arrived && (
-				<>
-					<Callout at={B_END + 18} x={560} y={800} dx={-120} dy={-190} title="~2,000°C" sub="magma ocean" />
-					<Callout at={L.air.words[5].f} x={1400} y={430} dx={100} dy={-150} title="VAPORIZED ROCK" sub="that's the air" />
-				</>
-			)}
-			{/* HUD */}
-			{arrived && (
-				<>
-					<div style={{position: 'absolute', right: 60, top: 50, transform: `scale(${appear})`, transformOrigin: 'top right'}}>
-						<Timer seconds={timerSec} dead={false} />
-					</div>
-					<div style={{position: 'absolute', left: 60, top: 60, fontFamily: FONT, fontWeight: 900, fontSize: 30, color: 'white', letterSpacing: 4, display: 'flex', alignItems: 'center', gap: 14}}>
-						<span style={{width: 22, height: 22, borderRadius: 11, background: '#ff2a2a', opacity: Math.floor(frame / 8) % 2 ? 1 : 0.2}} />
-						SLOW MOTION {SLOWMO.toFixed(1)}×
-					</div>
-				</>
-			)}
-			<DeepTimeBar progress={0.0} label="4.5 BYA" opacity={arrived ? 0 : interpolate(frame, [B_END + 10, B_END + 20], [0, 1], clamp)} />
-			<Captions ids={['air', 'breath']} />
-			{/* death glitch: RGB slices */}
-			{glitch && (
-				<AbsoluteFill style={{mixBlendMode: 'screen'}}>
-					{new Array(8).fill(0).map((_, i) => (
+					<>
+						<div style={{position: 'absolute', left: 960 - 60, top: 0, width: 120, height: 930, background: 'linear-gradient(90deg, transparent, rgba(255,240,210,0.9), transparent)', opacity: beam, filter: 'blur(6px)'}} />
 						<div
-							key={i}
 							style={{
 								position: 'absolute',
-								left: (random(`gl${frame}${i}`) - 0.5) * 200,
-								top: random(`gt${frame}${i}`) * 1080,
-								width: 1920,
-								height: 20 + random(`gh${frame}${i}`) * 80,
-								background: i % 2 ? 'rgba(255,0,60,0.5)' : 'rgba(0,220,255,0.4)',
+								left: 960 - 120,
+								top: 930 - 495,
+								transform: `scaleY(${appear}) scaleX(${interpolate(appear, [0, 1], [0.4, 1])})`,
+								transformOrigin: 'bottom center',
 							}}
-						/>
-					))}
-				</AbsoluteFill>
+						>
+							<Character breath={breath} pain={pain} bob={Math.sin(frame / 9) * 1.5} look={interpolate(frame, [ARRIVE, ARRIVE + 20], [-1, 0], clamp)} />
+						</div>
+					</>
+				)}
+			</AbsoluteFill>
+			<Vignette strength={0.55} />
+			<AbsoluteFill style={{background: `radial-gradient(ellipse at center, transparent 35%, rgba(170,0,0,${heat}) 100%)`}} />
+			{!arrived && (
+				<>
+					<Callout at={B_END + 16} x={560} y={830} dx={-100} dy={-170} title="~2,000 °C" sub="an ocean of magma" />
+					<Callout at={L.air.words[7].f} x={1380} y={330} dx={90} dy={-110} title="VAPORIZED ROCK" sub="that's the air" />
+				</>
 			)}
-			<Flash at={B_END} color="#ffb347" len={10} peak={0.8} />
-			<Flash at={ARRIVE} len={8} peak={0.7} />
+			<DeepTimeBar progress={0.0} label="4.5 BILLION YEARS AGO" opacity={arrived ? 0 : interpolate(frame, [B_END + 10, B_END + 22], [0, 1], clamp)} />
+			{arrived && (
+				<>
+					<div style={{position: 'absolute', right: 64, top: 56, transform: `scale(${appear})`, transformOrigin: 'top right'}}>
+						<Timer seconds={timerSec} dead={false} />
+					</div>
+					<div style={{position: 'absolute', left: 64, top: 64, fontFamily: FONT, fontWeight: 700, fontSize: 20, color: 'rgba(255,255,255,0.9)', letterSpacing: 5, display: 'flex', alignItems: 'center', gap: 12}}>
+						<span style={{width: 12, height: 12, borderRadius: 6, background: '#ff4d3d', opacity: Math.floor(frame / 8) % 2 ? 1 : 0.25}} />
+						SLOW MOTION
+					</div>
+				</>
+			)}
+			<Captions ids={['air', 'breath']} />
+			<Flash at={B_END} color="#ffb35a" len={10} peak={0.6} />
+			<Flash at={ARRIVE} color="#fff2d6" len={8} peak={0.35} />
 		</AbsoluteFill>
 	);
 };
 
-/* ---------------- Scene D: death card ---------------- */
+/* ---------------- Scene D: death card over the frozen last moment ---------------- */
 const SceneD: React.FC = () => {
 	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
 	const since = frame - C_END;
-	const timerIn = spring({frame: since, fps, config: {damping: 10, stiffness: 240}});
+	const timerIn = spring({frame: since, fps, config: {damping: 12, stiffness: 220}});
 	const skullAt = C_END + BEAT * 2;
-	const skull = spring({frame: frame - skullAt, fps, config: {damping: 8, stiffness: 300}});
+	const skull = spring({frame: frame - skullAt, fps, config: {damping: 10, stiffness: 260}});
 	const visit = L.visit;
+	const drift = interpolate(since, [0, D_END - C_END], [1.75, 1.9]);
 	return (
-		<AbsoluteFill style={{background: '#070707', transform: shake(frame, C_END, 30, 8)}}>
-			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: 50}}>
-				<div style={{transform: `scale(${interpolate(timerIn, [0, 1], [2.5, 1.5])})`, opacity: timerIn}}>
+		<AbsoluteFill style={{background: 'black', transform: shake(frame, C_END, 26, 8)}}>
+			<Shader
+				frag={MAGMA}
+				scale={0.5}
+				time={(C_END - 1) / fps}
+				uniforms={{...MAGMA_BASE, uPan: 0.8 + (C_END - B_END) * 0.006, uHeat: 0.55, uZoom: drift, uFocus: [0, (540 - 700) / 1080]}}
+				style={{filter: 'grayscale(1) brightness(0.28) blur(6px)'}}
+			/>
+			<AbsoluteFill style={{background: 'radial-gradient(ellipse at center, rgba(120,0,0,0.25), rgba(0,0,0,0.8) 90%)'}} />
+			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', flexDirection: 'column', gap: 46}}>
+				<div style={{transform: `scale(${interpolate(timerIn, [0, 1], [2.2, 1.35])})`, opacity: timerIn}}>
 					<Timer seconds={1} dead />
 				</div>
-				<div style={{display: 'flex', gap: 22, minHeight: 100}}>
-					{visit.words
-						.filter((w) => frame >= w.f)
-						.map((w, i) => {
-							const s = spring({frame: frame - w.f, fps, config: {damping: 11, stiffness: 260}});
-							return (
-								<span key={i} style={{fontFamily: FONT, fontWeight: 900, fontSize: 84, color: i === 3 ? '#ffd23f' : 'white', opacity: s, transform: `translateY(${(1 - s) * 30}px)`, display: 'inline-block'}}>
-									{w.w}
-								</span>
-							);
-						})}
+				<div style={{display: 'flex', gap: 18, minHeight: 90}}>
+					{visit.words.map((w, i) => {
+						const s = spring({frame: frame - w.f, fps, config: {damping: 16, stiffness: 200}});
+						return (
+							<span key={i} style={{fontFamily: FONT, fontWeight: 700, fontSize: 72, color: 'white', opacity: frame >= w.f ? s : 0, transform: `translateY(${(1 - s) * 24}px)`, display: 'inline-block', letterSpacing: -1}}>
+								{w.w}
+							</span>
+						);
+					})}
 				</div>
 			</AbsoluteFill>
 			{frame >= skullAt && (
-				<div style={{position: 'absolute', right: 70, top: 60, fontFamily: FONT, fontWeight: 900, fontSize: 64, color: 'white', transform: `scale(${skull})`, transformOrigin: 'top right'}}>
-					☠ <span style={{color: '#ff4d4d'}}>×1</span>
+				<div style={{position: 'absolute', right: 70, top: 60, fontFamily: FONT, fontWeight: 800, fontSize: 44, color: 'white', transform: `scale(${skull})`, transformOrigin: 'top right', letterSpacing: 2}}>
+					DEATHS <span style={{color: '#ff5a4d'}}>1</span>
 				</div>
 			)}
-			<Flash at={C_END} color="#ff1a1a" len={10} peak={0.9} />
+			<Flash at={C_END} color="#ff3a2a" len={12} peak={0.8} />
 		</AbsoluteFill>
 	);
 };
 
-/* ---------------- Scene E: title slam over an era montage ---------------- */
+/* ---------------- Scene E: title over Earth changing era on every beat ---------------- */
 const ERAS = [
-	{bg: 'radial-gradient(circle at 50% 70%, #ffb347, #c2410c 40%, #1c0504 80%)', tag: '4.5 BILLION YEARS AGO'},
-	{bg: 'radial-gradient(circle at 70% 30%, #e8e3d8 0 12%, #1b2a3a 13%, #081018 80%)', tag: '4 BILLION YEARS AGO'},
-	{bg: 'linear-gradient(180deg, #e9f4ff, #9cc7e8 60%, #ffffff)', tag: '650 MILLION YEARS AGO'},
-	{bg: 'linear-gradient(180deg, #0f3d1e, #2f7a36 55%, #0b2412)', tag: '300 MILLION YEARS AGO'},
-	{bg: 'radial-gradient(circle at 25% 25%, #fff3c4 0 4%, #ff8a2a 8%, #3a1a3a 35%, #10081a 80%)', tag: '66 MILLION YEARS AGO'},
-	{bg: 'linear-gradient(180deg, #0a1030, #26306a 60%, #f5b04a 100%)', tag: 'TODAY'},
+	{mode: 0, tag: '4.5 BILLION YEARS AGO'},
+	{mode: 1, tag: '4 BILLION YEARS AGO'},
+	{mode: 2, tag: '650 MILLION YEARS AGO'},
+	{mode: 3, tag: '300 MILLION YEARS AGO'},
+	{mode: 4, tag: 'TODAY'},
 ];
 
 const SceneE: React.FC = () => {
 	const frame = useCurrentFrame();
-	const {fps} = useVideoConfig();
 	const since = frame - D_END;
-	const era = ERAS[Math.floor(since / BEAT) % ERAS.length];
-	const punch = 1 + 0.05 * beatPulse(frame, 8);
+	const era = ERAS[Math.min(Math.floor(since / BEAT), ERAS.length - 1)];
+	const punch = 1 + 0.04 * beatPulse(frame, 8);
 	const lines = [
-		{text: 'HOW LONG WOULD', at: D_END, size: 130, color: 'white'},
-		{text: 'YOU SURVIVE', at: D_END + BEAT, size: 190, color: '#ffb347'},
-		{text: "IN EVERY ERA OF EARTH'S HISTORY?", at: D_END + BEAT * 2, size: 64, color: 'white'},
+		{text: 'HOW LONG WOULD', at: D_END, size: 96, weight: 700, color: 'white', spacing: 4},
+		{text: 'YOU SURVIVE', at: D_END + BEAT, size: 188, weight: 900, color: '#ffc56b', spacing: -5},
+		{text: "IN EVERY ERA OF EARTH'S HISTORY?", at: D_END + BEAT * 2, size: 50, weight: 700, color: 'white', spacing: 8},
 	];
 	return (
-		<AbsoluteFill style={{background: '#000', transform: shake(frame, D_END, 40, 10), overflow: 'hidden'}}>
-			<AbsoluteFill style={{background: era.bg, opacity: 0.55, filter: 'blur(6px) saturate(1.3)', transform: `scale(${1.1 * punch})`}} />
-			<AbsoluteFill style={{background: 'rgba(0,0,0,0.35)'}} />
-			<div style={{position: 'absolute', left: 60, bottom: 50, fontFamily: FONT, fontWeight: 900, fontSize: 28, letterSpacing: 6, color: 'rgba(255,255,255,0.8)'}}>{era.tag}</div>
+		<AbsoluteFill style={{background: 'black', transform: shake(frame, D_END, 30, 10), overflow: 'hidden'}}>
+			<Shader
+				frag={SPACE}
+				uniforms={{
+					uCam: [0.95 * punch, 0, 0],
+					uEarth: [0, 0, 0.42],
+					uTheia: [0, 0, 0],
+					uContact: [0, 0],
+					uImpact: -1,
+					uMode: era.mode,
+					uSpin: 1.2 + since * 0.012,
+					uNebula: 1,
+				}}
+			/>
+			<AbsoluteFill style={{background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.55) 20%, rgba(0,0,0,0.25) 70%)'}} />
+			<div style={{position: 'absolute', left: 64, bottom: 56, fontFamily: FONT, fontWeight: 700, fontSize: 22, letterSpacing: 6, color: 'rgba(255,255,255,0.85)'}}>{era.tag}</div>
 			<AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', flexDirection: 'column', transform: `scale(${punch})`}}>
 				{lines.map((l, i) => {
-					const s = spring({frame: frame - l.at, fps, config: {damping: 9, stiffness: 280}});
-					if (frame < l.at) return <div key={i} style={{height: l.size * 1.05}} />;
+					const s = spring({frame: frame - l.at, fps, config: {damping: 12, stiffness: 240}});
 					return (
 						<div
 							key={i}
 							style={{
 								fontFamily: FONT,
-								fontWeight: 900,
+								fontWeight: l.weight,
 								fontSize: l.size,
-								lineHeight: 1.05,
+								lineHeight: 1.08,
 								color: l.color,
-								letterSpacing: l.size > 100 ? -4 : 3,
-								textShadow: '0 10px 40px rgba(0,0,0,0.6)',
-								transform: `scale(${interpolate(s, [0, 1], [2.6, 1])})`,
-								opacity: s,
-								filter: `blur(${(1 - s) * 14}px)`,
+								letterSpacing: l.spacing,
+								textShadow: '0 8px 50px rgba(0,0,0,0.7)',
+								transform: `scale(${interpolate(s, [0, 1], [1.6, 1])})`,
+								opacity: frame >= l.at ? s : 0,
+								filter: `blur(${(1 - s) * 10}px)`,
 							}}
 						>
 							{l.text}
@@ -427,9 +318,10 @@ const SceneE: React.FC = () => {
 					);
 				})}
 			</AbsoluteFill>
-			<Flash at={D_END} len={10} />
-			<Flash at={D_END + BEAT} len={8} peak={0.5} />
-			<Flash at={D_END + BEAT * 2} len={8} peak={0.4} />
+			<Flash at={D_END} len={10} peak={0.8} />
+			{ERAS.slice(1).map((_, i) => (
+				<Flash key={i} at={D_END + BEAT * (i + 1)} len={6} peak={0.25} />
+			))}
 		</AbsoluteFill>
 	);
 };
@@ -437,7 +329,7 @@ const SceneE: React.FC = () => {
 export const ColdOpen: React.FC = () => {
 	const frame = useCurrentFrame();
 	const {durationInFrames} = useVideoConfig();
-	const fadeOut = interpolate(frame, [durationInFrames - 12, durationInFrames - 1], [0, 1], clamp);
+	const fadeOut = interpolate(frame, [durationInFrames - 14, durationInFrames - 1], [0, 1], clamp);
 	return (
 		<AbsoluteFill style={{background: 'black'}}>
 			{frame < A_END && <SceneA />}
@@ -445,8 +337,7 @@ export const ColdOpen: React.FC = () => {
 			{frame >= B_END && frame < C_END && <SceneC />}
 			{frame >= C_END && frame < D_END && <SceneD />}
 			{frame >= D_END && <SceneE />}
-			<Grain />
-			<Vignette strength={0.45} />
+			<Vignette strength={0.4} />
 			<AbsoluteFill style={{background: 'black', opacity: fadeOut}} />
 			<Audio src={staticFile('mix.wav')} />
 		</AbsoluteFill>

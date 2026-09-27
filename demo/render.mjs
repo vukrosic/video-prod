@@ -7,14 +7,16 @@ import {renderMedia, renderStill, selectComposition} from '@remotion/renderer';
 // Use CHROME_PATH, else the cloud container's pre-installed Chromium, else let Remotion download one (Mac).
 const containerChrome = '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell';
 const browserExecutable = process.env.CHROME_PATH ?? (fs.existsSync(containerChrome) ? containerChrome : null);
+// Shaders need WebGL: SwiftShader (CPU) works everywhere; the GPU path (angle) is faster on a Mac.
+const chromiumOptions = {gl: process.env.GL ?? (process.platform === 'darwin' ? 'angle' : 'swangle')};
 const args = Object.fromEntries(process.argv.slice(2).map((a) => a.replace(/^--/, '').split('=')));
 
 const serveUrl = await bundle({entryPoint: path.resolve('src/Root.tsx')});
-const composition = await selectComposition({serveUrl, id: 'ColdOpen', browserExecutable});
+const composition = await selectComposition({serveUrl, id: 'ColdOpen', browserExecutable, chromiumOptions});
 
 if (args.stills) {
 	for (const f of args.stills.split(',').map(Number)) {
-		await renderStill({composition, serveUrl, frame: f, output: `out/still-${f}.png`, browserExecutable});
+		await renderStill({composition, serveUrl, frame: f, output: `out/still-${f}.png`, browserExecutable, chromiumOptions});
 		console.log('still', f);
 	}
 } else {
@@ -27,6 +29,7 @@ if (args.stills) {
 		crf: 18,
 		outputLocation: 'out/cold-open.mp4',
 		browserExecutable,
+		chromiumOptions,
 		frameRange,
 		concurrency: 4,
 		onProgress: ({progress}) => {
