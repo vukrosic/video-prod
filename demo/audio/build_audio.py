@@ -31,6 +31,7 @@ LINES = {
     "air": "The air is so hot, it contains vaporized rock.",
     "breath": "You take one breath.",
     "visit": "That was your whole visit.",
+    "again": "Let's try again. A little later this time.",
 }
 
 
@@ -226,7 +227,8 @@ def main():
     INHALE_BEAT = nxt(starts["breath"], "breath")
     DEATH_BEAT = INHALE_BEAT + 2                     # timer stops, hiss, cut to black
     starts["visit"] = DEATH_BEAT + 2
-    TITLE_BEAT = nxt(starts["visit"], "visit", 1)   # title slam
+    starts["again"] = nxt(starts["visit"], "visit", 1)
+    TITLE_BEAT = nxt(starts["again"], "again", 1)   # title slam
     END_BEAT = TITLE_BEAT + 7
 
     total = END_BEAT * BEAT

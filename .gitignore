@@ -2,3 +2,5 @@ node_modules/
 demo/out/
 demo/public/mix.wav
 __pycache__/
+demo/audio/cache/
+demo/public/episode.wav

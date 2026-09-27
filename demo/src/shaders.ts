@@ -1,4 +1,4 @@
-// GLSL fragment shaders for the cold open. Coordinates: `uv` is y-up, centred, in units of frame height.
+// GLSL fragment shaders. Coordinates: `uv` is y-up, centred, in units of frame height.
 
 const NOISE = `
 float hash1(float n){ return fract(sin(n) * 43758.5453123); }
@@ -86,6 +86,7 @@ uniform float uImpact;  // seconds since impact (<0 before)
 uniform float uMode;    // 0 molten, 1 Hadean ocean, 2 snowball, 3 Carboniferous, 4 today
 uniform float uSpin;
 uniform float uNebula;
+uniform float uFreeze;  // 0..1 ice creeping from the poles to the equator
 ${NOISE}
 ${STARS}
 const vec3 SUN = normalize(vec3(-0.75, 0.45, 0.55));
@@ -117,6 +118,7 @@ vec3 terran(vec3 q, vec3 n, float sdiff, float mode){
 	float ice = mode > 1.5 && mode < 2.5 ? smoothstep(0.06, 0.14, lat + 0.25 * (fbm3(q * 5.0) - 0.5))
 	          : smoothstep(0.78, 0.86, lat + 0.08 * fbm3(q * 6.0));
 	if (mode < 1.5) ice = 0.0;
+	ice = max(ice, smoothstep(0.0, 0.08, lat - (1.0 - uFreeze) * 1.05 + 0.25 * (fbm3(q * 4.0) - 0.5)) * step(0.001, uFreeze));
 	vec3 iceCol = mix(vec3(0.55, 0.68, 0.8), vec3(0.85, 0.9, 0.95), fbm3(q * 8.0));
 	iceCol *= 1.0 - 0.35 * (1.0 - smoothstep(0.0, 0.05, voronoiEdge3(q * 6.0)));
 	surf = mix(surf, iceCol, ice);
@@ -342,6 +344,190 @@ void main(){
 	col += hazeCol * 0.35 * exp(-abs(hy) * 30.0);
 
 	col = mix(col, col * vec3(1.4, 0.35, 0.3), uHeat);
+	gl_FragColor = vec4(tonemap(col), 1.0);
+}
+`;
+
+/** A general outdoor scene for every era: sky (sun, giant moon, clouds, stars), distant mountains, and a
+ *  ground plane that is land near the camera and water beyond `uCoast` (rock, ice, grass or mud). */
+export const LANDSCAPE = `
+uniform float uHorizon, uCamH, uPan, uFogDist, uCoast, uLandType, uClouds, uStars, uWave, uLava, uSnow, uMtn, uHaze, uMoonSize, uSunSize, uDark;
+uniform vec3 uSkyTop, uSkyHor, uFog, uSunCol, uWater, uLand, uLand2, uCloudCol, uMtnCol, uLavaCol;
+uniform vec2 uSunPos, uMoonPos;
+${NOISE}
+vec3 skyAt(vec3 rd, vec3 sun){
+	float up = clamp(rd.y * 2.2, 0.0, 1.0);
+	vec3 c = mix(uSkyHor, uSkyTop, pow(up, 0.7));
+	float s = max(dot(rd, sun), 0.0);
+	c += uSunCol * (pow(s, 12.0) * 0.35 + pow(s, 200.0) * 0.6);
+	return c;
+}
+void main(){
+	vec2 uv = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
+	vec3 rd = normalize(vec3(uv.x, uv.y - uHorizon, 1.1));
+	vec3 sun = normalize(vec3(uSunPos.x, uSunPos.y - uHorizon, 1.1));
+	vec3 col;
+	float hy = uv.y - uHorizon;
+	if (hy >= 0.0){
+		col = skyAt(rd, sun);
+		// stars
+		if (uStars > 0.0){
+			vec2 g = uv * 90.0; vec2 id = floor(g); vec2 f = fract(g);
+			float h = hash2(id);
+			if (h > 0.93){ float d = length(f - hash22(id + 2.0)); col += vec3(0.9, 0.95, 1.0) * exp(-d * d * 400.0) * uStars * (0.5 + 0.5 * sin(uTime * 3.0 + h * 50.0)); }
+		}
+		// sun disc
+		float sd = length(uv - uSunPos);
+		if (uSunSize > 0.0){
+			col = mix(col, uSunCol * 2.2, smoothstep(uSunSize, uSunSize * 0.92, sd));
+			col += uSunCol * exp(-sd / (uSunSize * 3.0)) * 0.35;
+		}
+		// moon: cratered, lit from the sun's side
+		if (uMoonSize > 0.0){
+			vec2 md = (uv - uMoonPos) / uMoonSize;
+			float r2 = dot(md, md);
+			if (r2 < 1.0){
+				vec3 n = vec3(md, sqrt(1.0 - r2));
+				float mare = smoothstep(0.45, 0.62, fbm2(md * 1.6 + 3.0));
+				float cr = fbm2(md * 7.0);
+				vec3 alb = mix(vec3(0.78, 0.76, 0.72), vec3(0.42, 0.41, 0.42), mare) * (0.8 + 0.35 * cr);
+				vec3 L = normalize(vec3(uSunPos - uMoonPos, 0.35));
+				float lit = smoothstep(-0.05, 0.25, dot(n, L));
+				vec3 mc = alb * (0.06 + 1.1 * lit);
+				col = mix(col, mc + uSkyHor * 0.12, smoothstep(1.0, 0.985, sqrt(r2)));
+			}
+			col += vec3(0.8, 0.85, 1.0) * exp(-max(length(uv - uMoonPos) - uMoonSize, 0.0) / (uMoonSize * 0.25)) * 0.12;
+		}
+		// clouds (perspective layer)
+		if (uClouds > 0.0){
+			vec2 cp = vec2((uv.x + uPan * 0.03) / (hy + 0.12), 1.0 / (hy + 0.12)) * 0.45 + vec2(uTime * 0.02, 0.0);
+			vec2 wq = cp + vec2(fbm2(cp * 0.8), fbm2(cp * 0.8 + 4.0)) * 0.9;
+			float cl = fbm2(wq);
+			float dens = smoothstep(1.0 - uClouds * 0.75, 1.05 - uClouds * 0.45, cl) * smoothstep(0.0, 0.06, hy);
+			float litc = 0.55 + 0.45 * smoothstep(0.3, 0.8, fbm2(wq * 2.0 + 7.0));
+			col = mix(col, uCloudCol * litc, dens);
+		}
+		// distant mountains
+		if (uMtn > 0.0){
+			float x = uv.x + uPan * 0.1;
+			float r1 = 1.0 - abs(2.0 * noise2(vec2(x * 2.2, 1.0)) - 1.0);
+			float r2 = 1.0 - abs(2.0 * noise2(vec2(x * 5.5, 7.0)) - 1.0);
+			float m = uMtn * (0.012 + 0.11 * r1 * r1 + 0.035 * r2 * r2 + 0.01 * noise2(vec2(x * 30.0, 2.0)));
+			float m2 = uMtn * (0.01 + 0.06 * pow(1.0 - abs(2.0 * noise2(vec2(x * 3.3 + 5.0, 4.0)) - 1.0), 2.0));
+			if (hy < m){
+				float snowLine = m * 0.72 + 0.01 * noise2(vec2(x * 40.0, 0.0));
+				float snow = smoothstep(snowLine, snowLine + 0.006, hy) * step(0.5, uLandType) * step(uLandType, 2.5) * step(0.06, m);
+				float shade = 0.75 + 0.25 * noise2(vec2(x * 60.0, hy * 60.0));
+				vec3 mc = mix(uMtnCol * shade, vec3(0.86, 0.9, 0.95), snow * 0.85);
+				col = mix(mc, uFog, 0.55 + 0.3 * exp(-hy * 30.0));
+			}
+			if (hy < m2){
+				col = mix(uMtnCol * 0.8, uFog, 0.3 + 0.2 * exp(-hy * 40.0));
+			}
+		}
+		// lava glow along the horizon
+		col += uLavaCol * uLava * exp(-hy * 22.0) * 0.9;
+	} else {
+		float t = uCamH / -rd.y;
+		vec2 w = vec2(rd.x * t + uPan, rd.z * t);
+		float coast = uCoast + (fbm2(vec2(w.x * 0.15, 1.0)) - 0.5) * uCoast * 0.5;
+		vec3 ground;
+		if (w.y > coast){
+			// water: noise normal, reflects sky and sun
+			vec2 q = w * 0.9 + vec2(0.0, uTime * 0.25);
+			float e = 0.05;
+			float h0 = fbm2(q), hx = fbm2(q + vec2(e, 0.0)), hz = fbm2(q + vec2(0.0, e));
+			vec3 n = normalize(vec3((h0 - hx) * uWave * 6.0, 1.0, (h0 - hz) * uWave * 6.0));
+			vec3 rf = reflect(rd, n);
+			float fres = 0.04 + 0.96 * pow(1.0 - max(dot(-rd, n), 0.0), 5.0);
+			ground = mix(uWater, skyAt(rf, sun), fres * 0.9);
+			ground += uSunCol * pow(max(dot(rf, sun), 0.0), 300.0) * 3.0 * step(0.001, uSunSize);
+			float foam = smoothstep(0.25, 0.0, w.y - coast - 0.05 * sin(uTime * 1.3 + w.x)) * smoothstep(0.45, 0.7, fbm2(w * 2.5 + uTime * 0.4));
+			ground = mix(ground, vec3(0.85), foam * 0.55);
+		} else {
+			float n1 = fbm2(w * 0.7), n2 = fbm2(w * 3.5 + 5.0);
+			if (uLandType < 0.5){ // rock
+				ground = mix(uLand, uLand2, smoothstep(0.35, 0.7, n1)) * (0.6 + 0.7 * n2);
+			} else if (uLandType < 1.5){ // ice / snow drifts
+				float drift = fbm2(vec2(w.x * 0.4, w.y * 1.2));
+				ground = mix(uLand, uLand2, smoothstep(0.3, 0.7, drift)) * (0.92 + 0.12 * n2);
+			} else if (uLandType < 2.5){ // grass
+				float tufts = fbm2(w * 6.0 + 3.0);
+				ground = mix(uLand, uLand2, smoothstep(0.3, 0.75, n1)) * (0.75 + 0.3 * mix(0.5, tufts, exp(-t * 0.12)) + 0.2 * n2);
+			} else { // mud / cracked earth
+				float e = voronoiEdge2(w * 1.2);
+				ground = mix(uLand, uLand2, n1) * (0.75 + 0.35 * n2) * (0.55 + 0.45 * smoothstep(0.0, 0.06, e));
+			}
+			// wet sand band at the waterline
+			ground = mix(ground, ground * 0.6 + uWater * 0.3, smoothstep(coast - 0.6, coast, w.y) * step(uCoast, 900.0));
+		}
+		// lava glow reflects off the ground far away
+		ground += uLavaCol * uLava * exp(-t * 0.02) * 0.0;
+		col = mix(ground, uFog, 1.0 - exp(-t / uFogDist));
+		col += uLavaCol * uLava * exp(hy * 18.0) * 0.5;
+	}
+	// falling snow / ash
+	if (uSnow > 0.0){
+		for (int L = 0; L < 3; L++){
+			float fl = float(L);
+			float sc = 9.0 + fl * 7.0;
+			vec2 g = uv * sc + vec2(uTime * (1.2 + fl) + uPan, uTime * (1.6 - fl * 0.3) * sc * 0.05);
+			vec2 id = floor(g), f = fract(g);
+			float h = hash2(id + fl * 13.0);
+			if (h > 0.5){
+				float d = length(f - hash22(id + 4.0));
+				float sz = 0.03 + 0.04 * (1.0 - fl / 3.0);
+				col = mix(col, vec3(0.95), exp(-d * d / (sz * sz)) * uSnow * (0.8 - fl * 0.2));
+			}
+		}
+	}
+	col = mix(col, uFog, uHaze);
+	col *= 1.0 - uDark;
+	gl_FragColor = vec4(tonemap(col), 1.0);
+}
+`;
+
+/** Under the sea: light shafts, caustics on the seafloor, drifting particles. */
+export const UNDERWATER = `
+uniform vec3 uWaterCol, uDeepCol, uSandCol;
+uniform float uFloorY, uPan, uMurk;
+${NOISE}
+float caustic(vec2 p){
+	float c = 0.0;
+	for (int i = 0; i < 2; i++){
+		float fi = float(i);
+		c += pow(1.0 - smoothstep(0.0, 0.18, voronoiEdge2(p * (1.0 + fi * 0.7) + vec2(uTime * 0.35 * (1.0 + fi), uTime * 0.2))), 2.0);
+	}
+	return c * 0.5;
+}
+void main(){
+	vec2 uv = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
+	float depth = 0.5 - uv.y;
+	vec3 col = mix(uWaterCol, uDeepCol, smoothstep(0.0, 1.0, depth));
+	// light shafts from the surface
+	float x = uv.x + uv.y * 0.25 + uPan * 0.1;
+	float rays = pow(fbm2(vec2(x * 5.0, uTime * 0.15)), 3.0) * 2.5;
+	col += uWaterCol * rays * smoothstep(1.1, 0.0, depth) * 0.6;
+	// surface shimmer at the top
+	col += vec3(0.7, 0.95, 1.0) * smoothstep(0.44, 0.5, uv.y) * (0.4 + 0.6 * noise2(vec2(uv.x * 20.0 + uTime, uTime)));
+	// seafloor
+	if (uv.y < uFloorY){
+		float fy = uFloorY - uv.y;
+		vec2 w = vec2((uv.x + uPan * 0.5) / (fy + 0.08), 1.0 / (fy + 0.08));
+		float n = fbm2(w * 0.6);
+		vec3 sand = uSandCol * (0.7 + 0.5 * n);
+		sand += vec3(0.8, 1.0, 0.95) * caustic(w * 0.5) * 0.35 * smoothstep(0.0, 0.3, fy);
+		float fog = 1.0 - exp(-1.0 / (fy + 0.05) * 0.06);
+		col = mix(sand, col, clamp(fog + uMurk * 0.3, 0.0, 1.0));
+	}
+	// marine snow
+	for (int L = 0; L < 2; L++){
+		float fl = float(L);
+		vec2 g = uv * (14.0 + fl * 10.0) + vec2(uPan * 2.0, -uTime * 0.3);
+		vec2 id = floor(g), f = fract(g);
+		if (hash2(id + fl) > 0.8){ float d = length(f - hash22(id + 1.0)); col += vec3(0.8, 0.95, 1.0) * exp(-d * d * 300.0) * 0.25; }
+	}
+	col = mix(col, uDeepCol, uMurk * 0.4);
 	gl_FragColor = vec4(tonemap(col), 1.0);
 }
 `;

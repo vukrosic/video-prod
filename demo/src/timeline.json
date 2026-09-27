@@ -2,7 +2,7 @@
  "fps": 30,
  "bpm": 120,
  "beatFrames": 15,
- "durationFrames": 600,
+ "durationFrames": 690,
  "lines": [
   {
    "id": "wake",
@@ -215,6 +215,46 @@
      "f": 458
     }
    ]
+  },
+  {
+   "id": "again",
+   "text": "Let's try again. A little later this time.",
+   "from": 495,
+   "to": 570,
+   "words": [
+    {
+     "w": "Let's",
+     "f": 495
+    },
+    {
+     "w": "try",
+     "f": 502
+    },
+    {
+     "w": "again.",
+     "f": 510
+    },
+    {
+     "w": "A",
+     "f": 529
+    },
+    {
+     "w": "little",
+     "f": 532
+    },
+    {
+     "w": "later",
+     "f": 540
+    },
+    {
+     "w": "this",
+     "f": 549
+    },
+    {
+     "w": "time.",
+     "f": 555
+    }
+   ]
   }
  ],
  "events": {
@@ -222,6 +262,6 @@
   "surface": 225,
   "inhale": 375,
   "death": 405,
-  "title": 495
+  "title": 585
  }
 }

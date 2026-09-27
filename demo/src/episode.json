@@ -1,0 +1,7710 @@
+{
+ "fps": 30,
+ "durationFrames": 21395,
+ "sections": [
+  {
+   "id": "rules",
+   "from": 0,
+   "to": 864,
+   "lines": [
+    {
+     "id": "r1",
+     "text": "Here are the rules.",
+     "from": 36,
+     "to": 67,
+     "words": [
+      {
+       "w": "Here",
+       "f": 36
+      },
+      {
+       "w": "are",
+       "f": 42
+      },
+      {
+       "w": "the",
+       "f": 45
+      },
+      {
+       "w": "rules.",
+       "f": 48
+      }
+     ]
+    },
+    {
+     "id": "r2",
+     "text": "You show up in normal clothes, with no tools, no food, and no spacesuit.",
+     "from": 89,
+     "to": 216,
+     "words": [
+      {
+       "w": "You",
+       "f": 89
+      },
+      {
+       "w": "show",
+       "f": 92
+      },
+      {
+       "w": "up",
+       "f": 99
+      },
+      {
+       "w": "in",
+       "f": 104
+      },
+      {
+       "w": "normal",
+       "f": 107
+      },
+      {
+       "w": "clothes,",
+       "f": 117
+      },
+      {
+       "w": "with",
+       "f": 135
+      },
+      {
+       "w": "no",
+       "f": 140
+      },
+      {
+       "w": "tools,",
+       "f": 145
+      },
+      {
+       "w": "no",
+       "f": 167
+      },
+      {
+       "w": "food,",
+       "f": 176
+      },
+      {
+       "w": "and",
+       "f": 187
+      },
+      {
+       "w": "no",
+       "f": 191
+      },
+      {
+       "w": "spacesuit.",
+       "f": 196
+      }
+     ]
+    },
+    {
+     "id": "r3",
+     "text": "You arrive on land, or on the closest thing to land that exists.",
+     "from": 241,
+     "to": 357,
+     "words": [
+      {
+       "w": "You",
+       "f": 241
+      },
+      {
+       "w": "arrive",
+       "f": 246
+      },
+      {
+       "w": "on",
+       "f": 257
+      },
+      {
+       "w": "land,",
+       "f": 261
+      },
+      {
+       "w": "or",
+       "f": 284
+      },
+      {
+       "w": "on",
+       "f": 291
+      },
+      {
+       "w": "the",
+       "f": 295
+      },
+      {
+       "w": "closest",
+       "f": 298
+      },
+      {
+       "w": "thing",
+       "f": 312
+      },
+      {
+       "w": "to",
+       "f": 319
+      },
+      {
+       "w": "land",
+       "f": 323
+      },
+      {
+       "w": "that",
+       "f": 331
+      },
+      {
+       "w": "exists.",
+       "f": 335
+      }
+     ]
+    },
+    {
+     "id": "r4",
+     "text": "We start the clock when you arrive, and stop it when you die.",
+     "from": 382,
+     "to": 469,
+     "words": [
+      {
+       "w": "We",
+       "f": 382
+      },
+      {
+       "w": "start",
+       "f": 385
+      },
+      {
+       "w": "the",
+       "f": 392
+      },
+      {
+       "w": "clock",
+       "f": 395
+      },
+      {
+       "w": "when",
+       "f": 403
+      },
+      {
+       "w": "you",
+       "f": 407
+      },
+      {
+       "w": "arrive,",
+       "f": 410
+      },
+      {
+       "w": "and",
+       "f": 433
+      },
+      {
+       "w": "stop",
+       "f": 437
+      },
+      {
+       "w": "it",
+       "f": 445
+      },
+      {
+       "w": "when",
+       "f": 447
+      },
+      {
+       "w": "you",
+       "f": 452
+      },
+      {
+       "w": "die.",
+       "f": 456
+      }
+     ]
+    },
+    {
+     "id": "r5",
+     "text": "Earth has existed for four and a half billion years. You'd think a planet where humans evolved would be a pretty good place for humans, for most of that time.",
+     "from": 500,
+     "to": 773,
+     "words": [
+      {
+       "w": "Earth",
+       "f": 500
+      },
+      {
+       "w": "has",
+       "f": 509
+      },
+      {
+       "w": "existed",
+       "f": 514
+      },
+      {
+       "w": "for",
+       "f": 532
+      },
+      {
+       "w": "four",
+       "f": 538
+      },
+      {
+       "w": "and",
+       "f": 548
+      },
+      {
+       "w": "a",
+       "f": 551
+      },
+      {
+       "w": "half",
+       "f": 553
+      },
+      {
+       "w": "billion",
+       "f": 565
+      },
+      {
+       "w": "years.",
+       "f": 577
+      },
+      {
+       "w": "You'd",
+       "f": 606
+      },
+      {
+       "w": "think",
+       "f": 611
+      },
+      {
+       "w": "a",
+       "f": 616
+      },
+      {
+       "w": "planet",
+       "f": 619
+      },
+      {
+       "w": "where",
+       "f": 632
+      },
+      {
+       "w": "humans",
+       "f": 637
+      },
+      {
+       "w": "evolved",
+       "f": 650
+      },
+      {
+       "w": "would",
+       "f": 668
+      },
+      {
+       "w": "be",
+       "f": 672
+      },
+      {
+       "w": "a",
+       "f": 677
+      },
+      {
+       "w": "pretty",
+       "f": 680
+      },
+      {
+       "w": "good",
+       "f": 689
+      },
+      {
+       "w": "place",
+       "f": 696
+      },
+      {
+       "w": "for",
+       "f": 705
+      },
+      {
+       "w": "humans,",
+       "f": 709
+      },
+      {
+       "w": "for",
+       "f": 735
+      },
+      {
+       "w": "most",
+       "f": 739
+      },
+      {
+       "w": "of",
+       "f": 748
+      },
+      {
+       "w": "that",
+       "f": 750
+      },
+      {
+       "w": "time.",
+       "f": 758
+      }
+     ]
+    },
+    {
+     "id": "r6",
+     "text": "You would be wrong.",
+     "from": 807,
+     "to": 834,
+     "words": [
+      {
+       "w": "You",
+       "f": 808
+      },
+      {
+       "w": "would",
+       "f": 810
+      },
+      {
+       "w": "be",
+       "f": 813
+      },
+      {
+       "w": "wrong.",
+       "f": 818
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hadean",
+   "from": 864,
+   "to": 2756,
+   "lines": [
+    {
+     "id": "h1",
+     "text": "Half a billion years later, the magma has cooled. There's solid ground, and there are oceans. There's water.",
+     "from": 948,
+     "to": 1134,
+     "words": [
+      {
+       "w": "Half",
+       "f": 948
+      },
+      {
+       "w": "a",
+       "f": 953
+      },
+      {
+       "w": "billion",
+       "f": 955
+      },
+      {
+       "w": "years",
+       "f": 968
+      },
+      {
+       "w": "later,",
+       "f": 976
+      },
+      {
+       "w": "the",
+       "f": 987
+      },
+      {
+       "w": "magma",
+       "f": 990
+      },
+      {
+       "w": "has",
+       "f": 1002
+      },
+      {
+       "w": "cooled.",
+       "f": 1009
+      },
+      {
+       "w": "There's",
+       "f": 1036
+      },
+      {
+       "w": "solid",
+       "f": 1042
+      },
+      {
+       "w": "ground,",
+       "f": 1054
+      },
+      {
+       "w": "and",
+       "f": 1072
+      },
+      {
+       "w": "there",
+       "f": 1075
+      },
+      {
+       "w": "are",
+       "f": 1080
+      },
+      {
+       "w": "oceans.",
+       "f": 1084
+      },
+      {
+       "w": "There's",
+       "f": 1112
+      },
+      {
+       "w": "water.",
+       "f": 1119
+      }
+     ]
+    },
+    {
+     "id": "h2",
+     "text": "And look up: the Moon.",
+     "from": 1166,
+     "to": 1204,
+     "words": [
+      {
+       "w": "And",
+       "f": 1166
+      },
+      {
+       "w": "look",
+       "f": 1170
+      },
+      {
+       "w": "up:",
+       "f": 1176
+      },
+      {
+       "w": "the",
+       "f": 1186
+      },
+      {
+       "w": "Moon.",
+       "f": 1189
+      }
+     ]
+    },
+    {
+     "id": "h3",
+     "text": "It formed much closer to Earth, and has been drifting away ever since. Right now it looks several times bigger than the Moon you know.",
+     "from": 1244,
+     "to": 1472,
+     "words": [
+      {
+       "w": "It",
+       "f": 1244
+      },
+      {
+       "w": "formed",
+       "f": 1249
+      },
+      {
+       "w": "much",
+       "f": 1259
+      },
+      {
+       "w": "closer",
+       "f": 1266
+      },
+      {
+       "w": "to",
+       "f": 1278
+      },
+      {
+       "w": "Earth,",
+       "f": 1282
+      },
+      {
+       "w": "and",
+       "f": 1302
+      },
+      {
+       "w": "has",
+       "f": 1306
+      },
+      {
+       "w": "been",
+       "f": 1311
+      },
+      {
+       "w": "drifting",
+       "f": 1317
+      },
+      {
+       "w": "away",
+       "f": 1328
+      },
+      {
+       "w": "ever",
+       "f": 1339
+      },
+      {
+       "w": "since.",
+       "f": 1348
+      },
+      {
+       "w": "Right",
+       "f": 1378
+      },
+      {
+       "w": "now",
+       "f": 1386
+      },
+      {
+       "w": "it",
+       "f": 1400
+      },
+      {
+       "w": "looks",
+       "f": 1404
+      },
+      {
+       "w": "several",
+       "f": 1411
+      },
+      {
+       "w": "times",
+       "f": 1422
+      },
+      {
+       "w": "bigger",
+       "f": 1435
+      },
+      {
+       "w": "than",
+       "f": 1445
+      },
+      {
+       "w": "the",
+       "f": 1448
+      },
+      {
+       "w": "Moon",
+       "f": 1451
+      },
+      {
+       "w": "you",
+       "f": 1457
+      },
+      {
+       "w": "know.",
+       "f": 1460
+      }
+     ]
+    },
+    {
+     "id": "h4",
+     "text": "Its pull is so strong that the tides are enormous, and Earth spins so fast that a day lasts only a fraction of twenty-four hours.",
+     "from": 1501,
+     "to": 1742,
+     "words": [
+      {
+       "w": "Its",
+       "f": 1501
+      },
+      {
+       "w": "pull",
+       "f": 1506
+      },
+      {
+       "w": "is",
+       "f": 1514
+      },
+      {
+       "w": "so",
+       "f": 1519
+      },
+      {
+       "w": "strong",
+       "f": 1527
+      },
+      {
+       "w": "that",
+       "f": 1540
+      },
+      {
+       "w": "the",
+       "f": 1544
+      },
+      {
+       "w": "tides",
+       "f": 1547
+      },
+      {
+       "w": "are",
+       "f": 1559
+      },
+      {
+       "w": "enormous,",
+       "f": 1563
+      },
+      {
+       "w": "and",
+       "f": 1594
+      },
+      {
+       "w": "Earth",
+       "f": 1597
+      },
+      {
+       "w": "spins",
+       "f": 1606
+      },
+      {
+       "w": "so",
+       "f": 1622
+      },
+      {
+       "w": "fast",
+       "f": 1630
+      },
+      {
+       "w": "that",
+       "f": 1643
+      },
+      {
+       "w": "a",
+       "f": 1647
+      },
+      {
+       "w": "day",
+       "f": 1650
+      },
+      {
+       "w": "lasts",
+       "f": 1664
+      },
+      {
+       "w": "only",
+       "f": 1677
+      },
+      {
+       "w": "a",
+       "f": 1686
+      },
+      {
+       "w": "fraction",
+       "f": 1689
+      },
+      {
+       "w": "of",
+       "f": 1705
+      },
+      {
+       "w": "twenty-four",
+       "f": 1708
+      },
+      {
+       "w": "hours.",
+       "f": 1725
+      }
+     ]
+    },
+    {
+     "id": "h5",
+     "text": "It's beautiful. Enjoy it while you hold your breath, because there is no oxygen here. The air is mostly carbon dioxide and nitrogen, and it's thick and heavy.",
+     "from": 1774,
+     "to": 2061,
+     "words": [
+      {
+       "w": "It's",
+       "f": 1774
+      },
+      {
+       "w": "beautiful.",
+       "f": 1779
+      },
+      {
+       "w": "Enjoy",
+       "f": 1809
+      },
+      {
+       "w": "it",
+       "f": 1820
+      },
+      {
+       "w": "while",
+       "f": 1823
+      },
+      {
+       "w": "you",
+       "f": 1828
+      },
+      {
+       "w": "hold",
+       "f": 1832
+      },
+      {
+       "w": "your",
+       "f": 1839
+      },
+      {
+       "w": "breath,",
+       "f": 1843
+      },
+      {
+       "w": "because",
+       "f": 1857
+      },
+      {
+       "w": "there",
+       "f": 1867
+      },
+      {
+       "w": "is",
+       "f": 1871
+      },
+      {
+       "w": "no",
+       "f": 1876
+      },
+      {
+       "w": "oxygen",
+       "f": 1884
+      },
+      {
+       "w": "here.",
+       "f": 1901
+      },
+      {
+       "w": "The",
+       "f": 1926
+      },
+      {
+       "w": "air",
+       "f": 1931
+      },
+      {
+       "w": "is",
+       "f": 1939
+      },
+      {
+       "w": "mostly",
+       "f": 1944
+      },
+      {
+       "w": "carbon",
+       "f": 1958
+      },
+      {
+       "w": "dioxide",
+       "f": 1970
+      },
+      {
+       "w": "and",
+       "f": 1993
+      },
+      {
+       "w": "nitrogen,",
+       "f": 1997
+      },
+      {
+       "w": "and",
+       "f": 2023
+      },
+      {
+       "w": "it's",
+       "f": 2027
+      },
+      {
+       "w": "thick",
+       "f": 2034
+      },
+      {
+       "w": "and",
+       "f": 2043
+      },
+      {
+       "w": "heavy.",
+       "f": 2047
+      }
+     ]
+    },
+    {
+     "id": "h6",
+     "text": "You can hold your breath for maybe a minute. Then your body forces you to breathe.",
+     "from": 2090,
+     "to": 2214,
+     "words": [
+      {
+       "w": "You",
+       "f": 2090
+      },
+      {
+       "w": "can",
+       "f": 2092
+      },
+      {
+       "w": "hold",
+       "f": 2096
+      },
+      {
+       "w": "your",
+       "f": 2103
+      },
+      {
+       "w": "breath",
+       "f": 2106
+      },
+      {
+       "w": "for",
+       "f": 2116
+      },
+      {
+       "w": "maybe",
+       "f": 2120
+      },
+      {
+       "w": "a",
+       "f": 2129
+      },
+      {
+       "w": "minute.",
+       "f": 2131
+      },
+      {
+       "w": "Then",
+       "f": 2154
+      },
+      {
+       "w": "your",
+       "f": 2160
+      },
+      {
+       "w": "body",
+       "f": 2163
+      },
+      {
+       "w": "forces",
+       "f": 2175
+      },
+      {
+       "w": "you",
+       "f": 2188
+      },
+      {
+       "w": "to",
+       "f": 2193
+      },
+      {
+       "w": "breathe.",
+       "f": 2196
+      }
+     ]
+    },
+    {
+     "id": "h7",
+     "text": "When you breathe in air with no oxygen, it doesn't just fail to help you. It pulls oxygen out of your blood. You're unconscious within seconds.",
+     "from": 2236,
+     "to": 2487,
+     "words": [
+      {
+       "w": "When",
+       "f": 2236
+      },
+      {
+       "w": "you",
+       "f": 2239
+      },
+      {
+       "w": "breathe",
+       "f": 2243
+      },
+      {
+       "w": "in",
+       "f": 2254
+      },
+      {
+       "w": "air",
+       "f": 2258
+      },
+      {
+       "w": "with",
+       "f": 2267
+      },
+      {
+       "w": "no",
+       "f": 2272
+      },
+      {
+       "w": "oxygen,",
+       "f": 2279
+      },
+      {
+       "w": "it",
+       "f": 2306
+      },
+      {
+       "w": "doesn't",
+       "f": 2309
+      },
+      {
+       "w": "just",
+       "f": 2317
+      },
+      {
+       "w": "fail",
+       "f": 2325
+      },
+      {
+       "w": "to",
+       "f": 2335
+      },
+      {
+       "w": "help",
+       "f": 2338
+      },
+      {
+       "w": "you.",
+       "f": 2347
+      },
+      {
+       "w": "It",
+       "f": 2366
+      },
+      {
+       "w": "pulls",
+       "f": 2371
+      },
+      {
+       "w": "oxygen",
+       "f": 2381
+      },
+      {
+       "w": "out",
+       "f": 2398
+      },
+      {
+       "w": "of",
+       "f": 2402
+      },
+      {
+       "w": "your",
+       "f": 2404
+      },
+      {
+       "w": "blood.",
+       "f": 2407
+      },
+      {
+       "w": "You're",
+       "f": 2431
+      },
+      {
+       "w": "unconscious",
+       "f": 2436
+      },
+      {
+       "w": "within",
+       "f": 2458
+      },
+      {
+       "w": "seconds.",
+       "f": 2467
+      }
+     ]
+    },
+    {
+     "id": "h8",
+     "text": "Two minutes. That's a big improvement!",
+     "from": 2530,
+     "to": 2592,
+     "words": [
+      {
+       "w": "Two",
+       "f": 2530
+      },
+      {
+       "w": "minutes.",
+       "f": 2535
+      },
+      {
+       "w": "That's",
+       "f": 2553
+      },
+      {
+       "w": "a",
+       "f": 2562
+      },
+      {
+       "w": "big",
+       "f": 2564
+      },
+      {
+       "w": "improvement!",
+       "f": 2569
+      }
+     ]
+    },
+    {
+     "id": "h9",
+     "text": "It's also as good as it's going to get, for a very, very long time.",
+     "from": 2617,
+     "to": 2726,
+     "words": [
+      {
+       "w": "It's",
+       "f": 2617
+      },
+      {
+       "w": "also",
+       "f": 2620
+      },
+      {
+       "w": "as",
+       "f": 2630
+      },
+      {
+       "w": "good",
+       "f": 2635
+      },
+      {
+       "w": "as",
+       "f": 2639
+      },
+      {
+       "w": "it's",
+       "f": 2642
+      },
+      {
+       "w": "going",
+       "f": 2645
+      },
+      {
+       "w": "to",
+       "f": 2650
+      },
+      {
+       "w": "get,",
+       "f": 2653
+      },
+      {
+       "w": "for",
+       "f": 2672
+      },
+      {
+       "w": "a",
+       "f": 2675
+      },
+      {
+       "w": "very,",
+       "f": 2678
+      },
+      {
+       "w": "very",
+       "f": 2693
+      },
+      {
+       "w": "long",
+       "f": 2702
+      },
+      {
+       "w": "time.",
+       "f": 2711
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "archean",
+   "from": 2756,
+   "to": 3966,
+   "lines": [
+    {
+     "id": "a1",
+     "text": "Something has changed. There is life.",
+     "from": 2840,
+     "to": 2897,
+     "words": [
+      {
+       "w": "Something",
+       "f": 2841
+      },
+      {
+       "w": "has",
+       "f": 2850
+      },
+      {
+       "w": "changed.",
+       "f": 2856
+      },
+      {
+       "w": "There",
+       "f": 2877
+      },
+      {
+       "w": "is",
+       "f": 2881
+      },
+      {
+       "w": "life.",
+       "f": 2886
+      }
+     ]
+    },
+    {
+     "id": "a2",
+     "text": "These domes are cities of microbes, some of the first living things on Earth. You're looking at your extremely distant relatives.",
+     "from": 2926,
+     "to": 3145,
+     "words": [
+      {
+       "w": "These",
+       "f": 2926
+      },
+      {
+       "w": "domes",
+       "f": 2934
+      },
+      {
+       "w": "are",
+       "f": 2946
+      },
+      {
+       "w": "cities",
+       "f": 2952
+      },
+      {
+       "w": "of",
+       "f": 2963
+      },
+      {
+       "w": "microbes,",
+       "f": 2967
+      },
+      {
+       "w": "some",
+       "f": 2995
+      },
+      {
+       "w": "of",
+       "f": 2999
+      },
+      {
+       "w": "the",
+       "f": 3002
+      },
+      {
+       "w": "first",
+       "f": 3006
+      },
+      {
+       "w": "living",
+       "f": 3017
+      },
+      {
+       "w": "things",
+       "f": 3027
+      },
+      {
+       "w": "on",
+       "f": 3037
+      },
+      {
+       "w": "Earth.",
+       "f": 3042
+      },
+      {
+       "w": "You're",
+       "f": 3068
+      },
+      {
+       "w": "looking",
+       "f": 3073
+      },
+      {
+       "w": "at",
+       "f": 3083
+      },
+      {
+       "w": "your",
+       "f": 3086
+      },
+      {
+       "w": "extremely",
+       "f": 3089
+      },
+      {
+       "w": "distant",
+       "f": 3112
+      },
+      {
+       "w": "relatives.",
+       "f": 3123
+      }
+     ]
+    },
+    {
+     "id": "a3",
+     "text": "The Sun is weaker, only about three-quarters as bright as today.",
+     "from": 3177,
+     "to": 3286,
+     "words": [
+      {
+       "w": "The",
+       "f": 3177
+      },
+      {
+       "w": "Sun",
+       "f": 3179
+      },
+      {
+       "w": "is",
+       "f": 3187
+      },
+      {
+       "w": "weaker,",
+       "f": 3192
+      },
+      {
+       "w": "only",
+       "f": 3213
+      },
+      {
+       "w": "about",
+       "f": 3221
+      },
+      {
+       "w": "three-quarters",
+       "f": 3231
+      },
+      {
+       "w": "as",
+       "f": 3253
+      },
+      {
+       "w": "bright",
+       "f": 3258
+      },
+      {
+       "w": "as",
+       "f": 3268
+      },
+      {
+       "w": "today.",
+       "f": 3272
+      }
+     ]
+    },
+    {
+     "id": "a4",
+     "text": "Scientists still argue about why Earth wasn't frozen solid. The best guess is that huge amounts of greenhouse gases kept it warm. The sky may even have had an orange haze, from methane.",
+     "from": 3311,
+     "to": 3674,
+     "words": [
+      {
+       "w": "Scientists",
+       "f": 3312
+      },
+      {
+       "w": "still",
+       "f": 3334
+      },
+      {
+       "w": "argue",
+       "f": 3342
+      },
+      {
+       "w": "about",
+       "f": 3353
+      },
+      {
+       "w": "why",
+       "f": 3361
+      },
+      {
+       "w": "Earth",
+       "f": 3368
+      },
+      {
+       "w": "wasn't",
+       "f": 3378
+      },
+      {
+       "w": "frozen",
+       "f": 3388
+      },
+      {
+       "w": "solid.",
+       "f": 3403
+      },
+      {
+       "w": "The",
+       "f": 3432
+      },
+      {
+       "w": "best",
+       "f": 3436
+      },
+      {
+       "w": "guess",
+       "f": 3446
+      },
+      {
+       "w": "is",
+       "f": 3456
+      },
+      {
+       "w": "that",
+       "f": 3461
+      },
+      {
+       "w": "huge",
+       "f": 3469
+      },
+      {
+       "w": "amounts",
+       "f": 3481
+      },
+      {
+       "w": "of",
+       "f": 3494
+      },
+      {
+       "w": "greenhouse",
+       "f": 3498
+      },
+      {
+       "w": "gases",
+       "f": 3515
+      },
+      {
+       "w": "kept",
+       "f": 3531
+      },
+      {
+       "w": "it",
+       "f": 3539
+      },
+      {
+       "w": "warm.",
+       "f": 3544
+      },
+      {
+       "w": "The",
+       "f": 3575
+      },
+      {
+       "w": "sky",
+       "f": 3579
+      },
+      {
+       "w": "may",
+       "f": 3590
+      },
+      {
+       "w": "even",
+       "f": 3598
+      },
+      {
+       "w": "have",
+       "f": 3607
+      },
+      {
+       "w": "had",
+       "f": 3610
+      },
+      {
+       "w": "an",
+       "f": 3616
+      },
+      {
+       "w": "orange",
+       "f": 3619
+      },
+      {
+       "w": "haze,",
+       "f": 3630
+      },
+      {
+       "w": "from",
+       "f": 3650
+      },
+      {
+       "w": "methane.",
+       "f": 3656
+      }
+     ]
+    },
+    {
+     "id": "a5",
+     "text": "The one thing that hasn't changed is the air. There's still no oxygen.",
+     "from": 3706,
+     "to": 3822,
+     "words": [
+      {
+       "w": "The",
+       "f": 3706
+      },
+      {
+       "w": "one",
+       "f": 3708
+      },
+      {
+       "w": "thing",
+       "f": 3716
+      },
+      {
+       "w": "that",
+       "f": 3722
+      },
+      {
+       "w": "hasn't",
+       "f": 3726
+      },
+      {
+       "w": "changed",
+       "f": 3735
+      },
+      {
+       "w": "is",
+       "f": 3749
+      },
+      {
+       "w": "the",
+       "f": 3754
+      },
+      {
+       "w": "air.",
+       "f": 3758
+      },
+      {
+       "w": "There's",
+       "f": 3780
+      },
+      {
+       "w": "still",
+       "f": 3786
+      },
+      {
+       "w": "no",
+       "f": 3794
+      },
+      {
+       "w": "oxygen.",
+       "f": 3801
+      }
+     ]
+    },
+    {
+     "id": "a6",
+     "text": "Life is here, and it can't help you.",
+     "from": 3878,
+     "to": 3936,
+     "words": [
+      {
+       "w": "Life",
+       "f": 3879
+      },
+      {
+       "w": "is",
+       "f": 3887
+      },
+      {
+       "w": "here,",
+       "f": 3892
+      },
+      {
+       "w": "and",
+       "f": 3907
+      },
+      {
+       "w": "it",
+       "f": 3910
+      },
+      {
+       "w": "can't",
+       "f": 3913
+      },
+      {
+       "w": "help",
+       "f": 3919
+      },
+      {
+       "w": "you.",
+       "f": 3927
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "oxidation",
+   "from": 3966,
+   "to": 5851,
+   "lines": [
+    {
+     "id": "o1",
+     "text": "Then some microbes invented something new: photosynthesis that uses sunlight and water, and releases oxygen as waste.",
+     "from": 4050,
+     "to": 4280,
+     "words": [
+      {
+       "w": "Then",
+       "f": 4050
+      },
+      {
+       "w": "some",
+       "f": 4055
+      },
+      {
+       "w": "microbes",
+       "f": 4062
+      },
+      {
+       "w": "invented",
+       "f": 4080
+      },
+      {
+       "w": "something",
+       "f": 4095
+      },
+      {
+       "w": "new:",
+       "f": 4104
+      },
+      {
+       "w": "photosynthesis",
+       "f": 4128
+      },
+      {
+       "w": "that",
+       "f": 4158
+      },
+      {
+       "w": "uses",
+       "f": 4164
+      },
+      {
+       "w": "sunlight",
+       "f": 4176
+      },
+      {
+       "w": "and",
+       "f": 4191
+      },
+      {
+       "w": "water,",
+       "f": 4195
+      },
+      {
+       "w": "and",
+       "f": 4217
+      },
+      {
+       "w": "releases",
+       "f": 4221
+      },
+      {
+       "w": "oxygen",
+       "f": 4240
+      },
+      {
+       "w": "as",
+       "f": 4257
+      },
+      {
+       "w": "waste.",
+       "f": 4262
+      }
+     ]
+    },
+    {
+     "id": "o2",
+     "text": "For hundreds of millions of years, that oxygen got absorbed by iron in the oceans, which is why rocks from this time have bright red stripes of rust.",
+     "from": 4309,
+     "to": 4579,
+     "words": [
+      {
+       "w": "For",
+       "f": 4309
+      },
+      {
+       "w": "hundreds",
+       "f": 4311
+      },
+      {
+       "w": "of",
+       "f": 4324
+      },
+      {
+       "w": "millions",
+       "f": 4328
+      },
+      {
+       "w": "of",
+       "f": 4340
+      },
+      {
+       "w": "years,",
+       "f": 4343
+      },
+      {
+       "w": "that",
+       "f": 4367
+      },
+      {
+       "w": "oxygen",
+       "f": 4375
+      },
+      {
+       "w": "got",
+       "f": 4393
+      },
+      {
+       "w": "absorbed",
+       "f": 4399
+      },
+      {
+       "w": "by",
+       "f": 4416
+      },
+      {
+       "w": "iron",
+       "f": 4423
+      },
+      {
+       "w": "in",
+       "f": 4437
+      },
+      {
+       "w": "the",
+       "f": 4439
+      },
+      {
+       "w": "oceans,",
+       "f": 4443
+      },
+      {
+       "w": "which",
+       "f": 4474
+      },
+      {
+       "w": "is",
+       "f": 4480
+      },
+      {
+       "w": "why",
+       "f": 4485
+      },
+      {
+       "w": "rocks",
+       "f": 4493
+      },
+      {
+       "w": "from",
+       "f": 4504
+      },
+      {
+       "w": "this",
+       "f": 4508
+      },
+      {
+       "w": "time",
+       "f": 4513
+      },
+      {
+       "w": "have",
+       "f": 4524
+      },
+      {
+       "w": "bright",
+       "f": 4530
+      },
+      {
+       "w": "red",
+       "f": 4541
+      },
+      {
+       "w": "stripes",
+       "f": 4549
+      },
+      {
+       "w": "of",
+       "f": 4560
+      },
+      {
+       "w": "rust.",
+       "f": 4563
+      }
+     ]
+    },
+    {
+     "id": "o3",
+     "text": "Eventually the iron ran out, and oxygen started building up in the air.",
+     "from": 4601,
+     "to": 4725,
+     "words": [
+      {
+       "w": "Eventually",
+       "f": 4601
+      },
+      {
+       "w": "the",
+       "f": 4619
+      },
+      {
+       "w": "iron",
+       "f": 4624
+      },
+      {
+       "w": "ran",
+       "f": 4635
+      },
+      {
+       "w": "out,",
+       "f": 4643
+      },
+      {
+       "w": "and",
+       "f": 4661
+      },
+      {
+       "w": "oxygen",
+       "f": 4666
+      },
+      {
+       "w": "started",
+       "f": 4681
+      },
+      {
+       "w": "building",
+       "f": 4691
+      },
+      {
+       "w": "up",
+       "f": 4702
+      },
+      {
+       "w": "in",
+       "f": 4707
+      },
+      {
+       "w": "the",
+       "f": 4709
+      },
+      {
+       "w": "air.",
+       "f": 4714
+      }
+     ]
+    },
+    {
+     "id": "o4",
+     "text": "This was a disaster for most life on Earth. To the microbes that ruled the planet, oxygen was poison. It may be the first time life polluted its own planet.",
+     "from": 4754,
+     "to": 5053,
+     "words": [
+      {
+       "w": "This",
+       "f": 4754
+      },
+      {
+       "w": "was",
+       "f": 4759
+      },
+      {
+       "w": "a",
+       "f": 4764
+      },
+      {
+       "w": "disaster",
+       "f": 4766
+      },
+      {
+       "w": "for",
+       "f": 4786
+      },
+      {
+       "w": "most",
+       "f": 4791
+      },
+      {
+       "w": "life",
+       "f": 4802
+      },
+      {
+       "w": "on",
+       "f": 4811
+      },
+      {
+       "w": "Earth.",
+       "f": 4817
+      },
+      {
+       "w": "To",
+       "f": 4843
+      },
+      {
+       "w": "the",
+       "f": 4846
+      },
+      {
+       "w": "microbes",
+       "f": 4848
+      },
+      {
+       "w": "that",
+       "f": 4867
+      },
+      {
+       "w": "ruled",
+       "f": 4874
+      },
+      {
+       "w": "the",
+       "f": 4882
+      },
+      {
+       "w": "planet,",
+       "f": 4884
+      },
+      {
+       "w": "oxygen",
+       "f": 4907
+      },
+      {
+       "w": "was",
+       "f": 4925
+      },
+      {
+       "w": "poison.",
+       "f": 4931
+      },
+      {
+       "w": "It",
+       "f": 4962
+      },
+      {
+       "w": "may",
+       "f": 4968
+      },
+      {
+       "w": "be",
+       "f": 4973
+      },
+      {
+       "w": "the",
+       "f": 4977
+      },
+      {
+       "w": "first",
+       "f": 4982
+      },
+      {
+       "w": "time",
+       "f": 4991
+      },
+      {
+       "w": "life",
+       "f": 4999
+      },
+      {
+       "w": "polluted",
+       "f": 5009
+      },
+      {
+       "w": "its",
+       "f": 5023
+      },
+      {
+       "w": "own",
+       "f": 5028
+      },
+      {
+       "w": "planet.",
+       "f": 5036
+      }
+     ]
+    },
+    {
+     "id": "o5",
+     "text": "For you, it's great news. There's oxygen!",
+     "from": 5085,
+     "to": 5156,
+     "words": [
+      {
+       "w": "For",
+       "f": 5085
+      },
+      {
+       "w": "you,",
+       "f": 5087
+      },
+      {
+       "w": "it's",
+       "f": 5095
+      },
+      {
+       "w": "great",
+       "f": 5101
+      },
+      {
+       "w": "news.",
+       "f": 5108
+      },
+      {
+       "w": "There's",
+       "f": 5128
+      },
+      {
+       "w": "oxygen!",
+       "f": 5135
+      }
+     ]
+    },
+    {
+     "id": "o6",
+     "text": "A tiny amount of oxygen. Probably somewhere around one to ten percent of today's level.",
+     "from": 5194,
+     "to": 5359,
+     "words": [
+      {
+       "w": "A",
+       "f": 5194
+      },
+      {
+       "w": "tiny",
+       "f": 5196
+      },
+      {
+       "w": "amount",
+       "f": 5210
+      },
+      {
+       "w": "of",
+       "f": 5220
+      },
+      {
+       "w": "oxygen.",
+       "f": 5223
+      },
+      {
+       "w": "Probably",
+       "f": 5256
+      },
+      {
+       "w": "somewhere",
+       "f": 5272
+      },
+      {
+       "w": "around",
+       "f": 5288
+      },
+      {
+       "w": "one",
+       "f": 5298
+      },
+      {
+       "w": "to",
+       "f": 5306
+      },
+      {
+       "w": "ten",
+       "f": 5310
+      },
+      {
+       "w": "percent",
+       "f": 5318
+      },
+      {
+       "w": "of",
+       "f": 5332
+      },
+      {
+       "w": "today's",
+       "f": 5335
+      },
+      {
+       "w": "level.",
+       "f": 5346
+      }
+     ]
+    },
+    {
+     "id": "o7",
+     "text": "Even on the summit of Mount Everest, you get roughly the equivalent of seven percent oxygen, and most people need extra oxygen to survive there. This is far below that.",
+     "from": 5388,
+     "to": 5704,
+     "words": [
+      {
+       "w": "Even",
+       "f": 5388
+      },
+      {
+       "w": "on",
+       "f": 5396
+      },
+      {
+       "w": "the",
+       "f": 5400
+      },
+      {
+       "w": "summit",
+       "f": 5403
+      },
+      {
+       "w": "of",
+       "f": 5415
+      },
+      {
+       "w": "Mount",
+       "f": 5418
+      },
+      {
+       "w": "Everest,",
+       "f": 5426
+      },
+      {
+       "w": "you",
+       "f": 5452
+      },
+      {
+       "w": "get",
+       "f": 5455
+      },
+      {
+       "w": "roughly",
+       "f": 5462
+      },
+      {
+       "w": "the",
+       "f": 5475
+      },
+      {
+       "w": "equivalent",
+       "f": 5480
+      },
+      {
+       "w": "of",
+       "f": 5497
+      },
+      {
+       "w": "seven",
+       "f": 5503
+      },
+      {
+       "w": "percent",
+       "f": 5514
+      },
+      {
+       "w": "oxygen,",
+       "f": 5525
+      },
+      {
+       "w": "and",
+       "f": 5554
+      },
+      {
+       "w": "most",
+       "f": 5558
+      },
+      {
+       "w": "people",
+       "f": 5568
+      },
+      {
+       "w": "need",
+       "f": 5578
+      },
+      {
+       "w": "extra",
+       "f": 5585
+      },
+      {
+       "w": "oxygen",
+       "f": 5598
+      },
+      {
+       "w": "to",
+       "f": 5614
+      },
+      {
+       "w": "survive",
+       "f": 5618
+      },
+      {
+       "w": "there.",
+       "f": 5634
+      },
+      {
+       "w": "This",
+       "f": 5661
+      },
+      {
+       "w": "is",
+       "f": 5669
+      },
+      {
+       "w": "far",
+       "f": 5675
+      },
+      {
+       "w": "below",
+       "f": 5684
+      },
+      {
+       "w": "that.",
+       "f": 5694
+      }
+     ]
+    },
+    {
+     "id": "o8",
+     "text": "A few more seconds, maybe. That's all.",
+     "from": 5756,
+     "to": 5821,
+     "words": [
+      {
+       "w": "A",
+       "f": 5756
+      },
+      {
+       "w": "few",
+       "f": 5759
+      },
+      {
+       "w": "more",
+       "f": 5766
+      },
+      {
+       "w": "seconds,",
+       "f": 5773
+      },
+      {
+       "w": "maybe.",
+       "f": 5784
+      },
+      {
+       "w": "That's",
+       "f": 5801
+      },
+      {
+       "w": "all.",
+       "f": 5809
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "boring",
+   "from": 5851,
+   "to": 7229,
+   "lines": [
+    {
+     "id": "b1",
+     "text": "What comes next is a period geologists call, quite literally, the Boring Billion.",
+     "from": 5935,
+     "to": 6077,
+     "words": [
+      {
+       "w": "What",
+       "f": 5935
+      },
+      {
+       "w": "comes",
+       "f": 5938
+      },
+      {
+       "w": "next",
+       "f": 5946
+      },
+      {
+       "w": "is",
+       "f": 5956
+      },
+      {
+       "w": "a",
+       "f": 5960
+      },
+      {
+       "w": "period",
+       "f": 5962
+      },
+      {
+       "w": "geologists",
+       "f": 5974
+      },
+      {
+       "w": "call,",
+       "f": 5994
+      },
+      {
+       "w": "quite",
+       "f": 6014
+      },
+      {
+       "w": "literally,",
+       "f": 6023
+      },
+      {
+       "w": "the",
+       "f": 6045
+      },
+      {
+       "w": "Boring",
+       "f": 6048
+      },
+      {
+       "w": "Billion.",
+       "f": 6060
+      }
+     ]
+    },
+    {
+     "id": "b2",
+     "text": "For about a billion years, almost nothing happens. Oxygen stays low. Life stays mostly microscopic.",
+     "from": 6102,
+     "to": 6300,
+     "words": [
+      {
+       "w": "For",
+       "f": 6102
+      },
+      {
+       "w": "about",
+       "f": 6104
+      },
+      {
+       "w": "a",
+       "f": 6110
+      },
+      {
+       "w": "billion",
+       "f": 6113
+      },
+      {
+       "w": "years,",
+       "f": 6126
+      },
+      {
+       "w": "almost",
+       "f": 6139
+      },
+      {
+       "w": "nothing",
+       "f": 6150
+      },
+      {
+       "w": "happens.",
+       "f": 6160
+      },
+      {
+       "w": "Oxygen",
+       "f": 6188
+      },
+      {
+       "w": "stays",
+       "f": 6204
+      },
+      {
+       "w": "low.",
+       "f": 6216
+      },
+      {
+       "w": "Life",
+       "f": 6238
+      },
+      {
+       "w": "stays",
+       "f": 6247
+      },
+      {
+       "w": "mostly",
+       "f": 6260
+      },
+      {
+       "w": "microscopic.",
+       "f": 6273
+      }
+     ]
+    },
+    {
+     "id": "b3",
+     "text": "The biggest change is that days slowly get longer, as the Moon drifts away. One point four billion years ago, a day lasted about eighteen hours.",
+     "from": 6329,
+     "to": 6597,
+     "words": [
+      {
+       "w": "The",
+       "f": 6329
+      },
+      {
+       "w": "biggest",
+       "f": 6330
+      },
+      {
+       "w": "change",
+       "f": 6340
+      },
+      {
+       "w": "is",
+       "f": 6352
+      },
+      {
+       "w": "that",
+       "f": 6355
+      },
+      {
+       "w": "days",
+       "f": 6361
+      },
+      {
+       "w": "slowly",
+       "f": 6371
+      },
+      {
+       "w": "get",
+       "f": 6384
+      },
+      {
+       "w": "longer,",
+       "f": 6389
+      },
+      {
+       "w": "as",
+       "f": 6411
+      },
+      {
+       "w": "the",
+       "f": 6416
+      },
+      {
+       "w": "Moon",
+       "f": 6418
+      },
+      {
+       "w": "drifts",
+       "f": 6427
+      },
+      {
+       "w": "away.",
+       "f": 6436
+      },
+      {
+       "w": "One",
+       "f": 6467
+      },
+      {
+       "w": "point",
+       "f": 6475
+      },
+      {
+       "w": "four",
+       "f": 6486
+      },
+      {
+       "w": "billion",
+       "f": 6495
+      },
+      {
+       "w": "years",
+       "f": 6507
+      },
+      {
+       "w": "ago,",
+       "f": 6513
+      },
+      {
+       "w": "a",
+       "f": 6532
+      },
+      {
+       "w": "day",
+       "f": 6535
+      },
+      {
+       "w": "lasted",
+       "f": 6544
+      },
+      {
+       "w": "about",
+       "f": 6555
+      },
+      {
+       "w": "eighteen",
+       "f": 6564
+      },
+      {
+       "w": "hours.",
+       "f": 6579
+      }
+     ]
+    },
+    {
+     "id": "b4",
+     "text": "Let's step back and look at the whole picture.",
+     "from": 6629,
+     "to": 6692,
+     "words": [
+      {
+       "w": "Let's",
+       "f": 6629
+      },
+      {
+       "w": "step",
+       "f": 6636
+      },
+      {
+       "w": "back",
+       "f": 6644
+      },
+      {
+       "w": "and",
+       "f": 6653
+      },
+      {
+       "w": "look",
+       "f": 6657
+      },
+      {
+       "w": "at",
+       "f": 6663
+      },
+      {
+       "w": "the",
+       "f": 6665
+      },
+      {
+       "w": "whole",
+       "f": 6668
+      },
+      {
+       "w": "picture.",
+       "f": 6674
+      }
+     ]
+    },
+    {
+     "id": "b5",
+     "text": "Out of Earth's four and a half billion years, you'd suffocate within minutes for about four billion of them.",
+     "from": 6736,
+     "to": 6902,
+     "words": [
+      {
+       "w": "Out",
+       "f": 6736
+      },
+      {
+       "w": "of",
+       "f": 6740
+      },
+      {
+       "w": "Earth's",
+       "f": 6743
+      },
+      {
+       "w": "four",
+       "f": 6755
+      },
+      {
+       "w": "and",
+       "f": 6763
+      },
+      {
+       "w": "a",
+       "f": 6766
+      },
+      {
+       "w": "half",
+       "f": 6768
+      },
+      {
+       "w": "billion",
+       "f": 6776
+      },
+      {
+       "w": "years,",
+       "f": 6786
+      },
+      {
+       "w": "you'd",
+       "f": 6809
+      },
+      {
+       "w": "suffocate",
+       "f": 6816
+      },
+      {
+       "w": "within",
+       "f": 6831
+      },
+      {
+       "w": "minutes",
+       "f": 6840
+      },
+      {
+       "w": "for",
+       "f": 6851
+      },
+      {
+       "w": "about",
+       "f": 6855
+      },
+      {
+       "w": "four",
+       "f": 6865
+      },
+      {
+       "w": "billion",
+       "f": 6876
+      },
+      {
+       "w": "of",
+       "f": 6887
+      },
+      {
+       "w": "them.",
+       "f": 6891
+      }
+     ]
+    },
+    {
+     "id": "b6",
+     "text": "For almost ninety percent of Earth's history, this planet would kill you before you finished reading this sentence.",
+     "from": 6927,
+     "to": 7106,
+     "words": [
+      {
+       "w": "For",
+       "f": 6927
+      },
+      {
+       "w": "almost",
+       "f": 6930
+      },
+      {
+       "w": "ninety",
+       "f": 6946
+      },
+      {
+       "w": "percent",
+       "f": 6958
+      },
+      {
+       "w": "of",
+       "f": 6968
+      },
+      {
+       "w": "Earth's",
+       "f": 6970
+      },
+      {
+       "w": "history,",
+       "f": 6979
+      },
+      {
+       "w": "this",
+       "f": 7006
+      },
+      {
+       "w": "planet",
+       "f": 7013
+      },
+      {
+       "w": "would",
+       "f": 7025
+      },
+      {
+       "w": "kill",
+       "f": 7031
+      },
+      {
+       "w": "you",
+       "f": 7039
+      },
+      {
+       "w": "before",
+       "f": 7044
+      },
+      {
+       "w": "you",
+       "f": 7054
+      },
+      {
+       "w": "finished",
+       "f": 7059
+      },
+      {
+       "w": "reading",
+       "f": 7073
+      },
+      {
+       "w": "this",
+       "f": 7082
+      },
+      {
+       "w": "sentence.",
+       "f": 7087
+      }
+     ]
+    },
+    {
+     "id": "b7",
+     "text": "But things are about to get dramatic.",
+     "from": 7144,
+     "to": 7199,
+     "words": [
+      {
+       "w": "But",
+       "f": 7144
+      },
+      {
+       "w": "things",
+       "f": 7147
+      },
+      {
+       "w": "are",
+       "f": 7157
+      },
+      {
+       "w": "about",
+       "f": 7160
+      },
+      {
+       "w": "to",
+       "f": 7169
+      },
+      {
+       "w": "get",
+       "f": 7172
+      },
+      {
+       "w": "dramatic.",
+       "f": 7177
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "snowball",
+   "from": 7229,
+   "to": 8557,
+   "lines": [
+    {
+     "id": "s1",
+     "text": "Six hundred and fifty million years ago, Earth froze.",
+     "from": 7313,
+     "to": 7409,
+     "words": [
+      {
+       "w": "Six",
+       "f": 7313
+      },
+      {
+       "w": "hundred",
+       "f": 7320
+      },
+      {
+       "w": "and",
+       "f": 7336
+      },
+      {
+       "w": "fifty",
+       "f": 7340
+      },
+      {
+       "w": "million",
+       "f": 7349
+      },
+      {
+       "w": "years",
+       "f": 7360
+      },
+      {
+       "w": "ago,",
+       "f": 7366
+      },
+      {
+       "w": "Earth",
+       "f": 7382
+      },
+      {
+       "w": "froze.",
+       "f": 7390
+      }
+     ]
+    },
+    {
+     "id": "s2",
+     "text": "Ice sheets may have reached all the way to the equator. From space, the planet would look like a giant snowball, and that's exactly what scientists call it: Snowball Earth.",
+     "from": 7440,
+     "to": 7745,
+     "words": [
+      {
+       "w": "Ice",
+       "f": 7440
+      },
+      {
+       "w": "sheets",
+       "f": 7447
+      },
+      {
+       "w": "may",
+       "f": 7458
+      },
+      {
+       "w": "have",
+       "f": 7462
+      },
+      {
+       "w": "reached",
+       "f": 7466
+      },
+      {
+       "w": "all",
+       "f": 7477
+      },
+      {
+       "w": "the",
+       "f": 7485
+      },
+      {
+       "w": "way",
+       "f": 7487
+      },
+      {
+       "w": "to",
+       "f": 7493
+      },
+      {
+       "w": "the",
+       "f": 7496
+      },
+      {
+       "w": "equator.",
+       "f": 7500
+      },
+      {
+       "w": "From",
+       "f": 7529
+      },
+      {
+       "w": "space,",
+       "f": 7536
+      },
+      {
+       "w": "the",
+       "f": 7559
+      },
+      {
+       "w": "planet",
+       "f": 7562
+      },
+      {
+       "w": "would",
+       "f": 7573
+      },
+      {
+       "w": "look",
+       "f": 7578
+      },
+      {
+       "w": "like",
+       "f": 7585
+      },
+      {
+       "w": "a",
+       "f": 7590
+      },
+      {
+       "w": "giant",
+       "f": 7594
+      },
+      {
+       "w": "snowball,",
+       "f": 7607
+      },
+      {
+       "w": "and",
+       "f": 7634
+      },
+      {
+       "w": "that's",
+       "f": 7637
+      },
+      {
+       "w": "exactly",
+       "f": 7646
+      },
+      {
+       "w": "what",
+       "f": 7664
+      },
+      {
+       "w": "scientists",
+       "f": 7671
+      },
+      {
+       "w": "call",
+       "f": 7691
+      },
+      {
+       "w": "it:",
+       "f": 7697
+      },
+      {
+       "w": "Snowball",
+       "f": 7718
+      },
+      {
+       "w": "Earth.",
+       "f": 7735
+      }
+     ]
+    },
+    {
+     "id": "s3",
+     "text": "Oxygen was rising around this time, but probably not enough yet. You'd still suffocate in minutes.",
+     "from": 7783,
+     "to": 7959,
+     "words": [
+      {
+       "w": "Oxygen",
+       "f": 7783
+      },
+      {
+       "w": "was",
+       "f": 7799
+      },
+      {
+       "w": "rising",
+       "f": 7805
+      },
+      {
+       "w": "around",
+       "f": 7818
+      },
+      {
+       "w": "this",
+       "f": 7828
+      },
+      {
+       "w": "time,",
+       "f": 7832
+      },
+      {
+       "w": "but",
+       "f": 7848
+      },
+      {
+       "w": "probably",
+       "f": 7853
+      },
+      {
+       "w": "not",
+       "f": 7868
+      },
+      {
+       "w": "enough",
+       "f": 7873
+      },
+      {
+       "w": "yet.",
+       "f": 7882
+      },
+      {
+       "w": "You'd",
+       "f": 7906
+      },
+      {
+       "w": "still",
+       "f": 7912
+      },
+      {
+       "w": "suffocate",
+       "f": 7921
+      },
+      {
+       "w": "in",
+       "f": 7938
+      },
+      {
+       "w": "minutes.",
+       "f": 7942
+      }
+     ]
+    },
+    {
+     "id": "s4",
+     "text": "And even if someone handed you an oxygen tank, your t-shirt would lose to the cold. With temperatures far below freezing and no shelter, you'd freeze to death within hours.",
+     "from": 7987,
+     "to": 8296,
+     "words": [
+      {
+       "w": "And",
+       "f": 7987
+      },
+      {
+       "w": "even",
+       "f": 7990
+      },
+      {
+       "w": "if",
+       "f": 7999
+      },
+      {
+       "w": "someone",
+       "f": 8004
+      },
+      {
+       "w": "handed",
+       "f": 8013
+      },
+      {
+       "w": "you",
+       "f": 8025
+      },
+      {
+       "w": "an",
+       "f": 8029
+      },
+      {
+       "w": "oxygen",
+       "f": 8033
+      },
+      {
+       "w": "tank,",
+       "f": 8048
+      },
+      {
+       "w": "your",
+       "f": 8068
+      },
+      {
+       "w": "t-shirt",
+       "f": 8074
+      },
+      {
+       "w": "would",
+       "f": 8090
+      },
+      {
+       "w": "lose",
+       "f": 8095
+      },
+      {
+       "w": "to",
+       "f": 8104
+      },
+      {
+       "w": "the",
+       "f": 8107
+      },
+      {
+       "w": "cold.",
+       "f": 8109
+      },
+      {
+       "w": "With",
+       "f": 8140
+      },
+      {
+       "w": "temperatures",
+       "f": 8146
+      },
+      {
+       "w": "far",
+       "f": 8166
+      },
+      {
+       "w": "below",
+       "f": 8175
+      },
+      {
+       "w": "freezing",
+       "f": 8187
+      },
+      {
+       "w": "and",
+       "f": 8202
+      },
+      {
+       "w": "no",
+       "f": 8206
+      },
+      {
+       "w": "shelter,",
+       "f": 8212
+      },
+      {
+       "w": "you'd",
+       "f": 8235
+      },
+      {
+       "w": "freeze",
+       "f": 8242
+      },
+      {
+       "w": "to",
+       "f": 8253
+      },
+      {
+       "w": "death",
+       "f": 8257
+      },
+      {
+       "w": "within",
+       "f": 8267
+      },
+      {
+       "w": "hours.",
+       "f": 8276
+      }
+     ]
+    },
+    {
+     "id": "s5",
+     "text": "Still, something important happened in this frozen world. When the ice finally melted, life exploded.",
+     "from": 8345,
+     "to": 8527,
+     "words": [
+      {
+       "w": "Still,",
+       "f": 8346
+      },
+      {
+       "w": "something",
+       "f": 8356
+      },
+      {
+       "w": "important",
+       "f": 8366
+      },
+      {
+       "w": "happened",
+       "f": 8381
+      },
+      {
+       "w": "in",
+       "f": 8393
+      },
+      {
+       "w": "this",
+       "f": 8395
+      },
+      {
+       "w": "frozen",
+       "f": 8400
+      },
+      {
+       "w": "world.",
+       "f": 8413
+      },
+      {
+       "w": "When",
+       "f": 8440
+      },
+      {
+       "w": "the",
+       "f": 8444
+      },
+      {
+       "w": "ice",
+       "f": 8448
+      },
+      {
+       "w": "finally",
+       "f": 8459
+      },
+      {
+       "w": "melted,",
+       "f": 8472
+      },
+      {
+       "w": "life",
+       "f": 8495
+      },
+      {
+       "w": "exploded.",
+       "f": 8505
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cambrian",
+   "from": 8557,
+   "to": 11163,
+   "lines": [
+    {
+     "id": "c1",
+     "text": "Five hundred and twenty million years ago. You arrive, take a breath, and wait.",
+     "from": 8641,
+     "to": 8774,
+     "words": [
+      {
+       "w": "Five",
+       "f": 8641
+      },
+      {
+       "w": "hundred",
+       "f": 8648
+      },
+      {
+       "w": "and",
+       "f": 8659
+      },
+      {
+       "w": "twenty",
+       "f": 8663
+      },
+      {
+       "w": "million",
+       "f": 8673
+      },
+      {
+       "w": "years",
+       "f": 8682
+      },
+      {
+       "w": "ago.",
+       "f": 8688
+      },
+      {
+       "w": "You",
+       "f": 8710
+      },
+      {
+       "w": "arrive,",
+       "f": 8715
+      },
+      {
+       "w": "take",
+       "f": 8735
+      },
+      {
+       "w": "a",
+       "f": 8740
+      },
+      {
+       "w": "breath,",
+       "f": 8742
+      },
+      {
+       "w": "and",
+       "f": 8754
+      },
+      {
+       "w": "wait.",
+       "f": 8758
+      }
+     ]
+    },
+    {
+     "id": "c2",
+     "text": "Three minutes.",
+     "from": 8818,
+     "to": 8844,
+     "words": [
+      {
+       "w": "Three",
+       "f": 8819
+      },
+      {
+       "w": "minutes.",
+       "f": 8826
+      }
+     ]
+    },
+    {
+     "id": "c3",
+     "text": "Four.",
+     "from": 8878,
+     "to": 8894,
+     "words": [
+      {
+       "w": "Four.",
+       "f": 8880
+      }
+     ]
+    },
+    {
+     "id": "c4",
+     "text": "Five.",
+     "from": 8928,
+     "to": 8947,
+     "words": [
+      {
+       "w": "Five.",
+       "f": 8929
+      }
+     ]
+    },
+    {
+     "id": "c5",
+     "text": "You're breathing.",
+     "from": 8996,
+     "to": 9020,
+     "words": [
+      {
+       "w": "You're",
+       "f": 8996
+      },
+      {
+       "w": "breathing.",
+       "f": 9001
+      }
+     ]
+    },
+    {
+     "id": "c6",
+     "text": "The air is probably still thinner than today's. It might feel like standing on a high mountain: dizzy, short of breath, with a headache. Scientists are still debating exactly how much oxygen there was.",
+     "from": 9063,
+     "to": 9425,
+     "words": [
+      {
+       "w": "The",
+       "f": 9063
+      },
+      {
+       "w": "air",
+       "f": 9066
+      },
+      {
+       "w": "is",
+       "f": 9073
+      },
+      {
+       "w": "probably",
+       "f": 9078
+      },
+      {
+       "w": "still",
+       "f": 9092
+      },
+      {
+       "w": "thinner",
+       "f": 9102
+      },
+      {
+       "w": "than",
+       "f": 9113
+      },
+      {
+       "w": "today's.",
+       "f": 9117
+      },
+      {
+       "w": "It",
+       "f": 9147
+      },
+      {
+       "w": "might",
+       "f": 9151
+      },
+      {
+       "w": "feel",
+       "f": 9158
+      },
+      {
+       "w": "like",
+       "f": 9165
+      },
+      {
+       "w": "standing",
+       "f": 9172
+      },
+      {
+       "w": "on",
+       "f": 9185
+      },
+      {
+       "w": "a",
+       "f": 9188
+      },
+      {
+       "w": "high",
+       "f": 9192
+      },
+      {
+       "w": "mountain:",
+       "f": 9200
+      },
+      {
+       "w": "dizzy,",
+       "f": 9225
+      },
+      {
+       "w": "short",
+       "f": 9246
+      },
+      {
+       "w": "of",
+       "f": 9252
+      },
+      {
+       "w": "breath,",
+       "f": 9256
+      },
+      {
+       "w": "with",
+       "f": 9273
+      },
+      {
+       "w": "a",
+       "f": 9277
+      },
+      {
+       "w": "headache.",
+       "f": 9279
+      },
+      {
+       "w": "Scientists",
+       "f": 9311
+      },
+      {
+       "w": "are",
+       "f": 9331
+      },
+      {
+       "w": "still",
+       "f": 9334
+      },
+      {
+       "w": "debating",
+       "f": 9342
+      },
+      {
+       "w": "exactly",
+       "f": 9358
+      },
+      {
+       "w": "how",
+       "f": 9378
+      },
+      {
+       "w": "much",
+       "f": 9384
+      },
+      {
+       "w": "oxygen",
+       "f": 9391
+      },
+      {
+       "w": "there",
+       "f": 9405
+      },
+      {
+       "w": "was.",
+       "f": 9410
+      }
+     ]
+    },
+    {
+     "id": "c7",
+     "text": "But for the first time in this video, you're alive.",
+     "from": 9450,
+     "to": 9523,
+     "words": [
+      {
+       "w": "But",
+       "f": 9450
+      },
+      {
+       "w": "for",
+       "f": 9453
+      },
+      {
+       "w": "the",
+       "f": 9456
+      },
+      {
+       "w": "first",
+       "f": 9459
+      },
+      {
+       "w": "time",
+       "f": 9467
+      },
+      {
+       "w": "in",
+       "f": 9475
+      },
+      {
+       "w": "this",
+       "f": 9477
+      },
+      {
+       "w": "video,",
+       "f": 9482
+      },
+      {
+       "w": "you're",
+       "f": 9502
+      },
+      {
+       "w": "alive.",
+       "f": 9507
+      }
+     ]
+    },
+    {
+     "id": "c8",
+     "text": "So now you have new problems.",
+     "from": 9560,
+     "to": 9609,
+     "words": [
+      {
+       "w": "So",
+       "f": 9561
+      },
+      {
+       "w": "now",
+       "f": 9565
+      },
+      {
+       "w": "you",
+       "f": 9572
+      },
+      {
+       "w": "have",
+       "f": 9575
+      },
+      {
+       "w": "new",
+       "f": 9582
+      },
+      {
+       "w": "problems.",
+       "f": 9587
+      }
+     ]
+    },
+    {
+     "id": "c9",
+     "text": "Look around. There are no plants on land. No grass, no trees, no soil, no insects. The continents are bare rock.",
+     "from": 9638,
+     "to": 9858,
+     "words": [
+      {
+       "w": "Look",
+       "f": 9638
+      },
+      {
+       "w": "around.",
+       "f": 9642
+      },
+      {
+       "w": "There",
+       "f": 9664
+      },
+      {
+       "w": "are",
+       "f": 9668
+      },
+      {
+       "w": "no",
+       "f": 9671
+      },
+      {
+       "w": "plants",
+       "f": 9676
+      },
+      {
+       "w": "on",
+       "f": 9686
+      },
+      {
+       "w": "land.",
+       "f": 9690
+      },
+      {
+       "w": "No",
+       "f": 9713
+      },
+      {
+       "w": "grass,",
+       "f": 9718
+      },
+      {
+       "w": "no",
+       "f": 9733
+      },
+      {
+       "w": "trees,",
+       "f": 9740
+      },
+      {
+       "w": "no",
+       "f": 9755
+      },
+      {
+       "w": "soil,",
+       "f": 9763
+      },
+      {
+       "w": "no",
+       "f": 9776
+      },
+      {
+       "w": "insects.",
+       "f": 9782
+      },
+      {
+       "w": "The",
+       "f": 9813
+      },
+      {
+       "w": "continents",
+       "f": 9817
+      },
+      {
+       "w": "are",
+       "f": 9832
+      },
+      {
+       "w": "bare",
+       "f": 9836
+      },
+      {
+       "w": "rock.",
+       "f": 9844
+      }
+     ]
+    },
+    {
+     "id": "c10",
+     "text": "There is no wood, so there's no fire. There's no shelter, except the rocks.",
+     "from": 9880,
+     "to": 10001,
+     "words": [
+      {
+       "w": "There",
+       "f": 9880
+      },
+      {
+       "w": "is",
+       "f": 9883
+      },
+      {
+       "w": "no",
+       "f": 9887
+      },
+      {
+       "w": "wood,",
+       "f": 9894
+      },
+      {
+       "w": "so",
+       "f": 9904
+      },
+      {
+       "w": "there's",
+       "f": 9907
+      },
+      {
+       "w": "no",
+       "f": 9913
+      },
+      {
+       "w": "fire.",
+       "f": 9919
+      },
+      {
+       "w": "There's",
+       "f": 9943
+      },
+      {
+       "w": "no",
+       "f": 9949
+      },
+      {
+       "w": "shelter,",
+       "f": 9955
+      },
+      {
+       "w": "except",
+       "f": 9971
+      },
+      {
+       "w": "the",
+       "f": 9981
+      },
+      {
+       "w": "rocks.",
+       "f": 9983
+      }
+     ]
+    },
+    {
+     "id": "c11",
+     "text": "All life is in the sea, and it's having a party. This is the Cambrian Explosion, when most of the major animal groups that exist today appear in the fossil record, in a geologic eyeblink.",
+     "from": 10033,
+     "to": 10383,
+     "words": [
+      {
+       "w": "All",
+       "f": 10033
+      },
+      {
+       "w": "life",
+       "f": 10039
+      },
+      {
+       "w": "is",
+       "f": 10050
+      },
+      {
+       "w": "in",
+       "f": 10055
+      },
+      {
+       "w": "the",
+       "f": 10058
+      },
+      {
+       "w": "sea,",
+       "f": 10062
+      },
+      {
+       "w": "and",
+       "f": 10084
+      },
+      {
+       "w": "it's",
+       "f": 10088
+      },
+      {
+       "w": "having",
+       "f": 10092
+      },
+      {
+       "w": "a",
+       "f": 10101
+      },
+      {
+       "w": "party.",
+       "f": 10103
+      },
+      {
+       "w": "This",
+       "f": 10135
+      },
+      {
+       "w": "is",
+       "f": 10145
+      },
+      {
+       "w": "the",
+       "f": 10150
+      },
+      {
+       "w": "Cambrian",
+       "f": 10154
+      },
+      {
+       "w": "Explosion,",
+       "f": 10172
+      },
+      {
+       "w": "when",
+       "f": 10203
+      },
+      {
+       "w": "most",
+       "f": 10207
+      },
+      {
+       "w": "of",
+       "f": 10216
+      },
+      {
+       "w": "the",
+       "f": 10218
+      },
+      {
+       "w": "major",
+       "f": 10222
+      },
+      {
+       "w": "animal",
+       "f": 10234
+      },
+      {
+       "w": "groups",
+       "f": 10248
+      },
+      {
+       "w": "that",
+       "f": 10259
+      },
+      {
+       "w": "exist",
+       "f": 10263
+      },
+      {
+       "w": "today",
+       "f": 10277
+      },
+      {
+       "w": "appear",
+       "f": 10289
+      },
+      {
+       "w": "in",
+       "f": 10302
+      },
+      {
+       "w": "the",
+       "f": 10305
+      },
+      {
+       "w": "fossil",
+       "f": 10308
+      },
+      {
+       "w": "record,",
+       "f": 10321
+      },
+      {
+       "w": "in",
+       "f": 10342
+      },
+      {
+       "w": "a",
+       "f": 10345
+      },
+      {
+       "w": "geologic",
+       "f": 10348
+      },
+      {
+       "w": "eyeblink.",
+       "f": 10366
+      }
+     ]
+    },
+    {
+     "id": "c12",
+     "text": "Trilobites crawl across the seafloor, and swimming above them is Anomalocaris, one of the first big predators.",
+     "from": 10409,
+     "to": 10609,
+     "words": [
+      {
+       "w": "Trilobites",
+       "f": 10409
+      },
+      {
+       "w": "crawl",
+       "f": 10427
+      },
+      {
+       "w": "across",
+       "f": 10437
+      },
+      {
+       "w": "the",
+       "f": 10447
+      },
+      {
+       "w": "seafloor,",
+       "f": 10451
+      },
+      {
+       "w": "and",
+       "f": 10476
+      },
+      {
+       "w": "swimming",
+       "f": 10480
+      },
+      {
+       "w": "above",
+       "f": 10492
+      },
+      {
+       "w": "them",
+       "f": 10501
+      },
+      {
+       "w": "is",
+       "f": 10510
+      },
+      {
+       "w": "Anomalocaris,",
+       "f": 10515
+      },
+      {
+       "w": "one",
+       "f": 10557
+      },
+      {
+       "w": "of",
+       "f": 10561
+      },
+      {
+       "w": "the",
+       "f": 10563
+      },
+      {
+       "w": "first",
+       "f": 10567
+      },
+      {
+       "w": "big",
+       "f": 10580
+      },
+      {
+       "w": "predators.",
+       "f": 10587
+      }
+     ]
+    },
+    {
+     "id": "c13",
+     "text": "Your only food is in the water. You'd have to catch shellfish and trilobites with your bare hands, and eat them raw, with no idea whether they're poisonous.",
+     "from": 10640,
+     "to": 10903,
+     "words": [
+      {
+       "w": "Your",
+       "f": 10640
+      },
+      {
+       "w": "only",
+       "f": 10643
+      },
+      {
+       "w": "food",
+       "f": 10654
+      },
+      {
+       "w": "is",
+       "f": 10666
+      },
+      {
+       "w": "in",
+       "f": 10669
+      },
+      {
+       "w": "the",
+       "f": 10671
+      },
+      {
+       "w": "water.",
+       "f": 10674
+      },
+      {
+       "w": "You'd",
+       "f": 10703
+      },
+      {
+       "w": "have",
+       "f": 10708
+      },
+      {
+       "w": "to",
+       "f": 10714
+      },
+      {
+       "w": "catch",
+       "f": 10717
+      },
+      {
+       "w": "shellfish",
+       "f": 10726
+      },
+      {
+       "w": "and",
+       "f": 10742
+      },
+      {
+       "w": "trilobites",
+       "f": 10746
+      },
+      {
+       "w": "with",
+       "f": 10764
+      },
+      {
+       "w": "your",
+       "f": 10768
+      },
+      {
+       "w": "bare",
+       "f": 10771
+      },
+      {
+       "w": "hands,",
+       "f": 10779
+      },
+      {
+       "w": "and",
+       "f": 10803
+      },
+      {
+       "w": "eat",
+       "f": 10808
+      },
+      {
+       "w": "them",
+       "f": 10814
+      },
+      {
+       "w": "raw,",
+       "f": 10820
+      },
+      {
+       "w": "with",
+       "f": 10839
+      },
+      {
+       "w": "no",
+       "f": 10845
+      },
+      {
+       "w": "idea",
+       "f": 10854
+      },
+      {
+       "w": "whether",
+       "f": 10869
+      },
+      {
+       "w": "they're",
+       "f": 10877
+      },
+      {
+       "w": "poisonous.",
+       "f": 10881
+      }
+     ]
+    },
+    {
+     "id": "c14",
+     "text": "With a lot of luck, and a lot of trilobites, you might last a few weeks.",
+     "from": 10935,
+     "to": 11048,
+     "words": [
+      {
+       "w": "With",
+       "f": 10935
+      },
+      {
+       "w": "a",
+       "f": 10938
+      },
+      {
+       "w": "lot",
+       "f": 10939
+      },
+      {
+       "w": "of",
+       "f": 10947
+      },
+      {
+       "w": "luck,",
+       "f": 10950
+      },
+      {
+       "w": "and",
+       "f": 10966
+      },
+      {
+       "w": "a",
+       "f": 10970
+      },
+      {
+       "w": "lot",
+       "f": 10972
+      },
+      {
+       "w": "of",
+       "f": 10977
+      },
+      {
+       "w": "trilobites,",
+       "f": 10980
+      },
+      {
+       "w": "you",
+       "f": 11005
+      },
+      {
+       "w": "might",
+       "f": 11008
+      },
+      {
+       "w": "last",
+       "f": 11014
+      },
+      {
+       "w": "a",
+       "f": 11024
+      },
+      {
+       "w": "few",
+       "f": 11026
+      },
+      {
+       "w": "weeks.",
+       "f": 11032
+      }
+     ]
+    },
+    {
+     "id": "c15",
+     "text": "Your first real survival story.",
+     "from": 11076,
+     "to": 11133,
+     "words": [
+      {
+       "w": "Your",
+       "f": 11076
+      },
+      {
+       "w": "first",
+       "f": 11080
+      },
+      {
+       "w": "real",
+       "f": 11091
+      },
+      {
+       "w": "survival",
+       "f": 11099
+      },
+      {
+       "w": "story.",
+       "f": 11115
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "carboniferous",
+   "from": 11163,
+   "to": 13564,
+   "lines": [
+    {
+     "id": "k1",
+     "text": "Three hundred million years ago, plants have conquered the land. Enormous swamp forests cover the continents.",
+     "from": 11247,
+     "to": 11435,
+     "words": [
+      {
+       "w": "Three",
+       "f": 11247
+      },
+      {
+       "w": "hundred",
+       "f": 11253
+      },
+      {
+       "w": "million",
+       "f": 11263
+      },
+      {
+       "w": "years",
+       "f": 11274
+      },
+      {
+       "w": "ago,",
+       "f": 11282
+      },
+      {
+       "w": "plants",
+       "f": 11300
+      },
+      {
+       "w": "have",
+       "f": 11309
+      },
+      {
+       "w": "conquered",
+       "f": 11314
+      },
+      {
+       "w": "the",
+       "f": 11327
+      },
+      {
+       "w": "land.",
+       "f": 11329
+      },
+      {
+       "w": "Enormous",
+       "f": 11358
+      },
+      {
+       "w": "swamp",
+       "f": 11375
+      },
+      {
+       "w": "forests",
+       "f": 11386
+      },
+      {
+       "w": "cover",
+       "f": 11400
+      },
+      {
+       "w": "the",
+       "f": 11409
+      },
+      {
+       "w": "continents.",
+       "f": 11412
+      }
+     ]
+    },
+    {
+     "id": "k2",
+     "text": "Take a deep breath. The air might be around thirty to thirty-five percent oxygen, far more than today's twenty-one percent. You feel great.",
+     "from": 11467,
+     "to": 11719,
+     "words": [
+      {
+       "w": "Take",
+       "f": 11467
+      },
+      {
+       "w": "a",
+       "f": 11471
+      },
+      {
+       "w": "deep",
+       "f": 11474
+      },
+      {
+       "w": "breath.",
+       "f": 11482
+      },
+      {
+       "w": "The",
+       "f": 11506
+      },
+      {
+       "w": "air",
+       "f": 11511
+      },
+      {
+       "w": "might",
+       "f": 11519
+      },
+      {
+       "w": "be",
+       "f": 11525
+      },
+      {
+       "w": "around",
+       "f": 11529
+      },
+      {
+       "w": "thirty",
+       "f": 11543
+      },
+      {
+       "w": "to",
+       "f": 11554
+      },
+      {
+       "w": "thirty-five",
+       "f": 11559
+      },
+      {
+       "w": "percent",
+       "f": 11578
+      },
+      {
+       "w": "oxygen,",
+       "f": 11588
+      },
+      {
+       "w": "far",
+       "f": 11613
+      },
+      {
+       "w": "more",
+       "f": 11622
+      },
+      {
+       "w": "than",
+       "f": 11629
+      },
+      {
+       "w": "today's",
+       "f": 11632
+      },
+      {
+       "w": "twenty-one",
+       "f": 11645
+      },
+      {
+       "w": "percent.",
+       "f": 11662
+      },
+      {
+       "w": "You",
+       "f": 11690
+      },
+      {
+       "w": "feel",
+       "f": 11696
+      },
+      {
+       "w": "great.",
+       "f": 11704
+      }
+     ]
+    },
+    {
+     "id": "k3",
+     "text": "The insects feel great too. Oxygen levels this high may be part of why insects could grow so large.",
+     "from": 11748,
+     "to": 11927,
+     "words": [
+      {
+       "w": "The",
+       "f": 11748
+      },
+      {
+       "w": "insects",
+       "f": 11750
+      },
+      {
+       "w": "feel",
+       "f": 11764
+      },
+      {
+       "w": "great",
+       "f": 11772
+      },
+      {
+       "w": "too.",
+       "f": 11782
+      },
+      {
+       "w": "Oxygen",
+       "f": 11808
+      },
+      {
+       "w": "levels",
+       "f": 11823
+      },
+      {
+       "w": "this",
+       "f": 11837
+      },
+      {
+       "w": "high",
+       "f": 11844
+      },
+      {
+       "w": "may",
+       "f": 11853
+      },
+      {
+       "w": "be",
+       "f": 11857
+      },
+      {
+       "w": "part",
+       "f": 11862
+      },
+      {
+       "w": "of",
+       "f": 11870
+      },
+      {
+       "w": "why",
+       "f": 11873
+      },
+      {
+       "w": "insects",
+       "f": 11879
+      },
+      {
+       "w": "could",
+       "f": 11893
+      },
+      {
+       "w": "grow",
+       "f": 11897
+      },
+      {
+       "w": "so",
+       "f": 11905
+      },
+      {
+       "w": "large.",
+       "f": 11911
+      }
+     ]
+    },
+    {
+     "id": "k4",
+     "text": "That's a dragonfly, with a wingspan of about seventy centimeters.",
+     "from": 11949,
+     "to": 12064,
+     "words": [
+      {
+       "w": "That's",
+       "f": 11949
+      },
+      {
+       "w": "a",
+       "f": 11957
+      },
+      {
+       "w": "dragonfly,",
+       "f": 11959
+      },
+      {
+       "w": "with",
+       "f": 11991
+      },
+      {
+       "w": "a",
+       "f": 11995
+      },
+      {
+       "w": "wingspan",
+       "f": 11998
+      },
+      {
+       "w": "of",
+       "f": 12017
+      },
+      {
+       "w": "about",
+       "f": 12019
+      },
+      {
+       "w": "seventy",
+       "f": 12029
+      },
+      {
+       "w": "centimeters.",
+       "f": 12041
+      }
+     ]
+    },
+    {
+     "id": "k5",
+     "text": "And that's a millipede called Arthropleura, up to two and a half meters long. It's thought to have been a plant-eater, which is lucky for you.",
+     "from": 12095,
+     "to": 12316,
+     "words": [
+      {
+       "w": "And",
+       "f": 12095
+      },
+      {
+       "w": "that's",
+       "f": 12098
+      },
+      {
+       "w": "a",
+       "f": 12106
+      },
+      {
+       "w": "millipede",
+       "f": 12109
+      },
+      {
+       "w": "called",
+       "f": 12126
+      },
+      {
+       "w": "Arthropleura,",
+       "f": 12136
+      },
+      {
+       "w": "up",
+       "f": 12167
+      },
+      {
+       "w": "to",
+       "f": 12173
+      },
+      {
+       "w": "two",
+       "f": 12177
+      },
+      {
+       "w": "and",
+       "f": 12183
+      },
+      {
+       "w": "a",
+       "f": 12186
+      },
+      {
+       "w": "half",
+       "f": 12188
+      },
+      {
+       "w": "meters",
+       "f": 12195
+      },
+      {
+       "w": "long.",
+       "f": 12206
+      },
+      {
+       "w": "It's",
+       "f": 12233
+      },
+      {
+       "w": "thought",
+       "f": 12241
+      },
+      {
+       "w": "to",
+       "f": 12248
+      },
+      {
+       "w": "have",
+       "f": 12250
+      },
+      {
+       "w": "been",
+       "f": 12253
+      },
+      {
+       "w": "a",
+       "f": 12256
+      },
+      {
+       "w": "plant-eater,",
+       "f": 12258
+      },
+      {
+       "w": "which",
+       "f": 12282
+      },
+      {
+       "w": "is",
+       "f": 12288
+      },
+      {
+       "w": "lucky",
+       "f": 12293
+      },
+      {
+       "w": "for",
+       "f": 12302
+      },
+      {
+       "w": "you.",
+       "f": 12306
+      }
+     ]
+    },
+    {
+     "id": "k6",
+     "text": "There's food: amphibians, fish, early reptiles. There's firewood everywhere. You could build a shelter.",
+     "from": 12348,
+     "to": 12527,
+     "words": [
+      {
+       "w": "There's",
+       "f": 12348
+      },
+      {
+       "w": "food:",
+       "f": 12353
+      },
+      {
+       "w": "amphibians,",
+       "f": 12367
+      },
+      {
+       "w": "fish,",
+       "f": 12389
+      },
+      {
+       "w": "early",
+       "f": 12402
+      },
+      {
+       "w": "reptiles.",
+       "f": 12412
+      },
+      {
+       "w": "There's",
+       "f": 12441
+      },
+      {
+       "w": "firewood",
+       "f": 12448
+      },
+      {
+       "w": "everywhere.",
+       "f": 12462
+      },
+      {
+       "w": "You",
+       "f": 12490
+      },
+      {
+       "w": "could",
+       "f": 12494
+      },
+      {
+       "w": "build",
+       "f": 12499
+      },
+      {
+       "w": "a",
+       "f": 12506
+      },
+      {
+       "w": "shelter.",
+       "f": 12509
+      }
+     ]
+    },
+    {
+     "id": "k7",
+     "text": "There aren't even any germs that evolved to infect humans. The diseases that plague us today won't exist for hundreds of millions of years.",
+     "from": 12549,
+     "to": 12794,
+     "words": [
+      {
+       "w": "There",
+       "f": 12549
+      },
+      {
+       "w": "aren't",
+       "f": 12551
+      },
+      {
+       "w": "even",
+       "f": 12557
+      },
+      {
+       "w": "any",
+       "f": 12567
+      },
+      {
+       "w": "germs",
+       "f": 12575
+      },
+      {
+       "w": "that",
+       "f": 12590
+      },
+      {
+       "w": "evolved",
+       "f": 12595
+      },
+      {
+       "w": "to",
+       "f": 12611
+      },
+      {
+       "w": "infect",
+       "f": 12615
+      },
+      {
+       "w": "humans.",
+       "f": 12628
+      },
+      {
+       "w": "The",
+       "f": 12661
+      },
+      {
+       "w": "diseases",
+       "f": 12664
+      },
+      {
+       "w": "that",
+       "f": 12682
+      },
+      {
+       "w": "plague",
+       "f": 12688
+      },
+      {
+       "w": "us",
+       "f": 12697
+      },
+      {
+       "w": "today",
+       "f": 12701
+      },
+      {
+       "w": "won't",
+       "f": 12718
+      },
+      {
+       "w": "exist",
+       "f": 12725
+      },
+      {
+       "w": "for",
+       "f": 12740
+      },
+      {
+       "w": "hundreds",
+       "f": 12745
+      },
+      {
+       "w": "of",
+       "f": 12758
+      },
+      {
+       "w": "millions",
+       "f": 12762
+      },
+      {
+       "w": "of",
+       "f": 12774
+      },
+      {
+       "w": "years.",
+       "f": 12776
+      }
+     ]
+    },
+    {
+     "id": "k8",
+     "text": "But all that oxygen has a dark side: fire.",
+     "from": 12828,
+     "to": 12909,
+     "words": [
+      {
+       "w": "But",
+       "f": 12828
+      },
+      {
+       "w": "all",
+       "f": 12831
+      },
+      {
+       "w": "that",
+       "f": 12835
+      },
+      {
+       "w": "oxygen",
+       "f": 12841
+      },
+      {
+       "w": "has",
+       "f": 12855
+      },
+      {
+       "w": "a",
+       "f": 12860
+      },
+      {
+       "w": "dark",
+       "f": 12862
+      },
+      {
+       "w": "side:",
+       "f": 12871
+      },
+      {
+       "w": "fire.",
+       "f": 12893
+      }
+     ]
+    },
+    {
+     "id": "k9",
+     "text": "With this much oxygen, even damp plants can burn. A single lightning strike can set off a wildfire that races through the forest.",
+     "from": 12938,
+     "to": 13181,
+     "words": [
+      {
+       "w": "With",
+       "f": 12938
+      },
+      {
+       "w": "this",
+       "f": 12941
+      },
+      {
+       "w": "much",
+       "f": 12947
+      },
+      {
+       "w": "oxygen,",
+       "f": 12954
+      },
+      {
+       "w": "even",
+       "f": 12982
+      },
+      {
+       "w": "damp",
+       "f": 12993
+      },
+      {
+       "w": "plants",
+       "f": 13003
+      },
+      {
+       "w": "can",
+       "f": 13015
+      },
+      {
+       "w": "burn.",
+       "f": 13020
+      },
+      {
+       "w": "A",
+       "f": 13047
+      },
+      {
+       "w": "single",
+       "f": 13051
+      },
+      {
+       "w": "lightning",
+       "f": 13063
+      },
+      {
+       "w": "strike",
+       "f": 13075
+      },
+      {
+       "w": "can",
+       "f": 13087
+      },
+      {
+       "w": "set",
+       "f": 13093
+      },
+      {
+       "w": "off",
+       "f": 13099
+      },
+      {
+       "w": "a",
+       "f": 13106
+      },
+      {
+       "w": "wildfire",
+       "f": 13110
+      },
+      {
+       "w": "that",
+       "f": 13132
+      },
+      {
+       "w": "races",
+       "f": 13139
+      },
+      {
+       "w": "through",
+       "f": 13153
+      },
+      {
+       "w": "the",
+       "f": 13159
+      },
+      {
+       "w": "forest.",
+       "f": 13162
+      }
+     ]
+    },
+    {
+     "id": "k10",
+     "text": "If you stay near water, and keep your fire under control, you could honestly live here a long time.",
+     "from": 13218,
+     "to": 13385,
+     "words": [
+      {
+       "w": "If",
+       "f": 13218
+      },
+      {
+       "w": "you",
+       "f": 13221
+      },
+      {
+       "w": "stay",
+       "f": 13225
+      },
+      {
+       "w": "near",
+       "f": 13233
+      },
+      {
+       "w": "water,",
+       "f": 13240
+      },
+      {
+       "w": "and",
+       "f": 13260
+      },
+      {
+       "w": "keep",
+       "f": 13264
+      },
+      {
+       "w": "your",
+       "f": 13270
+      },
+      {
+       "w": "fire",
+       "f": 13275
+      },
+      {
+       "w": "under",
+       "f": 13286
+      },
+      {
+       "w": "control,",
+       "f": 13292
+      },
+      {
+       "w": "you",
+       "f": 13321
+      },
+      {
+       "w": "could",
+       "f": 13325
+      },
+      {
+       "w": "honestly",
+       "f": 13330
+      },
+      {
+       "w": "live",
+       "f": 13346
+      },
+      {
+       "w": "here",
+       "f": 13353
+      },
+      {
+       "w": "a",
+       "f": 13360
+      },
+      {
+       "w": "long",
+       "f": 13363
+      },
+      {
+       "w": "time.",
+       "f": 13371
+      }
+     ]
+    },
+    {
+     "id": "k11",
+     "text": "This might be the best era so far. Let's see if the good times last.",
+     "from": 13417,
+     "to": 13534,
+     "words": [
+      {
+       "w": "This",
+       "f": 13417
+      },
+      {
+       "w": "might",
+       "f": 13422
+      },
+      {
+       "w": "be",
+       "f": 13428
+      },
+      {
+       "w": "the",
+       "f": 13432
+      },
+      {
+       "w": "best",
+       "f": 13435
+      },
+      {
+       "w": "era",
+       "f": 13444
+      },
+      {
+       "w": "so",
+       "f": 13452
+      },
+      {
+       "w": "far.",
+       "f": 13458
+      },
+      {
+       "w": "Let's",
+       "f": 13480
+      },
+      {
+       "w": "see",
+       "f": 13487
+      },
+      {
+       "w": "if",
+       "f": 13492
+      },
+      {
+       "w": "the",
+       "f": 13496
+      },
+      {
+       "w": "good",
+       "f": 13498
+      },
+      {
+       "w": "times",
+       "f": 13505
+      },
+      {
+       "w": "last.",
+       "f": 13516
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "dying",
+   "from": 13564,
+   "to": 15426,
+   "lines": [
+    {
+     "id": "d1",
+     "text": "They don't.",
+     "from": 13606,
+     "to": 13628,
+     "words": [
+      {
+       "w": "They",
+       "f": 13606
+      },
+      {
+       "w": "don't.",
+       "f": 13611
+      }
+     ]
+    },
+    {
+     "id": "d2",
+     "text": "Two hundred and fifty-two million years ago, in what is now Siberia, volcanic eruptions poured out enough lava to cover an area the size of a continent, over hundreds of thousands of years.",
+     "from": 13689,
+     "to": 14033,
+     "words": [
+      {
+       "w": "Two",
+       "f": 13689
+      },
+      {
+       "w": "hundred",
+       "f": 13696
+      },
+      {
+       "w": "and",
+       "f": 13710
+      },
+      {
+       "w": "fifty-two",
+       "f": 13714
+      },
+      {
+       "w": "million",
+       "f": 13729
+      },
+      {
+       "w": "years",
+       "f": 13740
+      },
+      {
+       "w": "ago,",
+       "f": 13749
+      },
+      {
+       "w": "in",
+       "f": 13770
+      },
+      {
+       "w": "what",
+       "f": 13774
+      },
+      {
+       "w": "is",
+       "f": 13779
+      },
+      {
+       "w": "now",
+       "f": 13783
+      },
+      {
+       "w": "Siberia,",
+       "f": 13791
+      },
+      {
+       "w": "volcanic",
+       "f": 13824
+      },
+      {
+       "w": "eruptions",
+       "f": 13843
+      },
+      {
+       "w": "poured",
+       "f": 13863
+      },
+      {
+       "w": "out",
+       "f": 13871
+      },
+      {
+       "w": "enough",
+       "f": 13877
+      },
+      {
+       "w": "lava",
+       "f": 13885
+      },
+      {
+       "w": "to",
+       "f": 13898
+      },
+      {
+       "w": "cover",
+       "f": 13902
+      },
+      {
+       "w": "an",
+       "f": 13911
+      },
+      {
+       "w": "area",
+       "f": 13914
+      },
+      {
+       "w": "the",
+       "f": 13925
+      },
+      {
+       "w": "size",
+       "f": 13929
+      },
+      {
+       "w": "of",
+       "f": 13941
+      },
+      {
+       "w": "a",
+       "f": 13944
+      },
+      {
+       "w": "continent,",
+       "f": 13945
+      },
+      {
+       "w": "over",
+       "f": 13974
+      },
+      {
+       "w": "hundreds",
+       "f": 13983
+      },
+      {
+       "w": "of",
+       "f": 13997
+      },
+      {
+       "w": "thousands",
+       "f": 14001
+      },
+      {
+       "w": "of",
+       "f": 14015
+      },
+      {
+       "w": "years.",
+       "f": 14017
+      }
+     ]
+    },
+    {
+     "id": "d3",
+     "text": "They released gigantic amounts of carbon dioxide.",
+     "from": 14056,
+     "to": 14138,
+     "words": [
+      {
+       "w": "They",
+       "f": 14056
+      },
+      {
+       "w": "released",
+       "f": 14059
+      },
+      {
+       "w": "gigantic",
+       "f": 14072
+      },
+      {
+       "w": "amounts",
+       "f": 14088
+      },
+      {
+       "w": "of",
+       "f": 14100
+      },
+      {
+       "w": "carbon",
+       "f": 14104
+      },
+      {
+       "w": "dioxide.",
+       "f": 14115
+      }
+     ]
+    },
+    {
+     "id": "d4",
+     "text": "The planet overheated. The oceans lost their oxygen. Near the equator, sea temperatures may have reached around forty degrees Celsius, the temperature of a hot bath. On land, it may have been even hotter.",
+     "from": 14169,
+     "to": 14558,
+     "words": [
+      {
+       "w": "The",
+       "f": 14169
+      },
+      {
+       "w": "planet",
+       "f": 14172
+      },
+      {
+       "w": "overheated.",
+       "f": 14185
+      },
+      {
+       "w": "The",
+       "f": 14216
+      },
+      {
+       "w": "oceans",
+       "f": 14221
+      },
+      {
+       "w": "lost",
+       "f": 14237
+      },
+      {
+       "w": "their",
+       "f": 14248
+      },
+      {
+       "w": "oxygen.",
+       "f": 14254
+      },
+      {
+       "w": "Near",
+       "f": 14289
+      },
+      {
+       "w": "the",
+       "f": 14296
+      },
+      {
+       "w": "equator,",
+       "f": 14300
+      },
+      {
+       "w": "sea",
+       "f": 14321
+      },
+      {
+       "w": "temperatures",
+       "f": 14329
+      },
+      {
+       "w": "may",
+       "f": 14347
+      },
+      {
+       "w": "have",
+       "f": 14352
+      },
+      {
+       "w": "reached",
+       "f": 14356
+      },
+      {
+       "w": "around",
+       "f": 14365
+      },
+      {
+       "w": "forty",
+       "f": 14379
+      },
+      {
+       "w": "degrees",
+       "f": 14390
+      },
+      {
+       "w": "Celsius,",
+       "f": 14402
+      },
+      {
+       "w": "the",
+       "f": 14431
+      },
+      {
+       "w": "temperature",
+       "f": 14434
+      },
+      {
+       "w": "of",
+       "f": 14449
+      },
+      {
+       "w": "a",
+       "f": 14452
+      },
+      {
+       "w": "hot",
+       "f": 14455
+      },
+      {
+       "w": "bath.",
+       "f": 14464
+      },
+      {
+       "w": "On",
+       "f": 14489
+      },
+      {
+       "w": "land,",
+       "f": 14495
+      },
+      {
+       "w": "it",
+       "f": 14516
+      },
+      {
+       "w": "may",
+       "f": 14520
+      },
+      {
+       "w": "have",
+       "f": 14526
+      },
+      {
+       "w": "been",
+       "f": 14529
+      },
+      {
+       "w": "even",
+       "f": 14535
+      },
+      {
+       "w": "hotter.",
+       "f": 14544
+      }
+     ]
+    },
+    {
+     "id": "d5",
+     "text": "This is the Permian-Triassic extinction, also called the Great Dying. Around ninety percent of all marine species, and most land animals, disappeared.",
+     "from": 14590,
+     "to": 14886,
+     "words": [
+      {
+       "w": "This",
+       "f": 14590
+      },
+      {
+       "w": "is",
+       "f": 14598
+      },
+      {
+       "w": "the",
+       "f": 14603
+      },
+      {
+       "w": "Permian-Triassic",
+       "f": 14607
+      },
+      {
+       "w": "extinction,",
+       "f": 14639
+      },
+      {
+       "w": "also",
+       "f": 14669
+      },
+      {
+       "w": "called",
+       "f": 14681
+      },
+      {
+       "w": "the",
+       "f": 14689
+      },
+      {
+       "w": "Great",
+       "f": 14692
+      },
+      {
+       "w": "Dying.",
+       "f": 14700
+      },
+      {
+       "w": "Around",
+       "f": 14732
+      },
+      {
+       "w": "ninety",
+       "f": 14746
+      },
+      {
+       "w": "percent",
+       "f": 14758
+      },
+      {
+       "w": "of",
+       "f": 14771
+      },
+      {
+       "w": "all",
+       "f": 14775
+      },
+      {
+       "w": "marine",
+       "f": 14782
+      },
+      {
+       "w": "species,",
+       "f": 14793
+      },
+      {
+       "w": "and",
+       "f": 14819
+      },
+      {
+       "w": "most",
+       "f": 14823
+      },
+      {
+       "w": "land",
+       "f": 14833
+      },
+      {
+       "w": "animals,",
+       "f": 14843
+      },
+      {
+       "w": "disappeared.",
+       "f": 14863
+      }
+     ]
+    },
+    {
+     "id": "d6",
+     "text": "It's the worst mass extinction in Earth's history.",
+     "from": 14908,
+     "to": 14985,
+     "words": [
+      {
+       "w": "It's",
+       "f": 14908
+      },
+      {
+       "w": "the",
+       "f": 14914
+      },
+      {
+       "w": "worst",
+       "f": 14918
+      },
+      {
+       "w": "mass",
+       "f": 14930
+      },
+      {
+       "w": "extinction",
+       "f": 14939
+      },
+      {
+       "w": "in",
+       "f": 14956
+      },
+      {
+       "w": "Earth's",
+       "f": 14960
+      },
+      {
+       "w": "history.",
+       "f": 14968
+      }
+     ]
+    },
+    {
+     "id": "d7",
+     "text": "Arrive near the equator, and the heat could kill you within hours.",
+     "from": 15023,
+     "to": 15126,
+     "words": [
+      {
+       "w": "Arrive",
+       "f": 15023
+      },
+      {
+       "w": "near",
+       "f": 15033
+      },
+      {
+       "w": "the",
+       "f": 15039
+      },
+      {
+       "w": "equator,",
+       "f": 15043
+      },
+      {
+       "w": "and",
+       "f": 15064
+      },
+      {
+       "w": "the",
+       "f": 15068
+      },
+      {
+       "w": "heat",
+       "f": 15071
+      },
+      {
+       "w": "could",
+       "f": 15079
+      },
+      {
+       "w": "kill",
+       "f": 15085
+      },
+      {
+       "w": "you",
+       "f": 15093
+      },
+      {
+       "w": "within",
+       "f": 15097
+      },
+      {
+       "w": "hours.",
+       "f": 15107
+      }
+     ]
+    },
+    {
+     "id": "d8",
+     "text": "Earth would recover, but it took millions of years. And what came out the other side was a new world, ruled by reptiles.",
+     "from": 15179,
+     "to": 15396,
+     "words": [
+      {
+       "w": "Earth",
+       "f": 15179
+      },
+      {
+       "w": "would",
+       "f": 15186
+      },
+      {
+       "w": "recover,",
+       "f": 15192
+      },
+      {
+       "w": "but",
+       "f": 15212
+      },
+      {
+       "w": "it",
+       "f": 15216
+      },
+      {
+       "w": "took",
+       "f": 15219
+      },
+      {
+       "w": "millions",
+       "f": 15227
+      },
+      {
+       "w": "of",
+       "f": 15243
+      },
+      {
+       "w": "years.",
+       "f": 15246
+      },
+      {
+       "w": "And",
+       "f": 15274
+      },
+      {
+       "w": "what",
+       "f": 15279
+      },
+      {
+       "w": "came",
+       "f": 15285
+      },
+      {
+       "w": "out",
+       "f": 15291
+      },
+      {
+       "w": "the",
+       "f": 15296
+      },
+      {
+       "w": "other",
+       "f": 15300
+      },
+      {
+       "w": "side",
+       "f": 15308
+      },
+      {
+       "w": "was",
+       "f": 15319
+      },
+      {
+       "w": "a",
+       "f": 15323
+      },
+      {
+       "w": "new",
+       "f": 15326
+      },
+      {
+       "w": "world,",
+       "f": 15334
+      },
+      {
+       "w": "ruled",
+       "f": 15356
+      },
+      {
+       "w": "by",
+       "f": 15367
+      },
+      {
+       "w": "reptiles.",
+       "f": 15372
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cretaceous",
+   "from": 15426,
+   "to": 17881,
+   "lines": [
+    {
+     "id": "t1",
+     "text": "Sixty-six million years ago. The age of dinosaurs.",
+     "from": 15510,
+     "to": 15606,
+     "words": [
+      {
+       "w": "Sixty-six",
+       "f": 15510
+      },
+      {
+       "w": "million",
+       "f": 15529
+      },
+      {
+       "w": "years",
+       "f": 15540
+      },
+      {
+       "w": "ago.",
+       "f": 15547
+      },
+      {
+       "w": "The",
+       "f": 15564
+      },
+      {
+       "w": "age",
+       "f": 15569
+      },
+      {
+       "w": "of",
+       "f": 15578
+      },
+      {
+       "w": "dinosaurs.",
+       "f": 15581
+      }
+     ]
+    },
+    {
+     "id": "t2",
+     "text": "This time, let's say you're lucky. You arrive somewhere quiet. You've learned to fish. You've learned which plants make you sick.",
+     "from": 15637,
+     "to": 15840,
+     "words": [
+      {
+       "w": "This",
+       "f": 15638
+      },
+      {
+       "w": "time,",
+       "f": 15643
+      },
+      {
+       "w": "let's",
+       "f": 15655
+      },
+      {
+       "w": "say",
+       "f": 15662
+      },
+      {
+       "w": "you're",
+       "f": 15668
+      },
+      {
+       "w": "lucky.",
+       "f": 15671
+      },
+      {
+       "w": "You",
+       "f": 15691
+      },
+      {
+       "w": "arrive",
+       "f": 15695
+      },
+      {
+       "w": "somewhere",
+       "f": 15707
+      },
+      {
+       "w": "quiet.",
+       "f": 15716
+      },
+      {
+       "w": "You've",
+       "f": 15739
+      },
+      {
+       "w": "learned",
+       "f": 15746
+      },
+      {
+       "w": "to",
+       "f": 15754
+      },
+      {
+       "w": "fish.",
+       "f": 15758
+      },
+      {
+       "w": "You've",
+       "f": 15783
+      },
+      {
+       "w": "learned",
+       "f": 15790
+      },
+      {
+       "w": "which",
+       "f": 15798
+      },
+      {
+       "w": "plants",
+       "f": 15804
+      },
+      {
+       "w": "make",
+       "f": 15815
+      },
+      {
+       "w": "you",
+       "f": 15822
+      },
+      {
+       "w": "sick.",
+       "f": 15827
+      }
+     ]
+    },
+    {
+     "id": "t3",
+     "text": "You've learned that you are, basically, a snack-sized mammal, and that the smart move is to avoid being seen by anything with big teeth.",
+     "from": 15862,
+     "to": 16096,
+     "words": [
+      {
+       "w": "You've",
+       "f": 15862
+      },
+      {
+       "w": "learned",
+       "f": 15868
+      },
+      {
+       "w": "that",
+       "f": 15876
+      },
+      {
+       "w": "you",
+       "f": 15879
+      },
+      {
+       "w": "are,",
+       "f": 15885
+      },
+      {
+       "w": "basically,",
+       "f": 15900
+      },
+      {
+       "w": "a",
+       "f": 15927
+      },
+      {
+       "w": "snack-sized",
+       "f": 15931
+      },
+      {
+       "w": "mammal,",
+       "f": 15954
+      },
+      {
+       "w": "and",
+       "f": 15979
+      },
+      {
+       "w": "that",
+       "f": 15983
+      },
+      {
+       "w": "the",
+       "f": 15986
+      },
+      {
+       "w": "smart",
+       "f": 15990
+      },
+      {
+       "w": "move",
+       "f": 16001
+      },
+      {
+       "w": "is",
+       "f": 16012
+      },
+      {
+       "w": "to",
+       "f": 16017
+      },
+      {
+       "w": "avoid",
+       "f": 16021
+      },
+      {
+       "w": "being",
+       "f": 16033
+      },
+      {
+       "w": "seen",
+       "f": 16043
+      },
+      {
+       "w": "by",
+       "f": 16052
+      },
+      {
+       "w": "anything",
+       "f": 16059
+      },
+      {
+       "w": "with",
+       "f": 16074
+      },
+      {
+       "w": "big",
+       "f": 16079
+      },
+      {
+       "w": "teeth.",
+       "f": 16086
+      }
+     ]
+    },
+    {
+     "id": "t4",
+     "text": "You've survived for a whole year. This is by far your best run.",
+     "from": 16131,
+     "to": 16237,
+     "words": [
+      {
+       "w": "You've",
+       "f": 16131
+      },
+      {
+       "w": "survived",
+       "f": 16135
+      },
+      {
+       "w": "for",
+       "f": 16153
+      },
+      {
+       "w": "a",
+       "f": 16157
+      },
+      {
+       "w": "whole",
+       "f": 16159
+      },
+      {
+       "w": "year.",
+       "f": 16166
+      },
+      {
+       "w": "This",
+       "f": 16186
+      },
+      {
+       "w": "is",
+       "f": 16193
+      },
+      {
+       "w": "by",
+       "f": 16198
+      },
+      {
+       "w": "far",
+       "f": 16205
+      },
+      {
+       "w": "your",
+       "f": 16213
+      },
+      {
+       "w": "best",
+       "f": 16217
+      },
+      {
+       "w": "run.",
+       "f": 16225
+      }
+     ]
+    },
+    {
+     "id": "t5",
+     "text": "One afternoon, a new star appears in the sky.",
+     "from": 16287,
+     "to": 16368,
+     "words": [
+      {
+       "w": "One",
+       "f": 16287
+      },
+      {
+       "w": "afternoon,",
+       "f": 16294
+      },
+      {
+       "w": "a",
+       "f": 16319
+      },
+      {
+       "w": "new",
+       "f": 16322
+      },
+      {
+       "w": "star",
+       "f": 16328
+      },
+      {
+       "w": "appears",
+       "f": 16337
+      },
+      {
+       "w": "in",
+       "f": 16349
+      },
+      {
+       "w": "the",
+       "f": 16351
+      },
+      {
+       "w": "sky.",
+       "f": 16354
+      }
+     ]
+    },
+    {
+     "id": "t6",
+     "text": "It's an asteroid, about ten kilometers wide, heading for what is now Mexico.",
+     "from": 16430,
+     "to": 16573,
+     "words": [
+      {
+       "w": "It's",
+       "f": 16430
+      },
+      {
+       "w": "an",
+       "f": 16434
+      },
+      {
+       "w": "asteroid,",
+       "f": 16438
+      },
+      {
+       "w": "about",
+       "f": 16466
+      },
+      {
+       "w": "ten",
+       "f": 16476
+      },
+      {
+       "w": "kilometers",
+       "f": 16484
+      },
+      {
+       "w": "wide,",
+       "f": 16502
+      },
+      {
+       "w": "heading",
+       "f": 16524
+      },
+      {
+       "w": "for",
+       "f": 16534
+      },
+      {
+       "w": "what",
+       "f": 16538
+      },
+      {
+       "w": "is",
+       "f": 16542
+      },
+      {
+       "w": "now",
+       "f": 16546
+      },
+      {
+       "w": "Mexico.",
+       "f": 16551
+      }
+     ]
+    },
+    {
+     "id": "t7",
+     "text": "Where it hits, everything is vaporized instantly.",
+     "from": 16610,
+     "to": 16695,
+     "words": [
+      {
+       "w": "Where",
+       "f": 16610
+      },
+      {
+       "w": "it",
+       "f": 16616
+      },
+      {
+       "w": "hits,",
+       "f": 16619
+      },
+      {
+       "w": "everything",
+       "f": 16636
+      },
+      {
+       "w": "is",
+       "f": 16649
+      },
+      {
+       "w": "vaporized",
+       "f": 16654
+      },
+      {
+       "w": "instantly.",
+       "f": 16674
+      }
+     ]
+    },
+    {
+     "id": "t8",
+     "text": "Across the planet, debris thrown into space falls back through the atmosphere. Some scientists think the sky may have glowed hot enough to start fires across entire continents.",
+     "from": 16750,
+     "to": 17069,
+     "words": [
+      {
+       "w": "Across",
+       "f": 16750
+      },
+      {
+       "w": "the",
+       "f": 16760
+      },
+      {
+       "w": "planet,",
+       "f": 16763
+      },
+      {
+       "w": "debris",
+       "f": 16784
+      },
+      {
+       "w": "thrown",
+       "f": 16798
+      },
+      {
+       "w": "into",
+       "f": 16808
+      },
+      {
+       "w": "space",
+       "f": 16814
+      },
+      {
+       "w": "falls",
+       "f": 16834
+      },
+      {
+       "w": "back",
+       "f": 16845
+      },
+      {
+       "w": "through",
+       "f": 16853
+      },
+      {
+       "w": "the",
+       "f": 16858
+      },
+      {
+       "w": "atmosphere.",
+       "f": 16862
+      },
+      {
+       "w": "Some",
+       "f": 16902
+      },
+      {
+       "w": "scientists",
+       "f": 16910
+      },
+      {
+       "w": "think",
+       "f": 16933
+      },
+      {
+       "w": "the",
+       "f": 16938
+      },
+      {
+       "w": "sky",
+       "f": 16941
+      },
+      {
+       "w": "may",
+       "f": 16954
+      },
+      {
+       "w": "have",
+       "f": 16958
+      },
+      {
+       "w": "glowed",
+       "f": 16963
+      },
+      {
+       "w": "hot",
+       "f": 16975
+      },
+      {
+       "w": "enough",
+       "f": 16982
+      },
+      {
+       "w": "to",
+       "f": 16990
+      },
+      {
+       "w": "start",
+       "f": 16993
+      },
+      {
+       "w": "fires",
+       "f": 17003
+      },
+      {
+       "w": "across",
+       "f": 17020
+      },
+      {
+       "w": "entire",
+       "f": 17031
+      },
+      {
+       "w": "continents.",
+       "f": 17045
+      }
+     ]
+    },
+    {
+     "id": "t9",
+     "text": "Then comes the dark: soot and dust block out the Sun for months, or even years. Plants die. Then the animals that eat plants. Then the animals that eat them.",
+     "from": 17100,
+     "to": 17396,
+     "words": [
+      {
+       "w": "Then",
+       "f": 17100
+      },
+      {
+       "w": "comes",
+       "f": 17106
+      },
+      {
+       "w": "the",
+       "f": 17116
+      },
+      {
+       "w": "dark:",
+       "f": 17119
+      },
+      {
+       "w": "soot",
+       "f": 17142
+      },
+      {
+       "w": "and",
+       "f": 17152
+      },
+      {
+       "w": "dust",
+       "f": 17156
+      },
+      {
+       "w": "block",
+       "f": 17169
+      },
+      {
+       "w": "out",
+       "f": 17177
+      },
+      {
+       "w": "the",
+       "f": 17182
+      },
+      {
+       "w": "Sun",
+       "f": 17185
+      },
+      {
+       "w": "for",
+       "f": 17193
+      },
+      {
+       "w": "months,",
+       "f": 17197
+      },
+      {
+       "w": "or",
+       "f": 17212
+      },
+      {
+       "w": "even",
+       "f": 17217
+      },
+      {
+       "w": "years.",
+       "f": 17226
+      },
+      {
+       "w": "Plants",
+       "f": 17252
+      },
+      {
+       "w": "die.",
+       "f": 17265
+      },
+      {
+       "w": "Then",
+       "f": 17287
+      },
+      {
+       "w": "the",
+       "f": 17293
+      },
+      {
+       "w": "animals",
+       "f": 17298
+      },
+      {
+       "w": "that",
+       "f": 17314
+      },
+      {
+       "w": "eat",
+       "f": 17319
+      },
+      {
+       "w": "plants.",
+       "f": 17325
+      },
+      {
+       "w": "Then",
+       "f": 17350
+      },
+      {
+       "w": "the",
+       "f": 17356
+      },
+      {
+       "w": "animals",
+       "f": 17359
+      },
+      {
+       "w": "that",
+       "f": 17375
+      },
+      {
+       "w": "eat",
+       "f": 17379
+      },
+      {
+       "w": "them.",
+       "f": 17385
+      }
+     ]
+    },
+    {
+     "id": "t10",
+     "text": "About three-quarters of all species on Earth die out.",
+     "from": 17428,
+     "to": 17512,
+     "words": [
+      {
+       "w": "About",
+       "f": 17428
+      },
+      {
+       "w": "three-quarters",
+       "f": 17437
+      },
+      {
+       "w": "of",
+       "f": 17456
+      },
+      {
+       "w": "all",
+       "f": 17460
+      },
+      {
+       "w": "species",
+       "f": 17467
+      },
+      {
+       "w": "on",
+       "f": 17480
+      },
+      {
+       "w": "Earth",
+       "f": 17485
+      },
+      {
+       "w": "die",
+       "f": 17493
+      },
+      {
+       "w": "out.",
+       "f": 17500
+      }
+     ]
+    },
+    {
+     "id": "t11",
+     "text": "If you survive the first day, the dark winter will probably finish you off.",
+     "from": 17549,
+     "to": 17670,
+     "words": [
+      {
+       "w": "If",
+       "f": 17549
+      },
+      {
+       "w": "you",
+       "f": 17553
+      },
+      {
+       "w": "survive",
+       "f": 17557
+      },
+      {
+       "w": "the",
+       "f": 17573
+      },
+      {
+       "w": "first",
+       "f": 17576
+      },
+      {
+       "w": "day,",
+       "f": 17586
+      },
+      {
+       "w": "the",
+       "f": 17606
+      },
+      {
+       "w": "dark",
+       "f": 17610
+      },
+      {
+       "w": "winter",
+       "f": 17619
+      },
+      {
+       "w": "will",
+       "f": 17630
+      },
+      {
+       "w": "probably",
+       "f": 17634
+      },
+      {
+       "w": "finish",
+       "f": 17649
+      },
+      {
+       "w": "you",
+       "f": 17657
+      },
+      {
+       "w": "off.",
+       "f": 17661
+      }
+     ]
+    },
+    {
+     "id": "t12",
+     "text": "But in the ashes, some small, furry animals made it through: our ancestors.",
+     "from": 17720,
+     "to": 17851,
+     "words": [
+      {
+       "w": "But",
+       "f": 17720
+      },
+      {
+       "w": "in",
+       "f": 17722
+      },
+      {
+       "w": "the",
+       "f": 17724
+      },
+      {
+       "w": "ashes,",
+       "f": 17728
+      },
+      {
+       "w": "some",
+       "f": 17748
+      },
+      {
+       "w": "small,",
+       "f": 17754
+      },
+      {
+       "w": "furry",
+       "f": 17767
+      },
+      {
+       "w": "animals",
+       "f": 17777
+      },
+      {
+       "w": "made",
+       "f": 17790
+      },
+      {
+       "w": "it",
+       "f": 17796
+      },
+      {
+       "w": "through:",
+       "f": 17799
+      },
+      {
+       "w": "our",
+       "f": 17820
+      },
+      {
+       "w": "ancestors.",
+       "f": 17825
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "iceage",
+   "from": 17881,
+   "to": 19628,
+   "lines": [
+    {
+     "id": "i1",
+     "text": "Twenty thousand years ago. The last Ice Age is at its peak.",
+     "from": 17965,
+     "to": 18072,
+     "words": [
+      {
+       "w": "Twenty",
+       "f": 17965
+      },
+      {
+       "w": "thousand",
+       "f": 17975
+      },
+      {
+       "w": "years",
+       "f": 17987
+      },
+      {
+       "w": "ago.",
+       "f": 17994
+      },
+      {
+       "w": "The",
+       "f": 18014
+      },
+      {
+       "w": "last",
+       "f": 18018
+      },
+      {
+       "w": "Ice",
+       "f": 18029
+      },
+      {
+       "w": "Age",
+       "f": 18037
+      },
+      {
+       "w": "is",
+       "f": 18046
+      },
+      {
+       "w": "at",
+       "f": 18051
+      },
+      {
+       "w": "its",
+       "f": 18054
+      },
+      {
+       "w": "peak.",
+       "f": 18059
+      }
+     ]
+    },
+    {
+     "id": "i2",
+     "text": "So much water is locked in ice that sea levels are about a hundred and twenty meters lower than today.",
+     "from": 18095,
+     "to": 18264,
+     "words": [
+      {
+       "w": "So",
+       "f": 18096
+      },
+      {
+       "w": "much",
+       "f": 18101
+      },
+      {
+       "w": "water",
+       "f": 18109
+      },
+      {
+       "w": "is",
+       "f": 18121
+      },
+      {
+       "w": "locked",
+       "f": 18126
+      },
+      {
+       "w": "in",
+       "f": 18135
+      },
+      {
+       "w": "ice",
+       "f": 18138
+      },
+      {
+       "w": "that",
+       "f": 18158
+      },
+      {
+       "w": "sea",
+       "f": 18165
+      },
+      {
+       "w": "levels",
+       "f": 18172
+      },
+      {
+       "w": "are",
+       "f": 18185
+      },
+      {
+       "w": "about",
+       "f": 18188
+      },
+      {
+       "w": "a",
+       "f": 18194
+      },
+      {
+       "w": "hundred",
+       "f": 18197
+      },
+      {
+       "w": "and",
+       "f": 18211
+      },
+      {
+       "w": "twenty",
+       "f": 18215
+      },
+      {
+       "w": "meters",
+       "f": 18225
+      },
+      {
+       "w": "lower",
+       "f": 18237
+      },
+      {
+       "w": "than",
+       "f": 18247
+      },
+      {
+       "w": "today.",
+       "f": 18252
+      }
+     ]
+    },
+    {
+     "id": "i3",
+     "text": "And for the first time, you're not alone.",
+     "from": 18301,
+     "to": 18360,
+     "words": [
+      {
+       "w": "And",
+       "f": 18301
+      },
+      {
+       "w": "for",
+       "f": 18304
+      },
+      {
+       "w": "the",
+       "f": 18308
+      },
+      {
+       "w": "first",
+       "f": 18310
+      },
+      {
+       "w": "time,",
+       "f": 18318
+      },
+      {
+       "w": "you're",
+       "f": 18335
+      },
+      {
+       "w": "not",
+       "f": 18338
+      },
+      {
+       "w": "alone.",
+       "f": 18343
+      }
+     ]
+    },
+    {
+     "id": "i4",
+     "text": "Those are humans, exactly like you.",
+     "from": 18391,
+     "to": 18454,
+     "words": [
+      {
+       "w": "Those",
+       "f": 18391
+      },
+      {
+       "w": "are",
+       "f": 18397
+      },
+      {
+       "w": "humans,",
+       "f": 18400
+      },
+      {
+       "w": "exactly",
+       "f": 18422
+      },
+      {
+       "w": "like",
+       "f": 18438
+      },
+      {
+       "w": "you.",
+       "f": 18444
+      }
+     ]
+    },
+    {
+     "id": "i5",
+     "text": "If they welcome you, you could actually live here, possibly for the rest of your life. You'd be clumsy at first. You'd need to learn to hunt, make tools and build fires. But this is the world your body was built for.",
+     "from": 18486,
+     "to": 18862,
+     "words": [
+      {
+       "w": "If",
+       "f": 18486
+      },
+      {
+       "w": "they",
+       "f": 18489
+      },
+      {
+       "w": "welcome",
+       "f": 18495
+      },
+      {
+       "w": "you,",
+       "f": 18508
+      },
+      {
+       "w": "you",
+       "f": 18520
+      },
+      {
+       "w": "could",
+       "f": 18524
+      },
+      {
+       "w": "actually",
+       "f": 18529
+      },
+      {
+       "w": "live",
+       "f": 18543
+      },
+      {
+       "w": "here,",
+       "f": 18550
+      },
+      {
+       "w": "possibly",
+       "f": 18567
+      },
+      {
+       "w": "for",
+       "f": 18583
+      },
+      {
+       "w": "the",
+       "f": 18587
+      },
+      {
+       "w": "rest",
+       "f": 18589
+      },
+      {
+       "w": "of",
+       "f": 18597
+      },
+      {
+       "w": "your",
+       "f": 18600
+      },
+      {
+       "w": "life.",
+       "f": 18603
+      },
+      {
+       "w": "You'd",
+       "f": 18630
+      },
+      {
+       "w": "be",
+       "f": 18634
+      },
+      {
+       "w": "clumsy",
+       "f": 18638
+      },
+      {
+       "w": "at",
+       "f": 18652
+      },
+      {
+       "w": "first.",
+       "f": 18657
+      },
+      {
+       "w": "You'd",
+       "f": 18683
+      },
+      {
+       "w": "need",
+       "f": 18688
+      },
+      {
+       "w": "to",
+       "f": 18694
+      },
+      {
+       "w": "learn",
+       "f": 18698
+      },
+      {
+       "w": "to",
+       "f": 18706
+      },
+      {
+       "w": "hunt,",
+       "f": 18710
+      },
+      {
+       "w": "make",
+       "f": 18724
+      },
+      {
+       "w": "tools",
+       "f": 18732
+      },
+      {
+       "w": "and",
+       "f": 18747
+      },
+      {
+       "w": "build",
+       "f": 18751
+      },
+      {
+       "w": "fires.",
+       "f": 18759
+      },
+      {
+       "w": "But",
+       "f": 18790
+      },
+      {
+       "w": "this",
+       "f": 18795
+      },
+      {
+       "w": "is",
+       "f": 18803
+      },
+      {
+       "w": "the",
+       "f": 18808
+      },
+      {
+       "w": "world",
+       "f": 18812
+      },
+      {
+       "w": "your",
+       "f": 18822
+      },
+      {
+       "w": "body",
+       "f": 18826
+      },
+      {
+       "w": "was",
+       "f": 18836
+      },
+      {
+       "w": "built",
+       "f": 18841
+      },
+      {
+       "w": "for.",
+       "f": 18850
+      }
+     ]
+    },
+    {
+     "id": "i6",
+     "text": "There's just one twist. You might be more dangerous to them than they are to you.",
+     "from": 18902,
+     "to": 19026,
+     "words": [
+      {
+       "w": "There's",
+       "f": 18902
+      },
+      {
+       "w": "just",
+       "f": 18907
+      },
+      {
+       "w": "one",
+       "f": 18916
+      },
+      {
+       "w": "twist.",
+       "f": 18924
+      },
+      {
+       "w": "You",
+       "f": 18949
+      },
+      {
+       "w": "might",
+       "f": 18953
+      },
+      {
+       "w": "be",
+       "f": 18959
+      },
+      {
+       "w": "more",
+       "f": 18963
+      },
+      {
+       "w": "dangerous",
+       "f": 18970
+      },
+      {
+       "w": "to",
+       "f": 18985
+      },
+      {
+       "w": "them",
+       "f": 18988
+      },
+      {
+       "w": "than",
+       "f": 18997
+      },
+      {
+       "w": "they",
+       "f": 19001
+      },
+      {
+       "w": "are",
+       "f": 19005
+      },
+      {
+       "w": "to",
+       "f": 19011
+      },
+      {
+       "w": "you.",
+       "f": 19016
+      }
+     ]
+    },
+    {
+     "id": "i7",
+     "text": "Many of the diseases we carry today are young. Measles, for example, probably only appeared a few thousand years ago, after people started living close to farm animals. Your immune system has seen things theirs never has.",
+     "from": 19058,
+     "to": 19475,
+     "words": [
+      {
+       "w": "Many",
+       "f": 19058
+      },
+      {
+       "w": "of",
+       "f": 19066
+      },
+      {
+       "w": "the",
+       "f": 19069
+      },
+      {
+       "w": "diseases",
+       "f": 19071
+      },
+      {
+       "w": "we",
+       "f": 19089
+      },
+      {
+       "w": "carry",
+       "f": 19093
+      },
+      {
+       "w": "today",
+       "f": 19103
+      },
+      {
+       "w": "are",
+       "f": 19113
+      },
+      {
+       "w": "young.",
+       "f": 19118
+      },
+      {
+       "w": "Measles,",
+       "f": 19147
+      },
+      {
+       "w": "for",
+       "f": 19173
+      },
+      {
+       "w": "example,",
+       "f": 19176
+      },
+      {
+       "w": "probably",
+       "f": 19201
+      },
+      {
+       "w": "only",
+       "f": 19215
+      },
+      {
+       "w": "appeared",
+       "f": 19224
+      },
+      {
+       "w": "a",
+       "f": 19235
+      },
+      {
+       "w": "few",
+       "f": 19238
+      },
+      {
+       "w": "thousand",
+       "f": 19246
+      },
+      {
+       "w": "years",
+       "f": 19258
+      },
+      {
+       "w": "ago,",
+       "f": 19264
+      },
+      {
+       "w": "after",
+       "f": 19284
+      },
+      {
+       "w": "people",
+       "f": 19293
+      },
+      {
+       "w": "started",
+       "f": 19303
+      },
+      {
+       "w": "living",
+       "f": 19315
+      },
+      {
+       "w": "close",
+       "f": 19325
+      },
+      {
+       "w": "to",
+       "f": 19337
+      },
+      {
+       "w": "farm",
+       "f": 19341
+      },
+      {
+       "w": "animals.",
+       "f": 19351
+      },
+      {
+       "w": "Your",
+       "f": 19384
+      },
+      {
+       "w": "immune",
+       "f": 19389
+      },
+      {
+       "w": "system",
+       "f": 19401
+      },
+      {
+       "w": "has",
+       "f": 19413
+      },
+      {
+       "w": "seen",
+       "f": 19420
+      },
+      {
+       "w": "things",
+       "f": 19428
+      },
+      {
+       "w": "theirs",
+       "f": 19440
+      },
+      {
+       "w": "never",
+       "f": 19449
+      },
+      {
+       "w": "has.",
+       "f": 19458
+      }
+     ]
+    },
+    {
+     "id": "i8",
+     "text": "Maybe a lifetime. If you're careful, and they're lucky.",
+     "from": 19516,
+     "to": 19598,
+     "words": [
+      {
+       "w": "Maybe",
+       "f": 19516
+      },
+      {
+       "w": "a",
+       "f": 19523
+      },
+      {
+       "w": "lifetime.",
+       "f": 19525
+      },
+      {
+       "w": "If",
+       "f": 19551
+      },
+      {
+       "w": "you're",
+       "f": 19555
+      },
+      {
+       "w": "careful,",
+       "f": 19559
+      },
+      {
+       "w": "and",
+       "f": 19574
+      },
+      {
+       "w": "they're",
+       "f": 19577
+      },
+      {
+       "w": "lucky.",
+       "f": 19583
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "id": "today",
+   "from": 19628,
+   "to": 21395,
+   "lines": [
+    {
+     "id": "y1",
+     "text": "And now you're here. Today, the timer shows a whole lifetime.",
+     "from": 19712,
+     "to": 19810,
+     "words": [
+      {
+       "w": "And",
+       "f": 19712
+      },
+      {
+       "w": "now",
+       "f": 19715
+      },
+      {
+       "w": "you're",
+       "f": 19721
+      },
+      {
+       "w": "here.",
+       "f": 19726
+      },
+      {
+       "w": "Today,",
+       "f": 19744
+      },
+      {
+       "w": "the",
+       "f": 19756
+      },
+      {
+       "w": "timer",
+       "f": 19759
+      },
+      {
+       "w": "shows",
+       "f": 19771
+      },
+      {
+       "w": "a",
+       "f": 19777
+      },
+      {
+       "w": "whole",
+       "f": 19779
+      },
+      {
+       "w": "lifetime.",
+       "f": 19787
+      }
+     ]
+    },
+    {
+     "id": "y2",
+     "text": "Squeeze Earth's entire history into a single day.",
+     "from": 19853,
+     "to": 19937,
+     "words": [
+      {
+       "w": "Squeeze",
+       "f": 19853
+      },
+      {
+       "w": "Earth's",
+       "f": 19864
+      },
+      {
+       "w": "entire",
+       "f": 19874
+      },
+      {
+       "w": "history",
+       "f": 19889
+      },
+      {
+       "w": "into",
+       "f": 19904
+      },
+      {
+       "w": "a",
+       "f": 19911
+      },
+      {
+       "w": "single",
+       "f": 19914
+      },
+      {
+       "w": "day.",
+       "f": 19925
+      }
+     ]
+    },
+    {
+     "id": "y3",
+     "text": "For the first twenty-one hours or so, you couldn't breathe.",
+     "from": 19968,
+     "to": 20046,
+     "words": [
+      {
+       "w": "For",
+       "f": 19968
+      },
+      {
+       "w": "the",
+       "f": 19970
+      },
+      {
+       "w": "first",
+       "f": 19973
+      },
+      {
+       "w": "twenty-one",
+       "f": 19983
+      },
+      {
+       "w": "hours",
+       "f": 19995
+      },
+      {
+       "w": "or",
+       "f": 20003
+      },
+      {
+       "w": "so,",
+       "f": 20006
+      },
+      {
+       "w": "you",
+       "f": 20021
+      },
+      {
+       "w": "couldn't",
+       "f": 20025
+      },
+      {
+       "w": "breathe.",
+       "f": 20032
+      }
+     ]
+    },
+    {
+     "id": "y4",
+     "text": "You could only survive without protection in roughly the last two or three hours.",
+     "from": 20072,
+     "to": 20208,
+     "words": [
+      {
+       "w": "You",
+       "f": 20072
+      },
+      {
+       "w": "could",
+       "f": 20074
+      },
+      {
+       "w": "only",
+       "f": 20078
+      },
+      {
+       "w": "survive",
+       "f": 20087
+      },
+      {
+       "w": "without",
+       "f": 20102
+      },
+      {
+       "w": "protection",
+       "f": 20111
+      },
+      {
+       "w": "in",
+       "f": 20127
+      },
+      {
+       "w": "roughly",
+       "f": 20132
+      },
+      {
+       "w": "the",
+       "f": 20154
+      },
+      {
+       "w": "last",
+       "f": 20159
+      },
+      {
+       "w": "two",
+       "f": 20169
+      },
+      {
+       "w": "or",
+       "f": 20177
+      },
+      {
+       "w": "three",
+       "f": 20182
+      },
+      {
+       "w": "hours.",
+       "f": 20190
+      }
+     ]
+    },
+    {
+     "id": "y5",
+     "text": "Humans like us have existed for about the last five seconds.",
+     "from": 20240,
+     "to": 20346,
+     "words": [
+      {
+       "w": "Humans",
+       "f": 20240
+      },
+      {
+       "w": "like",
+       "f": 20250
+      },
+      {
+       "w": "us",
+       "f": 20257
+      },
+      {
+       "w": "have",
+       "f": 20269
+      },
+      {
+       "w": "existed",
+       "f": 20273
+      },
+      {
+       "w": "for",
+       "f": 20294
+      },
+      {
+       "w": "about",
+       "f": 20298
+      },
+      {
+       "w": "the",
+       "f": 20306
+      },
+      {
+       "w": "last",
+       "f": 20308
+      },
+      {
+       "w": "five",
+       "f": 20319
+      },
+      {
+       "w": "seconds.",
+       "f": 20328
+      }
+     ]
+    },
+    {
+     "id": "y6",
+     "text": "And the window isn't open forever. The Sun is slowly getting brighter. In roughly a billion years, it will be too hot for oceans, and the timer will start shrinking again, back toward one second.",
+     "from": 20396,
+     "to": 20755,
+     "words": [
+      {
+       "w": "And",
+       "f": 20396
+      },
+      {
+       "w": "the",
+       "f": 20399
+      },
+      {
+       "w": "window",
+       "f": 20402
+      },
+      {
+       "w": "isn't",
+       "f": 20417
+      },
+      {
+       "w": "open",
+       "f": 20425
+      },
+      {
+       "w": "forever.",
+       "f": 20435
+      },
+      {
+       "w": "The",
+       "f": 20465
+      },
+      {
+       "w": "Sun",
+       "f": 20469
+      },
+      {
+       "w": "is",
+       "f": 20481
+      },
+      {
+       "w": "slowly",
+       "f": 20486
+      },
+      {
+       "w": "getting",
+       "f": 20502
+      },
+      {
+       "w": "brighter.",
+       "f": 20511
+      },
+      {
+       "w": "In",
+       "f": 20538
+      },
+      {
+       "w": "roughly",
+       "f": 20543
+      },
+      {
+       "w": "a",
+       "f": 20556
+      },
+      {
+       "w": "billion",
+       "f": 20560
+      },
+      {
+       "w": "years,",
+       "f": 20571
+      },
+      {
+       "w": "it",
+       "f": 20589
+      },
+      {
+       "w": "will",
+       "f": 20592
+      },
+      {
+       "w": "be",
+       "f": 20595
+      },
+      {
+       "w": "too",
+       "f": 20601
+      },
+      {
+       "w": "hot",
+       "f": 20608
+      },
+      {
+       "w": "for",
+       "f": 20616
+      },
+      {
+       "w": "oceans,",
+       "f": 20621
+      },
+      {
+       "w": "and",
+       "f": 20649
+      },
+      {
+       "w": "the",
+       "f": 20652
+      },
+      {
+       "w": "timer",
+       "f": 20655
+      },
+      {
+       "w": "will",
+       "f": 20668
+      },
+      {
+       "w": "start",
+       "f": 20673
+      },
+      {
+       "w": "shrinking",
+       "f": 20684
+      },
+      {
+       "w": "again,",
+       "f": 20694
+      },
+      {
+       "w": "back",
+       "f": 20713
+      },
+      {
+       "w": "toward",
+       "f": 20723
+      },
+      {
+       "w": "one",
+       "f": 20732
+      },
+      {
+       "w": "second.",
+       "f": 20739
+      }
+     ]
+    },
+    {
+     "id": "y7",
+     "text": "We didn't just get lucky to be alive. We showed up during the short window when this planet lets us live on it with nothing but a t-shirt.",
+     "from": 20811,
+     "to": 21022,
+     "words": [
+      {
+       "w": "We",
+       "f": 20811
+      },
+      {
+       "w": "didn't",
+       "f": 20812
+      },
+      {
+       "w": "just",
+       "f": 20819
+      },
+      {
+       "w": "get",
+       "f": 20826
+      },
+      {
+       "w": "lucky",
+       "f": 20832
+      },
+      {
+       "w": "to",
+       "f": 20842
+      },
+      {
+       "w": "be",
+       "f": 20844
+      },
+      {
+       "w": "alive.",
+       "f": 20849
+      },
+      {
+       "w": "We",
+       "f": 20878
+      },
+      {
+       "w": "showed",
+       "f": 20883
+      },
+      {
+       "w": "up",
+       "f": 20890
+      },
+      {
+       "w": "during",
+       "f": 20896
+      },
+      {
+       "w": "the",
+       "f": 20902
+      },
+      {
+       "w": "short",
+       "f": 20905
+      },
+      {
+       "w": "window",
+       "f": 20915
+      },
+      {
+       "w": "when",
+       "f": 20929
+      },
+      {
+       "w": "this",
+       "f": 20933
+      },
+      {
+       "w": "planet",
+       "f": 20938
+      },
+      {
+       "w": "lets",
+       "f": 20951
+      },
+      {
+       "w": "us",
+       "f": 20958
+      },
+      {
+       "w": "live",
+       "f": 20964
+      },
+      {
+       "w": "on",
+       "f": 20970
+      },
+      {
+       "w": "it",
+       "f": 20974
+      },
+      {
+       "w": "with",
+       "f": 20979
+      },
+      {
+       "w": "nothing",
+       "f": 20985
+      },
+      {
+       "w": "but",
+       "f": 20996
+      },
+      {
+       "w": "a",
+       "f": 21000
+      },
+      {
+       "w": "t-shirt.",
+       "f": 21003
+      }
+     ]
+    },
+    {
+     "id": "y8",
+     "text": "Enjoy the air. It took four billion years to make.",
+     "from": 21066,
+     "to": 21155,
+     "words": [
+      {
+       "w": "Enjoy",
+       "f": 21066
+      },
+      {
+       "w": "the",
+       "f": 21075
+      },
+      {
+       "w": "air.",
+       "f": 21079
+      },
+      {
+       "w": "It",
+       "f": 21097
+      },
+      {
+       "w": "took",
+       "f": 21102
+      },
+      {
+       "w": "four",
+       "f": 21108
+      },
+      {
+       "w": "billion",
+       "f": 21117
+      },
+      {
+       "w": "years",
+       "f": 21130
+      },
+      {
+       "w": "to",
+       "f": 21139
+      },
+      {
+       "w": "make.",
+       "f": 21142
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}

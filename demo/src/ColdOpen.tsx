@@ -254,6 +254,7 @@ const SceneD: React.FC = () => {
 				</div>
 			)}
 			<Flash at={C_END} color="#ff3a2a" len={12} peak={0.8} />
+			<Captions ids={['again']} />
 		</AbsoluteFill>
 	);
 };
@@ -328,7 +329,7 @@ const SceneE: React.FC = () => {
 
 export const ColdOpen: React.FC = () => {
 	const frame = useCurrentFrame();
-	const {durationInFrames} = useVideoConfig();
+	const durationInFrames = timeline.durationFrames;
 	const fadeOut = interpolate(frame, [durationInFrames - 14, durationInFrames - 1], [0, 1], clamp);
 	return (
 		<AbsoluteFill style={{background: 'black'}}>
