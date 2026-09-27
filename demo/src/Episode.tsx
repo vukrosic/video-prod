@@ -118,7 +118,7 @@ export const Episode: React.FC = () => (
 		</Sequence>
 		<Sequence from={COLD_FRAMES}>
 			<Body />
-			<Audio src={staticFile('episode.wav')} />
+			<Audio src={staticFile('episode.m4a')} />
 		</Sequence>
 	</AbsoluteFill>
 );
@@ -127,6 +127,6 @@ export const Episode: React.FC = () => (
 export const EpisodeBody: React.FC = () => (
 	<AbsoluteFill>
 		<Body />
-		<Audio src={staticFile('episode.wav')} />
+		<Audio src={staticFile('episode.m4a')} />
 	</AbsoluteFill>
 );

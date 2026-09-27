@@ -36,6 +36,23 @@ python3 audio/build_episode.py     # episode narration + score + timeline
 node render-episode.mjs            # -> out/episode.mp4 (renders 1200-frame chunks; rerun to resume)
 ```
 
+### Render on a Mac (fastest)
+
+Everything needed is in the repo: the finished voice/music (`public/*.m4a`) and the Inter font
+(`public/fonts`), so you don't need Python, Kokoro or PyTorch just to render.
+
+```sh
+git clone https://github.com/vukrosic/video-prod.git   # or: git pull
+cd video-prod && git checkout claude/viral-video-ideas-02sckg
+cd demo
+npm install
+node render-episode.mjs --concurrency=6    # -> out/episode.mp4; uses the GPU (GL=angle) automatically
+```
+
+Remotion downloads its own headless Chrome (~90 MB) on the first run. `ffmpeg` is optional (`brew install ffmpeg`);
+without it the script uses the copy bundled with Remotion. If a render stops, run the same command again: finished
+1200-frame chunks in `out/chunks/` are kept. Delete `out/chunks/` after changing the code.
+
 The full episode is ~22,000 frames. At 2/3-resolution backdrops it renders at ~0.65 s/frame on 4 CPU cores with
 SwiftShader (about 4 hours); a Mac with `GL=angle` is much faster.
 

@@ -340,7 +340,7 @@ export const ColdOpen: React.FC = () => {
 			{frame >= D_END && <SceneE />}
 			<Vignette strength={0.4} />
 			<AbsoluteFill style={{background: 'black', opacity: fadeOut}} />
-			<Audio src={staticFile('mix.wav')} />
+			<Audio src={staticFile('mix.m4a')} />
 		</AbsoluteFill>
 	);
 };

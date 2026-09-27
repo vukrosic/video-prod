@@ -1,13 +1,14 @@
 """Build the voiceover, score and timeline for the episode body (everything after the cold open).
 
 Outputs:
-  public/episode.wav      narration + music + SFX
+  public/episode.wav/.m4a      narration + music + SFX
   src/episode.json        frame timings of every section, line and word
 
 Voice clips are cached in audio/cache/ (keyed by voice and text), so re-running to tweak the score is fast.
 """
 import hashlib
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -68,6 +69,9 @@ def main():
     stereo = np.clip(mix, -1, 1)
     (ROOT / "public").mkdir(exist_ok=True)
     wavfile.write(ROOT / "public" / "episode.wav", SR, (stereo * 32767).astype(np.int16))
+    # compressed copy that is committed to git, so the video renders without regenerating the voice
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(ROOT / "public" / "episode.wav"), "-c:a", "aac", "-b:a", "256k",
+                    str(ROOT / "public" / "episode.m4a")], check=True)
     (ROOT / "src" / "episode.json").write_text(json.dumps(timeline, indent=1))
     print(f"wrote public/episode.wav and src/episode.json, {total / 60:.2f} min")
 

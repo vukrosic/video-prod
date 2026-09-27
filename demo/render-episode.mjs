@@ -38,8 +38,19 @@ const list = chunks.map(([a]) => `file '${path.resolve(`out/chunks/${String(a).p
 fs.writeFileSync('out/chunks/list.txt', list);
 const fps = composition.fps;
 const cold = total - JSON.parse(fs.readFileSync('src/episode.json', 'utf8')).durationFrames;
-const ff = (a) => execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...a], {stdio: 'inherit'});
+const hasFfmpeg = (() => {
+	try {
+		execFileSync('ffmpeg', ['-version'], {stdio: 'ignore'});
+		return true;
+	} catch {
+		return false;
+	}
+})();
+// system ffmpeg if installed, else the copy that ships with Remotion
+const ff = (a) =>
+	hasFfmpeg ? execFileSync('ffmpeg', ['-y', '-loglevel', 'error', ...a], {stdio: 'inherit'}) : execFileSync('npx', ['remotion', 'ffmpeg', '-y', '-loglevel', 'error', ...a], {stdio: 'inherit'});
 ff(['-f', 'concat', '-safe', '0', '-i', 'out/chunks/list.txt', '-c', 'copy', 'out/episode-video.mp4']);
-ff(['-i', 'public/mix.wav', '-i', 'public/episode.wav', '-filter_complex', `[0:a]apad,atrim=0:${cold / fps},aformat=sample_rates=48000:channel_layouts=stereo[a0];[1:a]aformat=sample_rates=48000:channel_layouts=stereo[a1];[a0][a1]concat=n=2:v=0:a=1[a]`, '-map', '[a]', 'out/episode-audio.wav']);
+const src = (n) => (fs.existsSync(`public/${n}.wav`) ? `public/${n}.wav` : `public/${n}.m4a`);
+ff(['-i', src('mix'), '-i', src('episode'), '-filter_complex', `[0:a]apad,atrim=0:${cold / fps},aformat=sample_rates=48000:channel_layouts=stereo[a0];[1:a]aformat=sample_rates=48000:channel_layouts=stereo[a1];[a0][a1]concat=n=2:v=0:a=1[a]`, '-map', '[a]', 'out/episode-audio.wav']);
 ff(['-i', 'out/episode-video.mp4', '-i', 'out/episode-audio.wav', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '256k', '-shortest', '-movflags', '+faststart', 'out/episode.mp4']);
 console.log('done: out/episode.mp4');

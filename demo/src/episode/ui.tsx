@@ -176,6 +176,7 @@ export const EraCard: React.FC<{id: string}> = ({id}) => {
 	const frame = useCurrentFrame();
 	const sec = SEC[id];
 	const era = ERA[id];
+	if (!era.stop) return null;
 	const prev = ERA[ORDER[ORDER.indexOf(id) - 1]];
 	const t = frame - sec.from;
 	const firstLine = sec.lines[0].from;

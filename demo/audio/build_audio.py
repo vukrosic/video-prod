@@ -1,7 +1,7 @@
 """Build the voiceover, music and SFX for the cold-open demo.
 
 Outputs:
-  public/mix.wav          final audio mix
+  public/mix.wav/.m4a          final audio mix
   src/timeline.json       frame timings shared with the Remotion composition
 """
 import asyncio
@@ -299,6 +299,9 @@ def main():
 
     (ROOT / "public").mkdir(exist_ok=True)
     wavfile.write(ROOT / "public" / "mix.wav", SR, (stereo * 32767).astype(np.int16))
+    # compressed copy that is committed to git, so the video renders without regenerating the voice
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(ROOT / "public" / "mix.wav"), "-c:a", "aac", "-b:a", "256k",
+                    str(ROOT / "public" / "mix.m4a")], check=True)
     (ROOT / "src" / "timeline.json").write_text(json.dumps(timeline, indent=1))
     print("wrote public/mix.wav and src/timeline.json,", f"{total:.1f}s")
 

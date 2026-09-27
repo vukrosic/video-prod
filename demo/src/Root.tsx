@@ -1,5 +1,6 @@
 import React from 'react';
 import {Composition, registerRoot} from 'remotion';
+import './fonts';
 import {ColdOpen} from './ColdOpen';
 import {EP} from './episode/lib';
 import {EPISODE_FRAMES, Episode, EpisodeBody} from './Episode';
