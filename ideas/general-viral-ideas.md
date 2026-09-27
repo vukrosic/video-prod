@@ -65,6 +65,6 @@
 
 ## Recommendation
 Start with **#1**. It has the strongest built-in escalation, the clearest thumbnail
-(you in a spacesuit with a survival timer reading "0.3 sec"), and it becomes a series
+(you in a t-shirt on lava with a survival timer reading "0:01"), and it becomes a series
 of at least four videos that reuse the same visual style.
 **#2** is the best follow-up if we want an emotional, highly shareable piece.
